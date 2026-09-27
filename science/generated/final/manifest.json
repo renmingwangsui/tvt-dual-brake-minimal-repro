@@ -1,0 +1,22 @@
+{
+  "generator": "scripts/generate_final_manuscript_artifacts.py",
+  "immutable_inputs": {
+    "data/model_parameters/parameter_provenance.yaml": "a66873453502b8883586c80575fd43cc8033fb4cbb129cadec2419da67c8094f",
+    "results/formal_learning/paired_statistics.json": "4c25f0c7e8800c755e35bdff2c40e24898fd483e1ecb0d04d23219781d7c0df6",
+    "results/formal_learning/result_manifest.json": "ed5a4f0bd72170abf4ad9aa0675eeb1105e091d31cd5306e33e6136f08eec917",
+    "results/paper_candidate/phase2m-followup-d10d13eb-912a1958/analysis_summary.json": "9c849b1096a14bfaf7e396d3f773c9a2175b2eefeb2300c4d647686d0bafa32e",
+    "results/paper_candidate/phase2m-paper-d10d13eb-6634280c/analysis_summary.json": "17685c37f87f9e383a9faea6b72fd99990cb6b94a4f14dfe095a50ba92eb152f"
+  },
+  "outputs": {
+    "generated/final/figures/communication_bottleneck.pdf": "b280b758c0440a20c4b043f517ac25cdede0f89b6a2f26c7a7196b4c68c4ab65",
+    "generated/final/figures/learning_diagnostics.pdf": "00f5a3605c823d383d5307f4ad2c76404e5263a574a0dd1295f62be7795ee1fc",
+    "generated/final/figures/learning_return.pdf": "d55182b69fc1ab383774a08c5bbf0d289176c185bb109971c592eadbb637ffd4",
+    "generated/final/figures/model_feasibility.pdf": "6768454a5deee1a084e28f4d27c9eb2132f2f9bfbdb9382ff30f73eff04c53c0",
+    "generated/final/tables/final_claim_macros.tex": "92fca9067dccef216b44add29d0d2c4acbc07e51f0348961da72efe3f3ada842",
+    "generated/final/tables/table_external_baseline.tex": "ad88a41d224b2d5bb3d7cd175be85d044b6ad9df707ad7068c63e08ed973503b",
+    "generated/final/tables/table_final_learning_evidence.tex": "b5628ac7c1d631b31dc1b6d7d2bb67d2273012486700e8e8132be2268fc6d06c",
+    "generated/final/tables/table_final_model_evidence.tex": "1ae0b84e8e51af68e3d6f348528cd23dc37907792667181f47f18d5893ff9887",
+    "generated/final/tables/table_final_parameters.tex": "d5dca950c39d532c4e344eceb2e98b96171505be925eee138ac1baa64092c9d8"
+  },
+  "quantitative_values_manually_entered_in_manuscript": false
+}

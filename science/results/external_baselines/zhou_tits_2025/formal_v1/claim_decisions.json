@@ -1,0 +1,10 @@
+{
+  "Q1_collision_safety": "SUPPORTED",
+  "Q2_collision_cbf_prevents_thermal_fade_loss": "NOT_SUPPORTED",
+  "Q3_physics_specific_feasibility_identification": "INCONCLUSIVE",
+  "Q4_energy_allocation": "DESCRIPTIVE",
+  "Q5_tracking_spacing_comfort_cost": "DESCRIPTIVE",
+  "Q6_runtime": "DESCRIPTIVE",
+  "adapter_sensitivity": "INCONCLUSIVE / ADAPTER-SENSITIVE",
+  "overall_superiority_claim": "NOT_MADE"
+}

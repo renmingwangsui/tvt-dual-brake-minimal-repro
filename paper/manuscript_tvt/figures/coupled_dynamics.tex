@@ -1,0 +1,15 @@
+\begin{tikzpicture}[font=\fontsize{9.4}{10.4}\selectfont,>=Latex,node distance=8mm,
+ box/.style={draw,rounded corners,minimum width=25mm,minimum height=12mm,align=center,fill=gray!8}]
+\node[box] (cmd) {admissible commands\\$u_i^f,u_i^a$};
+\node[box,right=of cmd] (lag) {friction/auxiliary lags\\$\tau^f\dot b=-b+u^f$, $\tau^a\dot r=-r+u^a$};
+\node[box,right=of lag] (long) {longitudinal plant\\$m_i\dot v_i=F_i^r-b_i-r_i$};
+\node[box,below=12mm of long] (heat) {thermal plant\\$C_i\dot T_i=\eta_i b_i v_i-k_i(T_i-T_a)+q_i^w$};
+\node[box,left=10mm of heat] (fade) {fade envelope\\$b_i\le \bar b_i\phi_i(T_i)$};
+\draw[->] (cmd)--(lag);
+\draw[->] (lag)--node[midway,above=5pt]{$b_i,r_i$}(long);
+\draw[->] (lag.south) -- node[midway,left=5pt]{$b_i$} ++(0,-8mm) -| (fade.north);
+\draw[->] ([xshift=8mm]lag.south) -- ++(0,-6mm) -| ([xshift=-10mm]heat.north);
+\draw[->] (long)--node[midway,right=5pt]{$v_i$}(heat);
+\draw[->] (heat)--node[midway,above=6pt]{$T_i$}(fade);
+\draw[->] (fade.west) -- node[midway,above=6pt]{friction bound} (cmd.south |- fade.west) -- (cmd.south);
+\end{tikzpicture}

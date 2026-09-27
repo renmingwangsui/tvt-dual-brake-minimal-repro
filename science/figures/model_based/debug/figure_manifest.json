@@ -1,0 +1,15 @@
+{
+  "mode": "DEBUG_SYNTHETIC",
+  "paper_eligible": false,
+  "watermark": "SYNTHETIC DEBUG \u2014 NOT PAPER ELIGIBLE",
+  "figures": [
+    "m1_feasibility_geometry.svg",
+    "m2_long_descent_time_history.svg",
+    "m3_hot_brake_thermal_conflict.svg",
+    "m4_predictive_warning.svg",
+    "m5_horizon_sensitivity.svg",
+    "m7_communication_bottleneck.svg",
+    "m9_string_stability.svg",
+    "m10_runtime.svg"
+  ]
+}

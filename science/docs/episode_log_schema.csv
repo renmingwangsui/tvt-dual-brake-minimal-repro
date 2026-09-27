@@ -1,0 +1,29 @@
+column,unit,required,source
+run_id,1,yes,provenance
+episode_id,1,yes,scenario
+seed,1,yes,training/evaluation
+method,enum,yes,registered method
+scenario_id,1,yes,matched evaluation scenario
+training_step,transition,training only,trainer
+episode_return,1,training only,trainer
+intervention_rate,1,yes,projection log
+nominal_hard_feasible_rate,1,yes,projection log
+min_M_mps2,m/s2,yes,certificate
+min_predictive_MH_mps2,m/s2,yes,predictive certificate
+min_fleet_predictive_MH_mps2,m/s2,yes,fleet certificate
+early_warning_time_s,s,conditional,predictive trigger to defined boundary
+backup_occupancy,1,yes,supervisor
+anticipatory_occupancy,1,yes,supervisor
+reserve_variant,enum,yes,registered ablation
+min_h_c_m,m,yes,barrier
+min_h_T_K,K,yes,barrier
+min_h_F_N,N,yes,barrier
+certificate_loss_episode,0/1,yes,supervisor
+mission_time_s,s,yes,mission
+speed_rmse_mps,m/s,yes,mission
+spacing_rmse_m,m,yes,mission
+friction_energy_MJ,MJ,yes,mission
+auxiliary_energy_MJ,MJ,yes,mission
+max_G2,1,yes,string stability
+max_Ginf,1,yes,string stability
+platoon_size,vehicle,yes,scenario

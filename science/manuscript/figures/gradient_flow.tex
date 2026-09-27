@@ -1,0 +1,28 @@
+\begin{tikzpicture}[font=\scriptsize,>=Latex,node distance=6mm and 5mm,
+ box/.style={draw,rounded corners,minimum width=22mm,minimum height=8mm,align=center,fill=gray!8}]
+\node[box] (theta) {actor parameters\\$\theta$};
+\node[box,right=of theta] (nom) {nominal sample\\$u_i^{\rm RL}$};
+\node[box,right=of nom] (qp) {provisional 2-D\\forward hard QP};
+\node[box,right=of qp] (prov) {provisional action\\$u_i^{*,0}$};
+\node[box,below=of prov] (sup) {supervisor /\\final control logic};
+\node[box,left=of sup] (exec) {executed command\\$u_i^*$};
+\node[box,left=of exec] (env) {environment\\transition};
+\node[box,left=of env] (critic) {critic / GAE\\executed transition};
+\draw[->] (theta)--(nom);
+\draw[->] (nom)--(qp);
+\draw[->] (qp)--(prov);
+\draw[->] (prov)--(sup);
+\draw[->] (sup)--(exec);
+\draw[->] (exec)--(env);
+\draw[->] (env)--(critic);
+
+\node[box,below=of sup] (loss) {intervention term\\$\|u_i^{*,0}-u_i^{\rm RL}\|_{W_i}^{2}$};
+\node[box,left=of loss] (gate) {regularity gate\\LICQ + strict complementarity};
+\node[box,left=of gate] (back) {if regular: implicit KKT\\else: zero-QP-gradient};
+\node[box,left=of back] (update) {actor update\\direct nominal path retained};
+\draw[->,dashed] (prov.east) -| node[pos=.25,right]{training only} (loss.east);
+\draw[->,dashed] (loss)--(gate);
+\draw[->,dashed] (gate)--(back);
+\draw[->,dashed] (back)--(update);
+\draw[->,dashed] (update.north) |- (theta.south);
+\end{tikzpicture}

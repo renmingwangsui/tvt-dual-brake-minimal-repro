@@ -1,0 +1,33 @@
+{
+  "config_hash": "d10d13eb82490bcfb2151f7db2114e38d8896810255b3138d17540cddabd5104",
+  "paper_eligible": true,
+  "parameter_provenance_hash": "a66873453502b8883586c80575fd43cc8033fb4cbb129cadec2419da67c8094f",
+  "phase": "2M-PAPER",
+  "result_manifest_hash": "c7c3859a3f40ee32d4d59fbb8623ce6ed92aa07ccbac440682d0eaa3790b092c",
+  "tables": [
+    {
+      "file": "table_m_a_parameters.tex",
+      "sha256": "2a8f657838c0289b55a073f897a39656007046efcc9bd2b8ff5fd4becfdf13e7"
+    },
+    {
+      "file": "table_m_b_controller_comparison.tex",
+      "sha256": "1c65c7c2b7e5ea5466eb66a45a943adf6b3eeffcd95b61406382a3ea665e4482"
+    },
+    {
+      "file": "table_m_c_predictive_certificate.tex",
+      "sha256": "bb0d60a13a3b8f3822e2fe479e911e9f4d190c7b82687e39a0ba65b266aec800"
+    },
+    {
+      "file": "table_m_d_robustness.tex",
+      "sha256": "e31680678ec145b207e4952698050d8449f1af2193df23239d0009ba0884e2ce"
+    },
+    {
+      "file": "table_m_e_communication.tex",
+      "sha256": "89fa614d1739454a113476c76834450846e25cb807e048c8efa5ce2b2e8af9a9"
+    },
+    {
+      "file": "table_m_f_runtime.tex",
+      "sha256": "592d662db5af094398fd2d1eafb57f1a56d3da26569f8d65b308365d355d3fda"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+\begin{table}[t]
+\caption{Projection Constraints and Guarantee Status}
+\label{tab:constraints}
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.23\columnwidth}p{0.15\columnwidth}p{0.42\columnwidth}@{}}
+\toprule
+Constraint & Default & Consequence of relaxation \\
+\midrule
+Spacing HOCBF & hard & positive slack removes strict collision claim \\
+Thermal HOCBF & hard & positive slack removes thermal invariance claim \\
+Fade CBF & hard & positive slack removes fade-envelope invariance \\
+Friction/auxiliary envelopes & hard & relaxation can request unavailable force/power \\
+Auxiliary envelope and realized-force CBF & hard & relaxation can violate lag/gear availability \\
+Low-speed ZOH thermal row & hard & relaxation removes the near-stop thermal claim \\
+Jerk & outside QP & comfort metric; not part of hard feasibility \\
+Tracking objective & soft & performance degradation only \\
+\bottomrule
+\end{tabular}
+\end{table}

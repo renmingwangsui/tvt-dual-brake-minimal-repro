@@ -1,0 +1,56 @@
+\section{Problem Formulation}
+Consider a leader indexed by $0$ and $N$ controlled trucks $i\in\{1,\ldots,N\}$ on a road coordinate. Vehicle $i$ has parameter vector
+\begin{equation}
+\vartheta_i=(m_i,L_i,c_{r,i},C_{d,i}A_i,\tau_i^f,\tau_i^a,C_i,k_i,\eta_i,\bar b_i),
+\end{equation}
+where $m_i$ is vehicle mass, $L_i$ is vehicle length, $c_{r,i}$ is the rolling-resistance coefficient, $C_{d,i}A_i$ is the aerodynamic drag-area term, $\tau_i^f$ and $\tau_i^a$ are the friction- and auxiliary-brake actuator time constants, $C_i$ is lumped brake thermal capacity, $k_i$ is the cooling coefficient, $\eta_i$ is the specified friction-heating coefficient, and $\bar b_i$ is the cold nominal friction-brake force capability. The physical state and command are
+\begin{equation}
+x_i=[p_i,v_i,b_i,r_i,T_i]^\top,\qquad
+u_i=[u_i^f,u_i^a]^\top,
+\end{equation}
+where $p_i$ is longitudinal position, $v_i$ is longitudinal speed, $b_i$ and $r_i$ are realized friction- and auxiliary-brake forces, $T_i$ is friction-brake temperature, and $u_i^f$ and $u_i^a$ are the commanded friction- and auxiliary-brake forces. The command vector thus has exactly two QP coordinates, corresponding to friction and auxiliary braking. Tables~\ref{tab:parameters} and~\ref{tab:nomenclature} summarize the per-class parameter provenance and notation used below.
+Hard feasibility is not a function of $x_i$ alone because command memory under zero-order hold, gear availability, dwell logic, and communication validity depend on memory. At sample $k$ the controller therefore uses the augmented hybrid state
+\begin{equation}\label{eq:chi}
+\begin{aligned}
+\chi_{i,k}=[&p_{i,k},v_{i,k},b_{i,k},r_{i,k},T_{i,k},
+u^f_{i,k-1},u^a_{i,k-1},g_{i,k},\\
+&\tau^g_{i,k},a^{\rm msg}_{i,k},d_{i,k},
+v_{i-1,k},a_{i-1,k}]^\top .
+\end{aligned}
+\end{equation}
+Here $g_{i,k}$ is the discrete gear state, $\tau^g_{i,k}$ is the elapsed dwell time in that gear state, $a^{\rm msg}_{i,k}$ is the age of the most recently accepted safety message, $d_{i,k}$ is the inter-vehicle bumper gap, and $v_{i-1,k}$ and $a_{i-1,k}$ are predecessor speed and acceleration. The last three quantities are required by the collision row and predecessor reachable tube. Every certificate below is consequently written as a function of $\chi_{i,k}$, not merely $x_i$.
+
+The time-varying directed vehicle-to-vehicle (V2V) communication graph is $\mathcal G_t=(\mathcal V,\mathcal E_t)$. Agent $i$ observes
+\begin{equation}
+o_i=(v_i,b_i,r_i,T_i,u^f_{i,k-1},u^a_{i,k-1},g_i,\tau_i^g,
+\vartheta_i,\hat\theta_i,d_i,\Delta v_i,
+\mathcal M_i),
+\end{equation}
+where $d_i=p_{i-1}-p_i-L_{i-1}$, $\Delta v_i=v_{i-1}-v_i$, $\hat\theta_i$ is the locally estimated road grade, and $\mathcal M_i$ contains time-stamped permitted messages including the age needed for \eqref{eq:chi}. A message generated at $t_g$ and received at $t$ is replaced by a reachable tube $\mathcal R_{i-1}(t-t_g)$ formed from declared acceleration and jerk bounds. Packets inconsistent with local range/range-rate sensing are rejected, and the union of sensing and communication uncertainty is used in the robust margin. The critic uses global state only during training.
+
+The policy must minimize tracking, comfort, braking-energy, coordination, and intervention costs while maintaining collision, temperature, fade, and actuator constraints. Jerk is a soft comfort constraint and therefore never determines the hard safety feasibility claim. Training, identification, validation, and held-out/out-of-distribution (OOD) test sets are disjoint.
+
+At the transport level, a mission contains a descent profile $\theta(p)$, desired speed schedule, fleet order, payloads, ambient condition, and communication trace. We report
+\begin{equation}
+J_{\rm op}=\left[t_{\rm trip},E_{\rm fric},E_{\rm aux},e_v^{\rm rms},
+e_d^{\rm rms},j^{\rm rms},n_{\rm stop}\right],
+\end{equation}
+where $E_{\rm fric}=\sum_i\int b_iv_i\,dt$ and $E_{\rm aux}=\sum_i\int r_iv_i\,dt$; $e_v^{\rm rms}$, $e_d^{\rm rms}$, and $j^{\rm rms}$ are speed-error, spacing-error, and jerk root-mean-square (RMS) quantities. Safety is reported separately from efficiency so that an unnecessarily slow method cannot appear superior merely because it avoids demanding maneuvers.
+
+String stability is also separate from safety. With spacing error $e_i^d$, the empirical gains are
+\begin{equation}
+G_{2,i}=\frac{\|e_i^d\|_2}{\|e_{i-1}^d\|_2+\epsilon_g},\qquad
+G_{\infty,i}=\frac{\|e_i^d\|_\infty}{\|e_{i-1}^d\|_\infty+\epsilon_g}.
+\end{equation}
+Here $\epsilon_g>0$ is a small denominator regularizer that prevents division by zero or a near-zero predecessor-error norm; it is not a safety parameter. We test whether $\max_iG_{2,i}\le1$ and $\max_iG_{\infty,i}\le1$ across platoon lengths; no analytical string-stability theorem is claimed.
+
+\input{tables/parameter_table}
+\input{tables/nomenclature}
+
+Figure~\ref{fig:coupled} summarizes the coupling among friction and auxiliary commands, their actuator lags, longitudinal dynamics, friction heating, and temperature-dependent fade.
+\begin{figure*}[t]
+\centering
+\input{figures/coupled_dynamics}
+\caption{Coupling among friction and auxiliary commands, their distinct actuator lags, longitudinal motion, friction heating, and the temperature-dependent fade envelope.}
+\label{fig:coupled}
+\end{figure*}

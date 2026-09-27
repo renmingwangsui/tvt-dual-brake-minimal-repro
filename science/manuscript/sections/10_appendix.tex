@@ -1,0 +1,23 @@
+\appendices
+\section{Expanded Affine Rows and Checks}
+For linear $\alpha_{1c}(s)=k_{1c}s$ and $\alpha_{2c}(s)=k_{2c}s$, substitution of \eqref{eq:jerk} into \eqref{eq:hcddot} gives the collision row coefficients in \eqref{eq:collision_hocbf} and the nominal uncontrolled term
+\begin{align}
+\widehat\Xi_i^c={}&a_{i-1}-a_i-\frac{a_i^2}{a_i^S}
+-c_i\!\left(\frac{\widehat{\dot F_i^r}}{m_i}+\frac{b_i}{m_i\tau_i^f}+\frac{r_i}{m_i\tau_i^a}\right)\nonumber\\
+&+\frac{a_{i-1}^2}{a_{i-1}^E}+r_{i-1}^v\widehat{\dot a}_{i-1}
++(k_{1c}+k_{2c})\dot h_i^c+k_{1c}k_{2c}h_i^c.
+\end{align}
+Thus the signs of both command coefficients are positive. The thermal expansion follows directly from
+\begin{equation}
+\ddot h_i^T=-\frac{\eta_i}{C_i}(\dot b_iv_i+b_ia_i)
++\frac{k_i}{C_i}(\dot T_i-\dot T_a)-\frac{\dot q_i^w}{C_i},
+\end{equation}
+and $\dot b_i=(-b_i+u_i^f)/\tau_i^f$, which gives the negative friction-command coefficient in \eqref{eq:thermal_hocbf}. For fade,
+\begin{equation}
+\dot h_i^F=\bar b_i\phi_i'(T_i)\dot T_i+\frac{b_i-u_i^f}{\tau_i^f},
+\end{equation}
+whose rearrangement is exactly \eqref{eq:fade_cbf}.
+
+For the auxiliary envelope, $\dot h_i^A=\bar r_{i,v}a_i+(r_i-u_i^a)/\tau_i^a$; rearranging $\dot h_i^A+\alpha_A(h_i^A)\ge\gamma_i^A+\mu_i^A$ gives \eqref{eq:auxcbf}. For the low-speed row, variation of constants applied to the cascaded first-order friction actuator and thermal state produces the kernels $I_{0i}$ and $I_{1i}$ in \eqref{eq:zohthermal}. Since $I_{0i}-I_{1i}\ge0$, the row is an upper bound on $u_i^f$ for $v_i>0$ and degenerates continuously to $0\le g_{i,k}^{T0}$ at $v_i=0$. The latter term is retained independently in \eqref{eq:rho}, so a negative state-only reserve cannot be hidden by nonempty command intervals.
+
+Jerk follows from \eqref{eq:jerk} and is logged as a comfort outcome, but it contributes no row, slack, or decision variable to \eqref{eq:qp}. The symbolic suite independently verifies collision and thermal differentiation, command coefficients, and fade/auxiliary rearrangements. The randomized equation-regression script draws 10,000 physical cases for each of five families: collision differentiation/affine/QP agreement, thermal differentiation/affine/QP agreement, fade rearrangement, auxiliary-envelope rearrangement, and exact-reserve agreement. It also checks zero/near-zero-speed ZOH boundaries. A dedicated low-speed suite covers $v=0$, $v\approx0$, $v=v_\epsilon$, and $v>v_\epsilon$ under hot and cold initial brakes; verifies mutually exclusive HOCBF/ZOH partitioning; and confirms that $g^{T0}<0$ alone makes both the hard row and complete certificate infeasible when the command coefficient is zero. A separate predictive suite compares the complete instantaneous conjunction against 10,000 independent interval-box LP vertex solves; verifies $H=1$ reduction under zero uncertainty; checks 5,000 Monte Carlo sampled states against the interval tube; and checks fleet min/argmin and anticipatory triggering. These tests detect implementation regressions but do not identify uncertainty bounds, prove continuous-time containment, establish arbitrary state-feedback monotonicity, or replace vehicle validation.

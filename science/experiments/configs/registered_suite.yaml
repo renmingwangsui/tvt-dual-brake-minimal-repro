@@ -1,0 +1,45 @@
+study: conflict_aware_safe_mappo_diffqp_tits
+status: EXPERIMENT_REQUIRED
+sample_time_s: AUTHOR_DECISION
+target_hardware: DATA_REQUIRED
+vehicle_parameter_file: DATA_REQUIRED
+road_profile_file: DATA_REQUIRED
+trained_checkpoint_directory: DATA_REQUIRED
+seeds: [11, 23, 37, 51, 79, 101, 137, 181, 223, 271]
+required_methods:
+  - rule_based
+  - independent_controller
+  - predecessor_following_controller
+  - robust_mpc_dual_brake
+  - mappo
+  - mappo_penalty
+  - mappo_nondifferentiable_filter
+  - safe_mappo_stop_gradient
+  - safe_mappo_diffqp
+allocation_variants: [friction_only, auxiliary_first_fixed, learned_dual, centralized_dual]
+barrier_variants: [collision_only, collision_temperature, collision_temperature_fade]
+margin_variants: [none, symmetric_absolute, directional, directional_sampled_data]
+reserve_variants: [instantaneous_only, predictive_vehicle, predictive_vehicle_plus_distributed_fleet]
+prediction_horizons: [1, 3, 5, 10]
+learning_horizon: AUTHOR_DECISION
+prediction_controls:
+  certified_monitor: [executed_first_command, certified_backup_future]
+  learning_surrogate: differentiable_executed_policy_rollout
+  certified_interval_extrema_gradient: stop
+supervisor_modes: [normal_actor, anticipatory, certified_backup, certificate_loss_minimal_risk]
+ood_cases: [unseen_mass, unseen_vehicle_order, initial_hot_brake, hot_ambient, steeper_grade, abrupt_grade_change, friction_lag_bias, auxiliary_lag_bias, fade_curve_bias, gear_unavailable, burst_communication_loss, long_delay, emergency_predecessor_braking, combined_extreme]
+platoon_sizes: [3, 5, 10, 20, 40]
+required_figures: [F1_emergency, F2_physical_envelope, F3_diffqp_learning, F4_pareto, F5_barrier_ablation, F6_ood_certificate_loss, F7_string_stability, F8_latency, P1_instantaneous_vs_predictive_rho, P2_predictive_rho_heatmap, P3_fleet_bottleneck_trace, P4_limit_attribution, P5_trigger_vs_boundary, P6_predictive_ablation, P7_horizon_uncertainty_tradeoff, P8_runtime_distributions]
+required_metrics: [min_rho, min_predictive_rho, min_fleet_rho, early_warning_time_s, critical_vehicle_consistency, critical_limit_attribution, certificate_loss_episodes, backup_occupancy, qp_intervention_frequency, peak_temperature_K, friction_energy_J, auxiliary_energy_J, mission_time_s, G2, Ginf, runtime_mean_ms, runtime_p95_ms, runtime_p99_ms]
+certificate_scales: {s_f_N: AUTHOR_DECISION, s_a_N: AUTHOR_DECISION, s_M_mps2: AUTHOR_DECISION, s_T0_K: AUTHOR_DECISION}
+certificate_scale_basis: [cold_friction_force_capability, registered_auxiliary_force_capability, reference_barrier_deceleration]
+normalization_sensitivity_factors: [0.5, 1.0, 2.0]
+normalization_policy: fixed_across_all_algorithms
+distributed_aggregation:
+  direction: successor_to_predecessor
+  maximum_message_age_s: DATA_REQUIRED
+  stale_or_lost_policy: registered_conservative_communication_age_fallback
+  centralized_fleet_minimum_use: training_and_evaluation_only
+control_loop: [measure, margins, actor, provisional_normal_qp, provisional_prediction, aggregation_and_supervisor, final_mode_command, conditional_reverification, hard_row_validation_and_apply, logging]
+uncertainty_ablations: [grade_width, communication_age_width, thermal_model_width, actuator_lag_width]
+evidence_policy: reject_missing_or_unverified_logs

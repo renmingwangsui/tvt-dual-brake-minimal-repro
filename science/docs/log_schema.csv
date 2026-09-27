@@ -1,0 +1,89 @@
+column,unit,required,source
+time_s,s,yes,simulation clock
+run_id,1,yes,provenance
+episode_id,1,yes,scenario
+seed,1,yes,training/evaluation
+method,enum,yes,registered method
+scenario_id,1,yes,matched evaluation scenario
+vehicle_id,1,yes,scenario
+position_m,m,yes,augmented state
+speed_mps,m/s,yes,state
+gap_m,m,yes,state
+spacing_error_m,m,yes,state/metric
+previous_u_f_N,N,yes,augmented state memory
+previous_u_a_N,N,yes,augmented state memory
+gear_id,1,yes,augmented hybrid mode
+gear_dwell_time_s,s,yes,augmented state memory
+message_age_s,s,yes,communication memory
+predecessor_speed_mps,m/s,yes,collision state
+predecessor_acceleration_mps2,m/s2,yes,collision state
+u_f_nom_N,N,yes,actor
+u_a_nom_N,N,yes,actor
+u_f_exec_N,N,yes,projection
+u_a_exec_N,N,yes,projection
+friction_force_N,N,yes,state
+auxiliary_force_N,N,yes,state
+temperature_K,K,yes,state
+h_c_m,m,yes,barrier
+h_T_K,K,yes,barrier
+h_F_N,N,yes,barrier
+h_A_N,N,yes,barrier
+M_conflict_mps2,m/s2,yes,certificate
+g_T0_K,K,conditional low-speed,state-only ZOH thermal reserve
+low_speed_thermal_feasible,0/1,conditional low-speed,undivided ZOH state gate
+Delta_f_N,N,yes,complete certificate
+Delta_a_N,N,yes,complete certificate
+rho_instantaneous,1,yes,complete certificate
+friction_interval_nonempty,0/1,yes,instantaneous certificate
+auxiliary_interval_nonempty,0/1,yes,instantaneous certificate
+instantaneous_feasible,0/1,yes,instantaneous certificate
+predictive_reserve_by_step_mps2,json array,yes,certified monitoring tube
+predictive_reserve_vehicle_mps2,m/s2,yes,certified monitoring tube
+fleet_predictive_reserve_mps2,m/s2,yes,fleet certificate
+rho_predictive_by_step,json array,yes,certified monitoring tube
+rho_predictive_vehicle,1,yes,certified monitoring tube
+rho_fleet_predictive,1,yes,fleet certificate
+rho_IA_lower_by_step,json array,yes,computable interval lower bounds
+rho_cert_H,1,yes,certified lower horizon minimum
+rho_true_H,1,theory/validation only,exact reachable-set infimum if independently available
+rho_upstream_local_H,1,yes,decentralized age-bounded recursive aggregation
+rho_fleet_centralized_H,1,training/evaluation only,centralized exact minimum across computed vehicle certificates
+critical_vehicle_id,1,yes,fleet certificate
+critical_prediction_step,step,yes,predictive certificate
+critical_limit_type,enum,yes,physical bottleneck attribution
+tube_width_by_state,json,yes,interval tube diagnostic
+tube_width_total,mixed diagnostic,yes,interval tube diagnostic only
+prediction_horizon,step,yes,registered monitor configuration
+uncertainty_scale,1,yes,registered ablation configuration
+backup_control_widths_N,json array,yes,set-valued backup extension
+u_f_provisional_N,N,yes,normal hard QP candidate
+u_a_provisional_N,N,yes,normal hard QP candidate
+prediction_reverified,0/1,yes,causal two-pass verifier
+message_timestamp_s,s,yes,distributed bottleneck protocol
+message_fallback_used,0/1,yes,stale/lost message handling
+normalization_scale_id,enum,yes,registered physical scale triple
+safety_intent_message,json,yes,permitted local communication
+D_collision_mps2,m/s2,yes,collision row
+U_f_N,N,yes,effective friction interval
+U_a_N,N,yes,effective auxiliary interval
+res_collision_hocbf_mps2,m/s2,yes,QP residual
+res_thermal_hocbf_Kps2,K/s2,conditional,QP residual
+res_thermal_zoh_K,K,conditional,QP residual
+res_fade_cbf_N,N,yes,QP residual
+res_auxiliary_cbf_N,N,yes,QP residual
+qp_intervention_N,N,yes,projection
+certificate_loss,0/1,yes,supervisor
+backup_status,enum,yes,supervisor
+supervisor_mode,enum,yes,supervisor
+predictive_trigger,0/1,yes,supervisor
+hard_trigger,0/1,yes,supervisor
+preprocess_ms,ms,yes,timing
+reachable_tube_ms,ms,yes,timing
+predictive_reserve_ms,ms,yes,timing
+margin_ms,ms,yes,timing
+reserve_ms,ms,yes,timing
+assembly_ms,ms,yes,timing
+solve_ms,ms,yes,timing
+verification_ms,ms,yes,timing
+backward_ms,ms,training only,timing
+end_to_end_ms,ms,yes,timing

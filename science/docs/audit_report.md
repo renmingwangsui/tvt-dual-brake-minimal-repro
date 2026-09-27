@@ -1,0 +1,20 @@
+# Technical audit and repairs
+
+| Original defect | Consequence | Repair | Evidence/file |
+|---|---|---|---|
+| Generic normalized feasibility score treated as the main reserve | Did not prove the physical collision--thermal conflict was feasible | Replaced by exact reserve `M=A_f U_f+A_a U_a-D_c`; proved necessity and sufficiency | `manuscript/sections/05_method.tex`, `06_analysis.tex`, `src/safety_core.py` |
+| Auxiliary brake had an envelope but no realized-force barrier | QP could request force unavailable through the lagged actuator | Added `h_A=bar r-r` CBF and an explicit fixed-gear/min-envelope assumption; a later evidence audit removed the unsupported independent command-slew row | `04_dynamics_and_safety.tex`, `effective_limits`, `auxiliary_cbf_upper_bound` |
+| Sampled friction/auxiliary command-slew rows lacked an independently measured physical bound | Lag evidence does not identify a hard command derivative | Removed both physical slew rows; retained first-order realized-force dynamics and ZOH command semantics | Eq. `model`, `effective_limits`, `docs/log_schema.csv` |
+| Robust margins named disturbances without an auditable uncertainty set | A claimed deterministic margin could not be reconstructed from logged bounds | Declared sensing, model, communication, and intersample components; added box validation and directional support-function margins | Eq. `uncertaintybox`, `validate_uncertainty_box`, `directional_margin_from_box` |
+| Low-speed thermal text had no executable equation | Dividing by a vanishing speed was numerically unsafe and the guarantee was incomplete | Added exact ZOH actuator--thermal integration with continuous zero-speed limit | Eq. `zohthermal`, `low_speed_temperature_row` |
+| Continuous-time proof was applied directly to sampled commands | Intersample safety was not justified | Recast as a ZOH sampled-data proposition with explicit rate and integration-error margin | Proposition 1 |
+| Innovation overlapped existing MARL/cooperative-CBF/DiffQP work | Novelty was overstated | Cited closest 2025--2026 work and narrowed novelty to the brake-conflict certificate and low-speed/backup closure | Introduction and Related Work |
+| Actor distribution and reserve gradient path were incomplete | PPO likelihood and end-to-end learning claim were not reproducible | Specified reparameterized squashed Gaussian, Jacobian, nominal/executed distinction, and one-step predicted reserve path | `05_method.tex`, `src/actor_parameterization.py` |
+| KKT statement also covered a non-strongly-convex LP | Differentiability theorem was overbroad | Restricted KKT differentiation to the regularized safety QP; exact reserve is monitored, not assigned that theorem | `05_method.tex` |
+| Missing logs could be mistaken for results | Risk of unsupported empirical claims | Marked every claim-bearing cell/figure; added manifest/hash/schema gates that fail closed | `results/`, `experiments/check_result_provenance.py` |
+
+The independent symbolic suite and randomized regression suite check the closed-form derivations and 50,000 identities with seed 20260916, including low-speed boundary cases. These checks validate algebra/code consistency, not vehicle realism.
+
+## Predictive extension audit
+
+The instantaneous reserve now uses the augmented hybrid state and treats nonempty friction and auxiliary intervals as independent necessary conditions. The certified predictor propagates an interval tube using the executed first command and backup-compatible future commands; the smooth learning rollout is a separately named surrogate and cannot replace the certificate. Vehicle and fleet minima, critical indices, safety-intent messages, four supervisor modes, rollout fields, experiment variants, and Predictive P1--P4 are wired to executable modules and tests. A negative interval lower bound is conservatively interpreted as a warning unless the reachable-set infimum is exact. No predictive performance claim is verified without identified uncertainty bounds and provenance-checked logs.

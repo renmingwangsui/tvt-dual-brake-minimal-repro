@@ -1,0 +1,405 @@
+{
+  "active_runs": [
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "paper_eligible": true,
+      "run_id": "diffqp-seed-27101",
+      "run_manifest": "raw/diffqp-seed-27101/run_manifest.json",
+      "run_manifest_sha256": "140a57f7cc55c76b90e7d8a8ee254a8e4801b2563a88c08a5d6f88061600317d",
+      "seed": 27101,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "paper_eligible": true,
+      "run_id": "stopgrad-seed-27101",
+      "run_manifest": "raw/stopgrad-seed-27101/run_manifest.json",
+      "run_manifest_sha256": "ada73a2b6506be087b8e80bbe28f6c18f79383b8406e87150aed2bd456d16cb2",
+      "seed": 27101,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "paper_eligible": true,
+      "run_id": "diffqp-seed-27102",
+      "run_manifest": "raw/diffqp-seed-27102/run_manifest.json",
+      "run_manifest_sha256": "cf6e9828d8dd1c69904e45783b1e990104de78a3290ed9c89283f9901c74d471",
+      "seed": 27102,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "paper_eligible": true,
+      "run_id": "stopgrad-seed-27102",
+      "run_manifest": "raw/stopgrad-seed-27102/run_manifest.json",
+      "run_manifest_sha256": "4d67c7d39e22b04cd545af04bed5fc86f209705b9c8429ba7fb3af6200c90cfc",
+      "seed": 27102,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "paper_eligible": true,
+      "run_id": "diffqp-seed-27103",
+      "run_manifest": "raw/diffqp-seed-27103/run_manifest.json",
+      "run_manifest_sha256": "25879bf5d21cd49e276d2e9117ee079f56dd2f0a64f87a5577a362a375a02f3b",
+      "seed": 27103,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "paper_eligible": true,
+      "run_id": "stopgrad-seed-27103",
+      "run_manifest": "raw/stopgrad-seed-27103/run_manifest.json",
+      "run_manifest_sha256": "7226f9c8b79ff7a1a4b45edd090713283f165d7ed6f6823bf95f0df58b2b5412",
+      "seed": 27103,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "paper_eligible": true,
+      "run_id": "diffqp-seed-27104",
+      "run_manifest": "raw/diffqp-seed-27104/run_manifest.json",
+      "run_manifest_sha256": "059647e42ff0bf738b0aa67aeeb3e535d539581e5f144f47c093475d1ffa5e39",
+      "seed": 27104,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "paper_eligible": true,
+      "run_id": "stopgrad-seed-27104",
+      "run_manifest": "raw/stopgrad-seed-27104/run_manifest.json",
+      "run_manifest_sha256": "5318fda0d38f8c61d5aebd9fa81ae49e99245a13dd14e0d1687c6f989b3c9be0",
+      "seed": 27104,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "paper_eligible": true,
+      "run_id": "diffqp-seed-27105",
+      "run_manifest": "raw/diffqp-seed-27105/run_manifest.json",
+      "run_manifest_sha256": "36eecc9b56786a2c0a6488c3e944d7759758bbda7d7df88a7a34735f703db048",
+      "seed": 27105,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "paper_eligible": true,
+      "run_id": "stopgrad-seed-27105",
+      "run_manifest": "raw/stopgrad-seed-27105/run_manifest.json",
+      "run_manifest_sha256": "7ddd1bb031a4648cf6c4f1bf497eac7b8f26ac6597c20b4b623c220de88508c7",
+      "seed": 27105,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "paper_eligible": true,
+      "run_id": "diffqp-seed-27106",
+      "run_manifest": "raw/diffqp-seed-27106/run_manifest.json",
+      "run_manifest_sha256": "e07d1f080204f1c5f8d69a521e343f2434800aec6d30d75a888932b665cae00e",
+      "seed": 27106,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "paper_eligible": true,
+      "run_id": "stopgrad-seed-27106",
+      "run_manifest": "raw/stopgrad-seed-27106/run_manifest.json",
+      "run_manifest_sha256": "df9ed1ade2bdd58fa025e49dc8a5022d819da7262140e88889c5173180005536",
+      "seed": 27106,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "paper_eligible": true,
+      "run_id": "diffqp-seed-27107",
+      "run_manifest": "raw/diffqp-seed-27107/run_manifest.json",
+      "run_manifest_sha256": "9712177fc619de5a721f03308a655fe2ce881e2d1b4dd3a057b98bb2f2757f58",
+      "seed": 27107,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "paper_eligible": true,
+      "run_id": "stopgrad-seed-27107",
+      "run_manifest": "raw/stopgrad-seed-27107/run_manifest.json",
+      "run_manifest_sha256": "df8257df0b7e1f9b6846cab7a08d9aef34082ee0695eb8ab824f12299dc00932",
+      "seed": 27107,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "paper_eligible": true,
+      "run_id": "diffqp-seed-27108",
+      "run_manifest": "raw/diffqp-seed-27108/run_manifest.json",
+      "run_manifest_sha256": "b8b354c2e56e15db67cf3c8c8e8361aa27f2c93cded8a4f7a99ddb78ece390b1",
+      "seed": 27108,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "paper_eligible": true,
+      "run_id": "stopgrad-seed-27108",
+      "run_manifest": "raw/stopgrad-seed-27108/run_manifest.json",
+      "run_manifest_sha256": "36a0959b41ac18de63deda17c2ca06448eaa5a125f8541aa4dfdd5dc494dbccb",
+      "seed": 27108,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "paper_eligible": true,
+      "run_id": "diffqp-seed-27109",
+      "run_manifest": "raw/diffqp-seed-27109/run_manifest.json",
+      "run_manifest_sha256": "6c3c8f2e9955cae5489d70c0e95fd33f3c1fe8fe7e14dc98d7b627afba39198f",
+      "seed": 27109,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "paper_eligible": true,
+      "run_id": "stopgrad-seed-27109",
+      "run_manifest": "raw/stopgrad-seed-27109/run_manifest.json",
+      "run_manifest_sha256": "3618e60aefbbd6d1e07571471b6be736328371797b12399603d51922ced1a3ef",
+      "seed": 27109,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "paper_eligible": true,
+      "run_id": "diffqp-seed-27110",
+      "run_manifest": "raw/diffqp-seed-27110/run_manifest.json",
+      "run_manifest_sha256": "af2cd4ca61c322ef67f1a38f441a72691dc899140dd960f5619a24859e8539a9",
+      "seed": 27110,
+      "status": "PASS"
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "paper_eligible": true,
+      "run_id": "stopgrad-seed-27110",
+      "run_manifest": "raw/stopgrad-seed-27110/run_manifest.json",
+      "run_manifest_sha256": "4be6dcc5e143c454cd8db271c99d291ad0afdcee796ce8209b0d3b0d0b2a82fd",
+      "seed": 27110,
+      "status": "PASS"
+    }
+  ],
+  "claims_file": "claim_decisions.json",
+  "claims_sha256": "80d1da21e14addc27e1c004ae3ff1d666dfd3334c28c398766d8dcc5f2ddbc86",
+  "code_snapshot_sha256": "5d4e085470a3454e516dcc4cf08b4a9091be0a44e36ff1587e867ae6980b57a1",
+  "created_at": "2026-09-23T07:52:12.657858+00:00",
+  "diffqp_fallback_fraction": 1.0,
+  "diffqp_gradient_valid_fraction": 0.0,
+  "diffqp_training_wall_clock_mean_s": 3.225934527800837,
+  "failed_runs": [],
+  "figure_hashes": {
+    "figures/learning_figure_1_return.svg": "883fa9b8d7520ac8b964226a87150189acae9c109f02fe0345870e8371720765",
+    "figures/learning_figure_2_intervention_frequency.svg": "18b0476a04e4a329e3d960a21f562f20663b8e600edd5b961c8c8543907f6148",
+    "figures/learning_figure_3_intervention_norm.svg": "d7554ca3c71eab896de69e98a885775f41f2ca3f8be2add61baa85299ea2f63a",
+    "figures/learning_figure_4_nominal_feasible.svg": "3845b137c7003606be97ab88df94a61277df966898ab3725049e37e47b19424c",
+    "figures/learning_figure_5_paired_final.svg": "3bd06a5ff4d913e8b7212a5a95f5bceeabb8d76fc0c9cbf194425976e4fb65c3",
+    "figures/learning_figure_6_diffqp_diagnostics.svg": "5331e8b30d6d001e72a7bebd85d49be61023d0ab763b0b2c7756d41950fb07e5"
+  },
+  "figures": [
+    "figures/learning_figure_1_return.svg",
+    "figures/learning_figure_2_intervention_frequency.svg",
+    "figures/learning_figure_3_intervention_norm.svg",
+    "figures/learning_figure_4_nominal_feasible.svg",
+    "figures/learning_figure_5_paired_final.svg",
+    "figures/learning_figure_6_diffqp_diagnostics.svg"
+  ],
+  "forward_controller_sha256": "ec8a14e7d87551ecc857c76033284878df60b1d0085ae44678fc8a5118c7ec71",
+  "frozen_evidence_sha256": "cb400d4ad4a3a7cfdbf4b7c218d1adf93aff1ac993025fa977938704f4c4952f",
+  "frozen_model_evidence_changed": false,
+  "git_commit": "f6d76b3854aad1bf93ffe4cc2a98935cbe7de548",
+  "invalidated_runs": [
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "diffqp-seed-27101",
+      "seed": 27101
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "stopgrad-seed-27101",
+      "seed": 27101
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "diffqp-seed-27102",
+      "seed": 27102
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "stopgrad-seed-27102",
+      "seed": 27102
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "diffqp-seed-27103",
+      "seed": 27103
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "stopgrad-seed-27103",
+      "seed": 27103
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "diffqp-seed-27104",
+      "seed": 27104
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "stopgrad-seed-27104",
+      "seed": 27104
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "diffqp-seed-27105",
+      "seed": 27105
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "stopgrad-seed-27105",
+      "seed": 27105
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "diffqp-seed-27106",
+      "seed": 27106
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "stopgrad-seed-27106",
+      "seed": 27106
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "diffqp-seed-27107",
+      "seed": 27107
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "stopgrad-seed-27107",
+      "seed": 27107
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "diffqp-seed-27108",
+      "seed": 27108
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "stopgrad-seed-27108",
+      "seed": 27108
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "diffqp-seed-27109",
+      "seed": 27109
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "stopgrad-seed-27109",
+      "seed": 27109
+    },
+    {
+      "method": "SAFE-MAPPO-DIFFQP",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "diffqp-seed-27110",
+      "seed": 27110
+    },
+    {
+      "method": "SAFE-MAPPO-STOPGRAD",
+      "prior_result_manifest_sha256": "a497709905fe4e33fb42141b57a0734ead37b17fbaa7251197d0d12fc548bb03",
+      "reason": "IMPLEMENTATION_ERROR_TRAINING_WALL_CLOCK_INCLUDED_CHECKPOINT_EVALUATION",
+      "run_id": "stopgrad-seed-27110",
+      "seed": 27110
+    }
+  ],
+  "phase": "2C-3",
+  "physical_model_sha256": "d10d13eb82490bcfb2151f7db2114e38d8896810255b3138d17540cddabd5104",
+  "platform": {
+    "device": "cpu",
+    "os": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "python": "3.14.4",
+    "torch": "2.14.0+cpu"
+  },
+  "primary_methods": [
+    "SAFE-MAPPO-DIFFQP",
+    "SAFE-MAPPO-STOPGRAD"
+  ],
+  "protocol_sha256": "9e4efec951d171460a7d3f48c2ba492a53297215b6b37041cd028a875e0e333e",
+  "qp_config_sha256": "6ee6bad3ba172192bfcafa44c9ec91a3689aa2fab23b93a9c7ebd110eea30b47",
+  "registered_evaluation_seeds": [
+    38101,
+    38102,
+    38103
+  ],
+  "registered_training_seeds": [
+    27101,
+    27102,
+    27103,
+    27104,
+    27105,
+    27106,
+    27107,
+    27108,
+    27109,
+    27110
+  ],
+  "schema_version": 1,
+  "statistics_file": "paired_statistics.json",
+  "statistics_sha256": "4c25f0c7e8800c755e35bdff2c40e24898fd483e1ecb0d04d23219781d7c0df6",
+  "status": "PASS",
+  "stopgrad_training_wall_clock_mean_s": 3.247178262199668,
+  "table_hashes": {
+    "tables/table_L1_protocol.tex": "0ff2b1af6dc1d2f8fcb50eff8e4efc192eaf10f0763fcc66d35500a2008835d4",
+    "tables/table_L2_final_metrics.tex": "5271920a64e28af0672210cb9386a46190e5e3cfa02895ade65f57f0757e6fdc",
+    "tables/table_L3_paired_statistics.tex": "fbba644787e4ab588308ffb09e9ac4dbbde485ba87bc27f84eb53b4be304d97a",
+    "tables/table_L4_diffqp_diagnostics.tex": "a299a8a15b36ce6dfc35190561a1086304af7b4653d01b4abd2301cb02ba05bb",
+    "tables/table_L5_computational_overhead.tex": "2050637c86b7c33619281a8e1524597b0ed29b669d59a9aa31db5b85bf7c3039"
+  },
+  "tables": [
+    "tables/table_L1_protocol.tex",
+    "tables/table_L2_final_metrics.tex",
+    "tables/table_L3_paired_statistics.tex",
+    "tables/table_L4_diffqp_diagnostics.tex",
+    "tables/table_L5_computational_overhead.tex"
+  ],
+  "training_config_sha256": "5614229d4db8df2c45ae87da11c873b2a9ca508a13c651ce73e26d74861e3076"
+}

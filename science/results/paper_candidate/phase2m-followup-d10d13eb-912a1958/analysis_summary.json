@@ -1,0 +1,201 @@
+{
+  "M7": {
+    "central_threshold_margin_range": [
+      -0.0017861803842535856,
+      -0.00030635934469509796
+    ],
+    "claim_status": "PARTIALLY_SUPPORTED",
+    "critical_vehicle_change_or_mismatch_count": 10,
+    "horizon_mismatch": false,
+    "implementation_defect_found": false,
+    "interpretation": "expected consequence of delayed, directionally limited information and sampled packet consumption",
+    "local_threshold_margin_range": [
+      0.00045166829317318247,
+      0.031927080700906746
+    ],
+    "message_age_one_sample_count": 20,
+    "message_valid_count": 20,
+    "missed_trigger_count": 20,
+    "misses_by_vehicle": {
+      "1": 9,
+      "2": 6,
+      "3": 5
+    },
+    "packet_loss_or_staleness": false,
+    "root_causes": [
+      "nominal 5 ms packets are first consumed at the next 100 ms controller sample",
+      "causal successor-to-predecessor recursive aggregation adds multi-hop lag",
+      "critical bottleneck vehicle changes near the fixed supervisor threshold"
+    ]
+  },
+  "M8": {
+    "claim_status": "CONTINUITY_NOT_SUPPORTED_LIMITATION_DOCUMENTED",
+    "cold_feasibility_sign_flip": false,
+    "genuine_physical_change": false,
+    "hard_branch_switch": true,
+    "hot_c_T_change_K_per_N": 1.8455837656004685e-12,
+    "hot_feasibility_sign_flip": true,
+    "hot_g_T0_K": -2.8399562778993186,
+    "hot_hocbf_upper_change_N": -0.08351166143256705,
+    "hot_rho_jump": 406.09776454003065,
+    "low_speed_zoh_contribution": true,
+    "normalization_changes_magnitude_not_sign": true,
+    "numerical_tolerance_cause": false,
+    "repair_rationale": "Extending/blending the ZOH row above its registered domain or inventing an overlap width would change certificate assumptions without a registered error bound. The piecewise semantics are retained and continuity is explicitly disclaimed.",
+    "repair_required": false,
+    "repair_status": "NOT_APPLIED_UNDER_FROZEN_VALIDITY_DOMAINS",
+    "root_cause": "hard switch between non-equivalent low-speed one-step ZOH and high-speed thermal-HOCBF sufficient conditions"
+  },
+  "M9": {
+    "claim_status": "NOT_SUPPORTED",
+    "max_G2": 4.216493596602332,
+    "max_Ginf": 5.167026142015309,
+    "safety_claim_kept_separate": true
+  },
+  "affected_parent_runs_invalidated": 0,
+  "config_hash": "d10d13eb82490bcfb2151f7db2114e38d8896810255b3138d17540cddabd5104",
+  "followup_spec_hash": "912a1958d27463f003a0411723de698f5af53f10aaf5173318414226da5f7d13",
+  "integrity": {
+    "manifest_hash": "63ae163953143d11f323ce1bb084e5e8a9cef0b9ed139b2beb9797e858d02977",
+    "records": 43754,
+    "runs": 82,
+    "status": "PASS"
+  },
+  "new_paper_eligible_followup_runs": 82,
+  "paper_eligible": true,
+  "phase": "2M-FOLLOWUP",
+  "predictive_warning": {
+    "claim_status": "SUPPORTED",
+    "classification_counts": {
+      "CONSERVATIVE_WARNING_WITHOUT_BOUNDARY": 32,
+      "SIMULTANEOUS_WARNING": 39,
+      "TRUE_EARLY_WARNING": 10
+    },
+    "maximum_warning_time_s": 6.499999999999993,
+    "minimum_positive_warning_time_s": 0.09999999999999964,
+    "non_isolated_non_numerical_true_early_warning_count": 4,
+    "non_isolated_true_early_warning_count": 4,
+    "representative_robust_cases": [
+      {
+        "boundary_crossing_count": 1,
+        "boundary_uniquely_observed": true,
+        "case_id": 2,
+        "certificate_loss_time_s": 10.29999999999998,
+        "classification": "TRUE_EARLY_WARNING",
+        "critical_component": "collision_demand",
+        "critical_horizon_step": 3,
+        "critical_vehicle_id": 1,
+        "instantaneous_boundary_time_s": 10.399999999999979,
+        "minimum_rho_H_cert_at_trigger": -0.036372508424999894,
+        "minimum_rho_at_trigger": 0.01484677662277889,
+        "non_isolated_true_early_warning": true,
+        "non_numerical_margin": true,
+        "predictive_trigger_time_s": 10.29999999999998,
+        "scenario": "pw_T413.708161_v10.000000_tb0.500000_a1.000000",
+        "scenario_parameters": {
+          "auxiliary_availability": 1.0,
+          "grade_rad": -0.09966865249116204,
+          "initial_speed_mps": 10.0,
+          "initial_temperature_K": 413.7081614076934,
+          "leader_braking_duration_s": 1.0,
+          "leader_braking_start_s": 0.5,
+          "road_segment_start_m": 0.0
+        },
+        "supervisor_transition_time_s": 1.0999999999999999,
+        "true_early_warning_adjacent_count": 2,
+        "warning_time_s": 0.09999999999999964
+      },
+      {
+        "boundary_crossing_count": 1,
+        "boundary_uniquely_observed": true,
+        "case_id": 29,
+        "certificate_loss_time_s": 11.899999999999974,
+        "classification": "TRUE_EARLY_WARNING",
+        "critical_component": "collision_demand",
+        "critical_horizon_step": 3,
+        "critical_vehicle_id": 1,
+        "instantaneous_boundary_time_s": 11.999999999999973,
+        "minimum_rho_H_cert_at_trigger": -0.039520003210174764,
+        "minimum_rho_at_trigger": 0.0013294968136303709,
+        "non_isolated_true_early_warning": true,
+        "non_numerical_margin": true,
+        "predictive_trigger_time_s": 11.899999999999974,
+        "scenario": "pw_T453.708161_v10.000000_tb0.500000_a1.000000",
+        "scenario_parameters": {
+          "auxiliary_availability": 1.0,
+          "grade_rad": -0.09966865249116204,
+          "initial_speed_mps": 10.0,
+          "initial_temperature_K": 453.7081614076934,
+          "leader_braking_duration_s": 1.0,
+          "leader_braking_start_s": 0.5,
+          "road_segment_start_m": 0.0
+        },
+        "supervisor_transition_time_s": 0.0,
+        "true_early_warning_adjacent_count": 2,
+        "warning_time_s": 0.09999999999999964
+      },
+      {
+        "boundary_crossing_count": 1,
+        "boundary_uniquely_observed": true,
+        "case_id": 38,
+        "certificate_loss_time_s": 0.0,
+        "classification": "TRUE_EARLY_WARNING",
+        "critical_component": "friction_interval",
+        "critical_horizon_step": 3,
+        "critical_vehicle_id": 1,
+        "instantaneous_boundary_time_s": 6.099999999999994,
+        "minimum_rho_H_cert_at_trigger": -0.0030224861795121022,
+        "minimum_rho_at_trigger": 0.02319667104035191,
+        "non_isolated_true_early_warning": true,
+        "non_numerical_margin": true,
+        "predictive_trigger_time_s": 0.0,
+        "scenario": "pw_T453.708161_v15.000000_tb0.500000_a1.000000",
+        "scenario_parameters": {
+          "auxiliary_availability": 1.0,
+          "grade_rad": -0.09966865249116204,
+          "initial_speed_mps": 15.0,
+          "initial_temperature_K": 453.7081614076934,
+          "leader_braking_duration_s": 1.0,
+          "leader_braking_start_s": 0.5,
+          "road_segment_start_m": 0.0
+        },
+        "supervisor_transition_time_s": 0.0,
+        "true_early_warning_adjacent_count": 4,
+        "warning_time_s": 6.099999999999994
+      },
+      {
+        "boundary_crossing_count": 1,
+        "boundary_uniquely_observed": true,
+        "case_id": 41,
+        "certificate_loss_time_s": 0.0,
+        "classification": "TRUE_EARLY_WARNING",
+        "critical_component": "friction_interval",
+        "critical_horizon_step": 3,
+        "critical_vehicle_id": 1,
+        "instantaneous_boundary_time_s": 6.299999999999994,
+        "minimum_rho_H_cert_at_trigger": -0.0030224861795121022,
+        "minimum_rho_at_trigger": 0.02319667104035191,
+        "non_isolated_true_early_warning": true,
+        "non_numerical_margin": true,
+        "predictive_trigger_time_s": 0.0,
+        "scenario": "pw_T453.708161_v15.000000_tb1.000000_a1.000000",
+        "scenario_parameters": {
+          "auxiliary_availability": 1.0,
+          "grade_rad": -0.09966865249116204,
+          "initial_speed_mps": 15.0,
+          "initial_temperature_K": 453.7081614076934,
+          "leader_braking_duration_s": 1.0,
+          "leader_braking_start_s": 1.0,
+          "road_segment_start_m": 0.0
+        },
+        "supervisor_transition_time_s": 0.0,
+        "true_early_warning_adjacent_count": 2,
+        "warning_time_s": 6.299999999999994
+      }
+    ],
+    "scenarios": 81,
+    "scope": "targeted frozen operational scenario family only; no universal time-to-conflict theorem"
+  },
+  "result_manifest_hash": "63ae163953143d11f323ce1bb084e5e8a9cef0b9ed139b2beb9797e858d02977",
+  "schema_version": 1
+}

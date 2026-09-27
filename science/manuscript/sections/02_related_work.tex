@@ -1,0 +1,29 @@
+\section{Related Work}
+\subsection{Connected Platoons and Brake Physics}
+Connected controllers use predecessor/leader information to improve tracking and disturbance attenuation \cite{naus2010string,ploeg2011cacc}. Collision invariance and string stability remain distinct. Brake-temperature studies range from conduction models \cite{talati2009brake} to heavy-platoon fade compensation \cite{devika2022fade}. Li \emph{et al.} optimize composite friction, regenerative, and hydraulic-retarder braking on long descents \cite{li2025retarder}. These works motivate the plant model, but do not certify whether collision demand remains jointly satisfiable with thermally degrading friction and lagged gear/power-limited auxiliary actuation.
+
+\subsection{Safety-Critical Learning and Predictive Certification}
+CBF-QPs and high-order control barrier functions (HOCBFs) provide invariance conditions \cite{ames2017cbf,xiao2022hocbf}; differentiable layers are established in safety-critical learning \cite{ma2022differentiable,xiao2023barriernet,yang2023diffcbf}. Connected-vehicle CBF control and event-triggered safe reinforcement learning (RL) address networked and intersample uncertainty \cite{li2025connectedcbf,hu2025event}. Zhou \emph{et al.} combine multi-agent reinforcement learning (MARL), cooperative CBFs, uncertainty prediction, and a differentiable QP for platoons \cite{zhou2026cooperative}; Ohnemus \emph{et al.} study distributed predictive CBF certification and recoverability \cite{ohnemus2026dpcbf}; Sah and Keshavan derive a generic exact CBF feasibility reserve \cite{sah2026exact}; and Guo \emph{et al.} use multi-step reachable-set information in uncertainty-aware CBF-constrained model predictive control (MPC) \cite{guo2025uncertainty}. These works establish the generic safety and optimization tools used here.
+
+The present validation also includes an independent native reimplementation sanity check and an adapted heavy-duty matched comparison with the recent T-ITS method of Zhou \emph{et al.}; this comparison is a domain-transfer stress test rather than a ranking of the methods in their native domains.
+
+The remaining gap is a physics-specific predictive feasibility framework in which collision-braking demand competes with heat/fade-limited friction and lagged gear/power-limited auxiliary braking under sampled commands and communication constraints. Complete interval-plus-coupled-row geometry, finite-horizon interval propagation, and physical bottleneck attribution address that gap. Multi-agent proximal policy optimization (MAPPO) is one centralized-training-and-decentralized-execution (CTDE) nominal-controller substrate \cite{yu2022mappo}; local QP differentiation is a secondary diagnostic. Table~\ref{tab:positioning} compares the scope of closely related work.
+
+\begin{table*}[t]
+\caption{Scope relative to closest literature; entries describe explicit focus, not ranking.}
+\label{tab:positioning}
+\centering\scriptsize
+\begin{tabular}{lccccc}
+\toprule
+Work & Domain & Predictive/reachable & Exact feasibility & Differentiable QP & Coupled thermal dual brake \\
+\midrule
+Zhou \emph{et al.} \cite{zhou2026cooperative} & mixed platoon & uncertainty prediction & -- & yes & -- \\
+Ohnemus \emph{et al.} \cite{ohnemus2026dpcbf} & modular multi-agent & yes & recoverability & -- & -- \\
+Sah--Keshavan \cite{sah2026exact} & multi-robot & -- & yes & -- & -- \\
+Guo \emph{et al.} \cite{guo2025uncertainty} & autonomous driving & $n$-step set & -- & -- & -- \\
+Hu \emph{et al.} \cite{hu2025event} & automated vehicle & intersample & -- & -- & -- \\
+Li \emph{et al.} \cite{li2025retarder} & downhill truck & receding horizon & -- & -- & yes \\
+This work & heavy platoon & conditional interval tube & complete $\rho$ & local/conditional & yes \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1070" viewBox="0 0 1120 1070">
+<rect width="100%" height="100%" fill="white"/>
+<text x="560" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="bold">M7 Fleet Bottleneck Under Communication Impairments</text>
+<text x="560" y="58" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#555">rho_up is deployment-available; equality with instantaneous centralized minimum is not asserted under delay</text>
+<line x1="95.0" y1="275.00" x2="1025.0" y2="275.00" stroke="#e5e5e5"/>
+<text x="87.0" y="279.00" text-anchor="end" font-family="Arial" font-size="10">0.2679</text>
+<line x1="95.0" y1="238.00" x2="1025.0" y2="238.00" stroke="#e5e5e5"/>
+<text x="87.0" y="242.00" text-anchor="end" font-family="Arial" font-size="10">0.4213</text>
+<line x1="95.0" y1="201.00" x2="1025.0" y2="201.00" stroke="#e5e5e5"/>
+<text x="87.0" y="205.00" text-anchor="end" font-family="Arial" font-size="10">0.5747</text>
+<line x1="95.0" y1="164.00" x2="1025.0" y2="164.00" stroke="#e5e5e5"/>
+<text x="87.0" y="168.00" text-anchor="end" font-family="Arial" font-size="10">0.7281</text>
+<line x1="95.0" y1="127.00" x2="1025.0" y2="127.00" stroke="#e5e5e5"/>
+<text x="87.0" y="131.00" text-anchor="end" font-family="Arial" font-size="10">0.8815</text>
+<line x1="95.0" y1="90.00" x2="1025.0" y2="90.00" stroke="#e5e5e5"/>
+<text x="87.0" y="94.00" text-anchor="end" font-family="Arial" font-size="10">1.035</text>
+<line x1="95.0" y1="275.0" x2="1025.0" y2="275.0" stroke="#222"/>
+<line x1="95.0" y1="90.0" x2="95.0" y2="275.0" stroke="#222"/>
+<text x="95.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">0</text>
+<text x="281.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">1</text>
+<text x="467.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">2</text>
+<text x="653.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">3</text>
+<text x="839.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">4</text>
+<text x="1025.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">5</text>
+<polyline points="95.00,266.59 281.00,261.90 467.00,193.56 653.00,261.90 839.00,266.59 1025.00,259.22" fill="none" stroke="#0072B2" stroke-width="2"/>
+<line x1="95.0" y1="320.0" x2="117.0" y2="320.0" stroke="#0072B2" stroke-width="3"/>
+<text x="123.0" y="324.0" font-family="Arial" font-size="10">vehicle agreement</text>
+<polyline points="95.00,251.85 281.00,98.41 467.00,118.51 653.00,99.08 839.00,251.85 1025.00,98.41" fill="none" stroke="#D55E00" stroke-width="2"/>
+<line x1="320.0" y1="320.0" x2="342.0" y2="320.0" stroke="#D55E00" stroke-width="3"/>
+<text x="348.0" y="324.0" font-family="Arial" font-size="10">component agreement</text>
+<text x="560.0" y="307.0" text-anchor="middle" font-family="Arial" font-size="11">channel-case index (see Table XII)</text>
+<text x="18" y="182.5" transform="rotate(-90 18 182.5)" text-anchor="middle" font-family="Arial" font-size="11">agreement rate</text>
+<line x1="95.0" y1="545.00" x2="1025.0" y2="545.00" stroke="#e5e5e5"/>
+<text x="87.0" y="549.00" text-anchor="end" font-family="Arial" font-size="10">0</text>
+<line x1="95.0" y1="508.00" x2="1025.0" y2="508.00" stroke="#e5e5e5"/>
+<text x="87.0" y="512.00" text-anchor="end" font-family="Arial" font-size="10">47.04</text>
+<line x1="95.0" y1="471.00" x2="1025.0" y2="471.00" stroke="#e5e5e5"/>
+<text x="87.0" y="475.00" text-anchor="end" font-family="Arial" font-size="10">94.08</text>
+<line x1="95.0" y1="434.00" x2="1025.0" y2="434.00" stroke="#e5e5e5"/>
+<text x="87.0" y="438.00" text-anchor="end" font-family="Arial" font-size="10">141.1</text>
+<line x1="95.0" y1="397.00" x2="1025.0" y2="397.00" stroke="#e5e5e5"/>
+<text x="87.0" y="401.00" text-anchor="end" font-family="Arial" font-size="10">188.2</text>
+<line x1="95.0" y1="360.00" x2="1025.0" y2="360.00" stroke="#e5e5e5"/>
+<text x="87.0" y="364.00" text-anchor="end" font-family="Arial" font-size="10">235.2</text>
+<line x1="95.0" y1="545.0" x2="1025.0" y2="545.0" stroke="#222"/>
+<line x1="95.0" y1="360.0" x2="95.0" y2="545.0" stroke="#222"/>
+<text x="95.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">0</text>
+<text x="281.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">1</text>
+<text x="467.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">2</text>
+<text x="653.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">3</text>
+<text x="839.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">4</text>
+<text x="1025.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">5</text>
+<polyline points="95.00,545.00 281.00,545.00 467.00,529.27 653.00,545.00 839.00,545.00 1025.00,545.00" fill="none" stroke="#0072B2" stroke-width="2"/>
+<line x1="95.0" y1="590.0" x2="117.0" y2="590.0" stroke="#0072B2" stroke-width="3"/>
+<text x="123.0" y="594.0" font-family="Arial" font-size="10">missed</text>
+<polyline points="95.00,368.81 281.00,545.00 467.00,536.35 653.00,545.00 839.00,368.81 1025.00,545.00" fill="none" stroke="#D55E00" stroke-width="2"/>
+<line x1="320.0" y1="590.0" x2="342.0" y2="590.0" stroke="#D55E00" stroke-width="3"/>
+<text x="348.0" y="594.0" font-family="Arial" font-size="10">false</text>
+<text x="560.0" y="577.0" text-anchor="middle" font-family="Arial" font-size="11">channel-case index (see Table XII)</text>
+<text x="18" y="452.5" transform="rotate(-90 18 452.5)" text-anchor="middle" font-family="Arial" font-size="11">trigger count</text>
+<line x1="95.0" y1="815.00" x2="1025.0" y2="815.00" stroke="#e5e5e5"/>
+<text x="87.0" y="819.00" text-anchor="end" font-family="Arial" font-size="10">-1.052</text>
+<line x1="95.0" y1="778.00" x2="1025.0" y2="778.00" stroke="#e5e5e5"/>
+<text x="87.0" y="782.00" text-anchor="end" font-family="Arial" font-size="10">-0.8243</text>
+<line x1="95.0" y1="741.00" x2="1025.0" y2="741.00" stroke="#e5e5e5"/>
+<text x="87.0" y="745.00" text-anchor="end" font-family="Arial" font-size="10">-0.5969</text>
+<line x1="95.0" y1="704.00" x2="1025.0" y2="704.00" stroke="#e5e5e5"/>
+<text x="87.0" y="708.00" text-anchor="end" font-family="Arial" font-size="10">-0.3696</text>
+<line x1="95.0" y1="667.00" x2="1025.0" y2="667.00" stroke="#e5e5e5"/>
+<text x="87.0" y="671.00" text-anchor="end" font-family="Arial" font-size="10">-0.1422</text>
+<line x1="95.0" y1="630.00" x2="1025.0" y2="630.00" stroke="#e5e5e5"/>
+<text x="87.0" y="634.00" text-anchor="end" font-family="Arial" font-size="10">0.08516</text>
+<line x1="95.0" y1="815.0" x2="1025.0" y2="815.0" stroke="#222"/>
+<line x1="95.0" y1="630.0" x2="95.0" y2="815.0" stroke="#222"/>
+<text x="95.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">0</text>
+<text x="281.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">1</text>
+<text x="467.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">2</text>
+<text x="653.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">3</text>
+<text x="839.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">4</text>
+<text x="1025.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">5</text>
+<polyline points="95.00,638.41 281.00,638.41 467.00,638.41 653.00,638.41 839.00,638.41 1025.00,638.41" fill="none" stroke="#0072B2" stroke-width="2"/>
+<line x1="95.0" y1="860.0" x2="117.0" y2="860.0" stroke="#0072B2" stroke-width="3"/>
+<text x="123.0" y="864.0" font-family="Arial" font-size="10">centralized</text>
+<polyline points="95.00,806.59 281.00,638.41 467.00,806.59 653.00,638.41 839.00,806.59 1025.00,638.41" fill="none" stroke="#D55E00" stroke-width="2"/>
+<line x1="320.0" y1="860.0" x2="342.0" y2="860.0" stroke="#D55E00" stroke-width="3"/>
+<text x="348.0" y="864.0" font-family="Arial" font-size="10">rho_up</text>
+<text x="560.0" y="847.0" text-anchor="middle" font-family="Arial" font-size="11">channel-case index (see Table XII)</text>
+<text x="18" y="722.5" transform="rotate(-90 18 722.5)" text-anchor="middle" font-family="Arial" font-size="11">minimum reserve</text>
+</svg>

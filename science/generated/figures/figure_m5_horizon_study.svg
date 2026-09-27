@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1070" viewBox="0 0 1120 1070">
+<rect width="100%" height="100%" fill="white"/>
+<text x="560" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="bold">M5 Horizon, Conservatism, and Runtime</text>
+<text x="560" y="58" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#555">Prefix monotonicity verified under registered proposition assumptions</text>
+<line x1="95.0" y1="275.00" x2="1025.0" y2="275.00" stroke="#e5e5e5"/>
+<text x="87.0" y="279.00" text-anchor="end" font-family="Arial" font-size="10">-0.1086</text>
+<line x1="95.0" y1="238.00" x2="1025.0" y2="238.00" stroke="#e5e5e5"/>
+<text x="87.0" y="242.00" text-anchor="end" font-family="Arial" font-size="10">-0.07339</text>
+<line x1="95.0" y1="201.00" x2="1025.0" y2="201.00" stroke="#e5e5e5"/>
+<text x="87.0" y="205.00" text-anchor="end" font-family="Arial" font-size="10">-0.03823</text>
+<line x1="95.0" y1="164.00" x2="1025.0" y2="164.00" stroke="#e5e5e5"/>
+<text x="87.0" y="168.00" text-anchor="end" font-family="Arial" font-size="10">-0.003074</text>
+<line x1="95.0" y1="127.00" x2="1025.0" y2="127.00" stroke="#e5e5e5"/>
+<text x="87.0" y="131.00" text-anchor="end" font-family="Arial" font-size="10">0.03209</text>
+<line x1="95.0" y1="90.00" x2="1025.0" y2="90.00" stroke="#e5e5e5"/>
+<text x="87.0" y="94.00" text-anchor="end" font-family="Arial" font-size="10">0.06725</text>
+<line x1="95.0" y1="275.0" x2="1025.0" y2="275.0" stroke="#222"/>
+<line x1="95.0" y1="90.0" x2="95.0" y2="275.0" stroke="#222"/>
+<text x="95.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">1</text>
+<text x="281.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">2.8</text>
+<text x="467.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">4.6</text>
+<text x="653.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">6.4</text>
+<text x="839.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">8.2</text>
+<text x="1025.00" y="292.0" text-anchor="middle" font-family="Arial" font-size="10">10</text>
+<polyline points="95.00,98.41 301.67,125.52 508.33,165.95 1025.00,266.59" fill="none" stroke="#0072B2" stroke-width="2"/>
+<line x1="95.0" y1="320.0" x2="117.0" y2="320.0" stroke="#0072B2" stroke-width="3"/>
+<text x="123.0" y="324.0" font-family="Arial" font-size="10">minimum rho_H_cert</text>
+<text x="560.0" y="307.0" text-anchor="middle" font-family="Arial" font-size="11">prediction horizon (steps)</text>
+<text x="18" y="182.5" transform="rotate(-90 18 182.5)" text-anchor="middle" font-family="Arial" font-size="11">minimum reserve</text>
+<line x1="95.0" y1="545.00" x2="1025.0" y2="545.00" stroke="#e5e5e5"/>
+<text x="87.0" y="549.00" text-anchor="end" font-family="Arial" font-size="10">-0.001875</text>
+<line x1="95.0" y1="508.00" x2="1025.0" y2="508.00" stroke="#e5e5e5"/>
+<text x="87.0" y="512.00" text-anchor="end" font-family="Arial" font-size="10">0.006375</text>
+<line x1="95.0" y1="471.00" x2="1025.0" y2="471.00" stroke="#e5e5e5"/>
+<text x="87.0" y="475.00" text-anchor="end" font-family="Arial" font-size="10">0.01463</text>
+<line x1="95.0" y1="434.00" x2="1025.0" y2="434.00" stroke="#e5e5e5"/>
+<text x="87.0" y="438.00" text-anchor="end" font-family="Arial" font-size="10">0.02287</text>
+<line x1="95.0" y1="397.00" x2="1025.0" y2="397.00" stroke="#e5e5e5"/>
+<text x="87.0" y="401.00" text-anchor="end" font-family="Arial" font-size="10">0.03112</text>
+<line x1="95.0" y1="360.00" x2="1025.0" y2="360.00" stroke="#e5e5e5"/>
+<text x="87.0" y="364.00" text-anchor="end" font-family="Arial" font-size="10">0.03938</text>
+<line x1="95.0" y1="545.0" x2="1025.0" y2="545.0" stroke="#222"/>
+<line x1="95.0" y1="360.0" x2="95.0" y2="545.0" stroke="#222"/>
+<text x="95.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">1</text>
+<text x="281.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">2.8</text>
+<text x="467.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">4.6</text>
+<text x="653.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">6.4</text>
+<text x="839.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">8.2</text>
+<text x="1025.00" y="562.0" text-anchor="middle" font-family="Arial" font-size="10">10</text>
+<polyline points="95.00,536.59 301.67,536.59 508.33,480.53 1025.00,368.41" fill="none" stroke="#0072B2" stroke-width="2"/>
+<line x1="95.0" y1="590.0" x2="117.0" y2="590.0" stroke="#0072B2" stroke-width="3"/>
+<text x="123.0" y="594.0" font-family="Arial" font-size="10">conservative negative rate</text>
+<text x="560.0" y="577.0" text-anchor="middle" font-family="Arial" font-size="11">prediction horizon (steps)</text>
+<text x="18" y="452.5" transform="rotate(-90 18 452.5)" text-anchor="middle" font-family="Arial" font-size="11">negative-warning rate</text>
+<line x1="95.0" y1="815.00" x2="1025.0" y2="815.00" stroke="#e5e5e5"/>
+<text x="87.0" y="819.00" text-anchor="end" font-family="Arial" font-size="10">0.6268</text>
+<line x1="95.0" y1="778.00" x2="1025.0" y2="778.00" stroke="#e5e5e5"/>
+<text x="87.0" y="782.00" text-anchor="end" font-family="Arial" font-size="10">1.11</text>
+<line x1="95.0" y1="741.00" x2="1025.0" y2="741.00" stroke="#e5e5e5"/>
+<text x="87.0" y="745.00" text-anchor="end" font-family="Arial" font-size="10">1.593</text>
+<line x1="95.0" y1="704.00" x2="1025.0" y2="704.00" stroke="#e5e5e5"/>
+<text x="87.0" y="708.00" text-anchor="end" font-family="Arial" font-size="10">2.076</text>
+<line x1="95.0" y1="667.00" x2="1025.0" y2="667.00" stroke="#e5e5e5"/>
+<text x="87.0" y="671.00" text-anchor="end" font-family="Arial" font-size="10">2.559</text>
+<line x1="95.0" y1="630.00" x2="1025.0" y2="630.00" stroke="#e5e5e5"/>
+<text x="87.0" y="634.00" text-anchor="end" font-family="Arial" font-size="10">3.042</text>
+<line x1="95.0" y1="815.0" x2="1025.0" y2="815.0" stroke="#222"/>
+<line x1="95.0" y1="630.0" x2="95.0" y2="815.0" stroke="#222"/>
+<text x="95.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">1</text>
+<text x="281.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">2.8</text>
+<text x="467.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">4.6</text>
+<text x="653.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">6.4</text>
+<text x="839.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">8.2</text>
+<text x="1025.00" y="832.0" text-anchor="middle" font-family="Arial" font-size="10">10</text>
+<polyline points="95.00,806.59 301.67,762.93 508.33,722.72 1025.00,638.41" fill="none" stroke="#0072B2" stroke-width="2"/>
+<line x1="95.0" y1="860.0" x2="117.0" y2="860.0" stroke="#0072B2" stroke-width="3"/>
+<text x="123.0" y="864.0" font-family="Arial" font-size="10">P99 controller time</text>
+<text x="560.0" y="847.0" text-anchor="middle" font-family="Arial" font-size="11">prediction horizon (steps)</text>
+<text x="18" y="722.5" transform="rotate(-90 18 722.5)" text-anchor="middle" font-family="Arial" font-size="11">runtime (ms)</text>
+</svg>

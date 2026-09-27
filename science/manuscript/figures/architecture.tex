@@ -1,0 +1,14 @@
+\begin{tikzpicture}[font=\scriptsize,>=Latex,node distance=5mm and 7mm,
+ box/.style={draw,rounded corners,minimum width=24mm,minimum height=9mm,align=center,fill=gray!8}]
+\node[box] (obs) {local observation\\$o_i$, neighbor message};
+\node[box,right=of obs] (actor) {shared actor\\$[u_i^f,u_i^a]^{\rm RL}$};
+\node[box,right=of actor] (qp) {2-D hard QP\\projection + reserve};
+\node[box,right=of qp] (plant) {heterogeneous\\truck $i$};
+\node[box,below=of actor] (critic) {central critic $V_\omega(s)$\\training only};
+\draw[->] (obs)--(actor);
+\draw[->] (actor)--(qp);
+\draw[->] (qp)--(plant);
+\draw[->] (plant) to[bend right=22] (obs);
+\draw[dashed,->] (critic)--node[right]{advantage}(actor);
+\draw[dashed,<-] (critic)-|node[pos=.25,below]{global state, training logs}(plant);
+\end{tikzpicture}

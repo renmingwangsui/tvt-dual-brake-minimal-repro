@@ -1,0 +1,112 @@
+\section{Certificate-Aware Dual-Brake Control}
+\subsection{Hard Safety Polytope and Viability Reserve}
+The canonical forward decision is exactly $u_i=[u_i^f,u_i^a]^\top\in\mathbb R^2$. Jerk is evaluated as a comfort metric after the action is applied; it is neither a QP coordinate nor a slack variable. The hard projection is
+\begin{subequations}\label{eq:qp}
+\begin{align}
+u_i^*=\arg\min_{u_i\in\mathbb R^2}\;&\tfrac12(u_i-u_i^{\rm RL})^\top W_i(u_i-u_i^{\rm RL})
++\epsilon\|u_i\|^2\\
+\mathrm{s.t.}\;&\eqref{eq:collision_hocbf},\ \eqref{eq:thermal_hocbf},\ \eqref{eq:fade_cbf},\ \eqref{eq:auxcbf},\\
+&0\le u_i^f\le\bar u_i^f,\quad 0\le u_i^a\le\bar u_i^a(v_i,g_i),\\
+&c_i^Tu_i^f\le g_{i,k}^{T0}\ \text{when }v_i\le v_\epsilon.
+\end{align}
+\end{subequations}
+Here $u_i^{\rm RL}$ is the nominal preprojection command supplied by the policy used in this implementation; the certificate and hard QP accept any nominal command in the declared bounds. $W_i\succeq0$ is the command weighting and $\epsilon>0$ the regularizer, so $H_{{\rm QP},i}=W_i+2\epsilon I\succ0$. No hard row has slack in certified operation.
+
+For $v_i>v_\epsilon$, the thermal HOCBF contributes to the friction interval; for $v_i\le v_\epsilon$, it is replaced, not supplemented, by the undivided ZOH row. All command-dependent noncollision rows reduce to individual intervals $u_i^f\in[L_i^f,U_i^f]$ and $u_i^a\in[L_i^a,U_i^a]$: the friction interval intersects command magnitude, active thermal-mode, and fade bounds; the auxiliary interval intersects command magnitude, gear/power, and realized-force-CBF bounds. For $0<v_i\le v_\epsilon$, $c_i^T>0$ and the ZOH row is absorbed by $U_i^f=\min\{U_i^{f,\mathrm{other}},g_{i,k}^{T0}/c_i^T\}$; at $v_i=0$ it is the state-only gate $g_{i,k}^{T0}\ge0$. The collision row is the sole command-coupled face,
+\begin{equation}\label{eq:collisiondemand}
+A_i^fu_i^f+A_i^au_i^a\ge D_i^c,\quad
+D_i^c=\gamma_i^c+\mu_i^c-\widehat\Xi_i^c-\alpha_{2c}(\psi_{1i}^c).
+\end{equation}
+The physical collision-demand reserve is
+\begin{equation}\label{eq:reserve}
+M_i(\chi_{i,k})=A_i^fU_i^f+A_i^aU_i^a-D_i^c.
+\end{equation}
+It remains interpretable if an individual interval is empty, but its sign alone is then insufficient. Define $\Delta_i^f=U_i^f-L_i^f$, $\Delta_i^a=U_i^a-L_i^a$, and
+\begin{equation}
+q_{i,k}^{T0}=\begin{cases}g_{i,k}^{T0}/s_{T0},&v_i\le v_\epsilon,\\+\infty,&v_i>v_\epsilon,\end{cases}
+\end{equation}
+where $s_{T0}>0$ is a fixed temperature scale. With fixed positive normalizers $s_f$ [N], $s_a$ [N], and $s_M$ [m/s$^2$], define the complete signed certificate
+\begin{equation}\label{eq:rho}
+\rho_i(\chi_{i,k})=\min\!\left\{\Delta_i^f/s_f,\Delta_i^a/s_a,M_i(\chi_{i,k})/s_M,q_{i,k}^{T0}\right\}.
+\end{equation}
+We fix $s_f$ to reference cold friction-force capability, $s_a$ to reference auxiliary-force capability, $s_M$ to a reference deceleration/barrier-row scale, and $s_{T0}$ to a fixed one-step temperature scale. They are shared by every algorithm and never retuned per method. Positive choices preserve the sign but affect magnitude, trigger time, learning loss, and the normalized critical component; therefore $\Delta_i^f$, $\Delta_i^a$, $M_i$, and low-speed $g_{i,k}^{T0}$ are always logged and evaluated in a fixed scale-sensitivity study. Instantaneous feasibility is
+\begin{equation}\label{eq:instantfeas}
+\mathsf{Feas}_{i,k}:=(\rho_i(\chi_{i,k})\ge0).
+\end{equation}
+Thus nonnegative $M_i$ never hides an empty interval or a failed zero-coefficient thermal row: $M_i$ remains the physical collision supply-minus-demand term, while $\rho_i$ is the complete exact certificate. For fixed auxiliary command,
+\begin{align}
+u_i^f&\ge\ell_i^c(u_i^a)=\frac{D_i^c-A_i^au_i^a}{A_i^f},\label{eq:lower}\\
+u_i^f&\le U_i^f.\label{eq:upper}
+\end{align}
+The exact minimum in \eqref{eq:rho} is used for certification; only the learning path may smooth it.
+
+\subsection{Predictive Feasibility Formulation and Distributed Bottleneck Monitoring}
+Let $H_{\rm pred}$ be the theoretical predictive horizon in samples and $\mathcal X^B_{i,k\mid k}=\{\chi_{i,k}\}$. At step $\ell$, let $\Omega_\ell$ be the declared uncertainty box and $\mathbb U_i^B(\mathcal X)$ a sound set-valued command enclosure of the pointwise backup law $\kappa_i^B$, so $\{\kappa_i^B(\chi):\chi\in\mathcal X\}\subseteq\mathbb U_i^B(\mathcal X)$. Under the sound-enclosure assumption, the closed-loop tube obeys
+\begin{equation}\label{eq:tube}
+\mathcal X^B_{\ell+1}\supseteq\mathcal F_i^{\rm IA}(\mathcal X^B_\ell,\mathbb U_i^B(\mathcal X^B_\ell),\Omega_\ell).
+\end{equation}
+Table~\ref{tab:predictive_symbols} summarizes the predictive and learning notation, including the learning horizon $H_L$ in samples. Table~\ref{tab:constraints} distinguishes the hard projection rows from quantities, such as jerk, that lie outside the hard QP.
+In the theoretical construction, $\mathcal F_i^{\rm IA}$ must be a sound outward interval extension of the sampled plant, including all admissible discrete branches; $\Omega_\ell$ covers the declared plant, predecessor, thermal, gear, and communication uncertainty. The first transition uses the provisional hard-QP solution $u_{i,k}^{*,0}$. For $\ell\ge2$, $\mathbb U_i^B(\mathcal X)$ must enclose all pointwise backup commands, componentwise as an outward-rounded interval enclosure. A midpoint or center-point backup trajectory is not certified. The evaluated implementation uses native floating-point interval endpoints and an affine-saturation backup with fixed gear; directed rounding, complete gear/dwell branch hulls, and a global enclosure proof for its reserve callback are not established. Its numerical predictive output is therefore an empirical warning diagnostic, not a formally assured enclosure. Backup-command interval widths are logged.
+
+For comparison define the generally intractable true robust reserve
+\begin{equation}
+\rho_{i,k}^{H,{\rm true}}=\min_{1\le\ell\le H_{\rm pred}}\inf_{\chi\in\mathcal X^B_{i,k+\ell\mid k}}\rho_i(\chi).
+\end{equation}
+Under sound enclosure, the interval evaluation supplies a lower bound,
+\begin{align}
+\underline\rho^{\rm IA}_{i,k+\ell\mid k}
+&\le\inf_{\chi\in\mathcal X^B_{i,k+\ell\mid k}}\rho_i(\chi),\label{eq:predlower}\\
+\rho_{i,k}^{H,{\rm cert}}
+&=\min_{1\le\ell\le H_{\rm pred}}\underline\rho^{\rm IA}_{i,k+\ell\mid k}.\label{eq:rhocert}
+\end{align}
+Under the stated sound-enclosure assumption, $\rho^{H,{\rm cert}}\ge0$ certifies robust hard feasibility. A negative value is an inconclusive conservative warning unless exact reachable-set optimization proves equality. The current numerical monitor has not been shown to satisfy that assumption; it records the minimizing step and physical row for diagnostic use.
+
+For the theoretical certificate, the centralized minimum is
+\begin{equation}\label{eq:fleetreserve}
+\rho_{{\rm fleet},k}^{H,{\rm cert}}=\min_i\rho_{i,k}^{H,{\rm cert}},
+\end{equation}
+and is used only by centralized training/evaluation. Deployment uses successor-to-predecessor recursive aggregation
+\begin{align}
+\rho_{i,k}^{H,{\rm up}}&=\min\{\rho_{i,k}^{H,{\rm cert}},\rho_{i+1,k-d}^{H,{\rm up}}\},\label{eq:minconsensus}\\
+m_{i,k}^{\rm safe}&=(\rho_{i,k}^{H,{\rm up}},i_{\rm crit},\ell_{\rm crit},q_{\rm crit},t_k),
+\end{align}
+Here $d$ is the accepted message delay/age in samples, while $i_{\rm crit}$, $\ell_{\rm crit}$, and $q_{\rm crit}$ identify the critical vehicle, prediction step, and physical certificate row attaining the recursive minimum. A missing or over-age message is replaced by the declared conservative communication-age bound, not ignored. Consequently a truck knows only its age-bounded local/upstream aggregate; it does not instantly know the exact global minimum.
+
+\input{tables/predictive_symbols}
+
+\input{tables/constraint_table}
+
+\subsection{Secondary Learning Diagnostic}
+Under CTDE, a parameter-shared actor samples $\epsilon_i\sim\mathcal N(0,I)$ and $y_i=\mu_\theta(o_i)+\sigma_\theta(o_i)\odot\epsilon_i$, then maps each component to physical nominal bounds by $u_{ij}^{\rm RL}=l_{ij}+(h_{ij}-l_{ij})(\tanh y_{ij}+1)/2$. The stored nominal log density includes the Gaussian term and the $\tanh$/affine Jacobian. Proximal policy optimization (PPO) ratios therefore refer to the nominal sample, while the centralized critic and generalized advantage estimation (GAE) use the executed command $u_i^*$ and its resulting transition.
+
+The paired diagnostic augments the usual clipped PPO objective with an intervention term
+\begin{equation}\label{eq:actorloss}
+\mathcal J_\theta=\mathcal L_{\rm clip}+\beta\mathcal H(\pi_\theta)
+-\lambda_I\mathbb E\|u_i^{*,0}-u_i^{\rm RL}\|_{W_i}^{2}.
+\end{equation}
+Here $\beta\ge0$ is the entropy-regularization weight and $\lambda_I\ge0$ is the weight of the fixed intervention penalty.
+Both matched branches use the same nominal sample, reward, two-dimensional forward QP, executed transition, critic target, and optimizer schedule. DiffQP differentiates the provisional output $u_i^{*,0}$ in the intervention term only when the regularity gates below pass; StopGradient detaches only that output path. The direct dependence on $u_i^{\rm RL}$ is retained in both. Certified interval extrema, supervisor decisions, messages, backup switches, and physical dynamics are stop-gradient quantities. Reward terms never replace hard rows.
+
+\subsection{Karush--Kuhn--Tucker (KKT) Differentiation}
+Write the strongly convex two-variable safety QP as $\min_u u^\top H_{\rm QP}u/2-(Bp+h)^\top u$ subject to $Gu\le q$, where $G$ stacks the inequality-constraint rows and $q$ is their bound vector. For the forward projection, $p:=u^{\rm RL}$, $H_{\rm QP}:=W+2\epsilon I$, $B:=W$, and $h:=0$; the omitted term $p^\top Wp/2$ is constant in $u$. Let $\mathcal A$ index the active inequality rows. For an active set satisfying the linear independence constraint qualification (LICQ) and strict complementarity,
+\begin{equation}\label{eq:kktdiff}
+\begin{bmatrix}H_{\rm QP}&G_{\mathcal A}^\top\\G_{\mathcal A}&0\end{bmatrix}
+\begin{bmatrix}\partial u^*/\partial p\\\partial\lambda_{\mathcal A}^*/\partial p\end{bmatrix}
+=\begin{bmatrix}B\\0\end{bmatrix}.
+\end{equation}
+At active-set switches or nonregular active sets, a classical derivative need not exist. LICQ requires the active row gradients to be linearly independent. Because $u\in\mathbb R^2$, more than two simultaneously active inequality gradients cannot all be linearly independent. The calibrated learning scenarios commonly activate four rows and are therefore structurally degenerate for this local active-set KKT representation. The forward QP remains valid and solved; only the selected local derivative is unavailable. A predefined zero-gradient fallback returns zero QP-mediated gradient while preserving the forward action. Separate regular-case tests verify the local derivative against finite differences; the formal learning outcome is summarized in the Results section.
+
+\subsection{Supervisory Backup and Recovery}
+Define the backup-feasible domain
+\begin{equation}
+\begin{split}
+\mathcal K_i^B=\{\chi_i:\;&h_i^c,h_i^T,h_i^F,h_i^A,\psi_{1i}^c,\psi_{1i}^T,\rho_i,v_i\ge0,\\
+&q_i^{\rm gear/dwell}=1,\ q_i^{\rm comm}=1\},
+\end{split}\label{eq:backupdomain}
+\end{equation}
+where the two Boolean mode indicators mean that gear/dwell logic is admissible and the declared communication uncertainty bound remains valid. The auxiliary state barrier $h_i^A\ge0$ is not implied by the command interval and is therefore explicit. Choose fixed dimensionless thresholds $\rho_{\rm pred,trig}>\rho_{\rm hard,trig}\ge0$ and recovery levels $\rho_{\rm pred,rec}>\rho_{\rm pred,trig}$ and $\rho_{\rm hard,rec}>\rho_{\rm hard,trig}$. The supervisor has four modes: (i) NORMAL ACTOR; (ii) ANTICIPATORY when the evaluated predictive monitor is at or below $\rho_{\rm pred,trig}$, applying early auxiliary braking, headway expansion, and an upstream request; (iii) CERTIFIED BACKUP when $\rho_i\le\rho_{\rm hard,trig}$ or a hard residual fails; and (iv) CERTIFICATE LOSS/MINIMAL RISK when $\rho_i<0$. Recovery requires $N_{\rm rec}$ consecutive samples above both recovery levels.
+
+If the backup hard polytope is empty, no controller using the declared actuators can guarantee all constraints. The minimal-risk mode commands maximum feasible auxiliary braking, caps friction at the temperature/fade bound, requests upstream deceleration and headway expansion, and initiates a controlled stop; it records loss of certificate rather than silently using safety slack.
+
+\subsection{Training and Execution Algorithm}
+The executable two-pass order is: (1) measure/time-align state and messages; (2) construct robust/digital margins and hard command intervals; (3) obtain a nominal command $u_{i,k}^{\rm RL}$; (4) solve the normal hard QP for provisional $u_{i,k}^{*,0}$; (5) compute instantaneous $\rho_i$ and propagate the numerical predictive tube using $u_{i,k}^{*,0}$ first and $\mathbb U_i^B(\mathcal X)$ thereafter; (6) evaluate the numerical counterpart of $\rho_i^{H,{\rm cert}}$, physical attribution, the age-bounded recursive bottleneck, and supervisor mode; (7) keep $u^{*,0}$ in NORMAL, otherwise solve the anticipatory QP or backup; (8) if final $u_i^*\ne u_i^{*,0}$, re-evaluate the first transition and predictive value or run the equivalent fast verifier; (9) validate every final hard-row residual and apply $u_i^*$; and (10) log nominal, provisional, final, and both provisional/final predictive values. The implementation exposes this order as one non-reorderable routine. Deployment removes the critic and privileged centralized minimum.

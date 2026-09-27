@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "campaign_id": "PHASE_2M_EXT_ZHOU",
+  "stage": "adapted_heavy_duty_v1",
+  "registered_before_adapted_execution": true,
+  "parent_native_protocol_sha256": "eee753d06894fb4bfd74455c5d5f85edd3a7c147668933d2e17f89937d49b470",
+  "parent_native_manifest_sha256": "a8b50a0a79d0c4a04f097373dbea299915c77dacbb7b04868384db7cfa242a69",
+  "native_gate_status": "PASS",
+  "implementation_version": "zhou-adapted-heavy-v1.0.5",
+  "software_defect_correction": "v1.0.2 evaluates the basic auxiliary speed/power command envelope over the full one-sample physical speed interval [max(0,v-5*dt),v+5*dt], including all tabulated breakpoint speeds. v1.0.1 checked only the lower-speed side, but the unchanged actuator-lag plant can initially accelerate under a held braking command. v1.0.3 adds the physically required v>=0 projection after every unchanged-size RK4 substep and evaluates intermediate RK4 stages at projected speed; v1.0.2 exposed the missing standstill projection when the transferred policy stopped a truck. v1.0.5 retains already-computed post-hoc certificate logs only when the discarded shadow rollout raises the exact nonnegative-state boundary exception after emitting every vehicle log; v1.0.4 additionally imposed an unjustified 0.05 m/s snapshot threshold that missed an RK4 intermediate-stage crossing. This cannot affect the fixed Zhou command or physical trajectory. None of the rejected attempts created a result manifest.",
+  "standstill_projection": "Use the same heavy-vehicle right-hand side and RK4 simulation step; evaluate intermediate stages with speed=max(0,v) and project speed=max(0,v) after each RK4 substep. No controller, certificate, or policy quantity is used by this physical-domain projection.",
+  "evaluation_seed": 20260918,
+  "stochastic_training": false,
+  "stochastic_evaluation": false,
+  "statistics": "deterministic exact matched-case differences; no pseudo-replication and no confidence interval across heterogeneous scenarios",
+  "policy_transfer": {
+    "checkpoint": "results/external_baselines/zhou_tits_2025/native_v1/native_mappo_checkpoint.pt",
+    "retraining_in_heavy_plant": false,
+    "shared_actor": true,
+    "vehicle_to_native_agent_identity": [2, 4, 2],
+    "local_observation_mapping": "All unobserved native entries are held at equilibrium. Heavy gap is mapped to native spacing as clip(20*gap/65,5,35); own and predecessor speeds are clipped to [0,30] m/s and inserted at the assigned native CAV/predecessor positions.",
+    "adaptation_risk": "The fixed observation/action adapter and absence of HDVs in the all-controlled heavy-truck fleet can dominate transfer performance."
+  },
+  "zhou_collision_cbf": {
+    "candidate": "h=gap-0.3*speed",
+    "gain": 1.0,
+    "safe_acceleration_upper_bound": "(predecessor_speed-speed+gain*h)/0.3",
+    "acceleration_bounds_mps2": [-5.0, 5.0],
+    "cooperative_hdv_rows": "not applicable because the matched heavy fleet contains no uncontrolled HDV"
+  },
+  "action_adapter": {
+    "definition": "required_braking_N=max(0,nonbraking_force_N-mass_kg*a_safe); auxiliary_command_N=min(required_braking_N,minimum active speed/power envelope over [max(0,v-5*dt),v+5*dt], including tabulated breakpoints); friction_command_N=min(max(0,required_braking_N-auxiliary_command_N),cold friction command limit)",
+    "allocation_order": "auxiliary first, friction second",
+    "uses_only": ["current physical state", "registered plant parameters", "road grade", "basic friction magnitude limit", "basic auxiliary speed/power envelope"],
+    "prohibited_controller_inputs": ["rho_i", "rho_H_cert", "rho_H_up", "predictive interval tube", "certificate supervisor", "low-speed certificate logic", "physical argmin attribution", "thermal HOCBF", "fade CBF"]
+  },
+  "matched_cases": [
+    {"id": "nominal_long_descent", "steps": 300, "grade_rad": -0.09966865249116204, "initial_temperature_K": 350.0, "leader": "constant 15 m/s"},
+    {"id": "hot_start_413.7081614076934K", "steps": 180, "grade_rad": -0.09966865249116204, "initial_temperature_K": 413.7081614076934, "leader": "constant 15 m/s"},
+    {"id": "hot_start_453.7081614076934K", "steps": 180, "grade_rad": -0.09966865249116204, "initial_temperature_K": 453.7081614076934, "leader": "constant 15 m/s"},
+    {"id": "hot_start_461.7081614076934K", "steps": 180, "grade_rad": -0.09966865249116204, "initial_temperature_K": 461.7081614076934, "leader": "constant 15 m/s"},
+    {"id": "emergency_brake_during_descent", "steps": 120, "grade_rad": -0.09966865249116204, "initial_temperature_K": 350.0, "leader": "frozen predecessor EmergencyBrakingPulseLeader(0,15,0.5,1.0,registered nominal peak)"},
+    {"id": "communication_nominal_delay", "steps": 120, "grade_rad": 0.0, "initial_temperature_K": 350.0, "leader": "frozen predecessor EmergencyBrakingPulseLeader(0,15,0.5,1.0,registered nominal peak)", "channel": "fixed registered nominal delay"}
+  ],
+  "common_targets": {"speed_mps": 14.0, "spacing_m": 65.0},
+  "thermal_warning_temperature_K": 453.7081614076934,
+  "thermal_warning_definition": "Tcrit-10 K, exactly the middle frozen M3 start temperature",
+  "posthoc_evaluator": "accepted paper safety controller evaluated on the adapted trajectory after each Zhou command is fixed; outputs never feed back to adapted control",
+  "posthoc_shadow_integration": "The shadow step emits certificate logs before integration. Its next state is discarded and overwritten by the next adapted snapshot. If and only if shadow integration raises the exact nonnegative-state boundary exception after all vehicle logs are emitted, v1.0.5 retains those logs and advances only the shadow clock. With nonnegative initial forces and commands, the registered first-order actuator lags and RK4 step preserve force nonnegativity, so this exact exception identifies the forward-speed boundary.",
+  "frozen_input_validation": {
+    "physical_and_control_hashes_required": true,
+    "known_non_scientific_hash_drift_ignored": [
+      "manuscript/sections/04_dynamics_and_safety.tex",
+      "manuscript/sections/06_analysis.tex"
+    ],
+    "reason": "These manuscript files were already modified by the accepted final-submission revision. They are not executed by the simulator and this campaign does not modify them."
+  },
+  "paper_eligible": true,
+  "result_driven_retuning_permitted": false,
+  "manuscript_change_authorized": false
+}

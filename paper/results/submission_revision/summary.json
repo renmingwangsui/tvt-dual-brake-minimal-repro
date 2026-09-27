@@ -1,0 +1,364 @@
+{
+  "communication": {
+    "cases": [
+      {
+        "channel": "fixed_100ms",
+        "critical_component_agreement": 0.9166666666666666,
+        "critical_vehicle_agreement": 0.6055555555555555,
+        "false_triggers": 11,
+        "head_critical_component_agreement": 0.9166666666666666,
+        "head_critical_vehicle_agreement": 0.6166666666666667,
+        "head_false_triggers": 8,
+        "head_mean_abs_oracle_gap": 0.027231405774790662,
+        "head_missed_triggers": 9,
+        "mean_abs_oracle_gap": 0.016235022111714403,
+        "mean_message_age_s": 0.10170833333333312,
+        "missed_triggers": 20,
+        "samples": 360
+      },
+      {
+        "channel": "fixed_200ms",
+        "critical_component_agreement": 0.8861111111111111,
+        "critical_vehicle_agreement": 0.6277777777777778,
+        "false_triggers": 17,
+        "head_critical_component_agreement": 0.875,
+        "head_critical_vehicle_agreement": 0.6416666666666667,
+        "head_false_triggers": 10,
+        "head_mean_abs_oracle_gap": 0.05493513967658629,
+        "head_missed_triggers": 7,
+        "mean_abs_oracle_gap": 0.030718599671231375,
+        "mean_message_age_s": 0.20174999999999954,
+        "missed_triggers": 13,
+        "samples": 360
+      },
+      {
+        "channel": "fixed_300ms",
+        "critical_component_agreement": 0.8472222222222222,
+        "critical_vehicle_agreement": 0.6388888888888888,
+        "false_triggers": 19,
+        "head_critical_component_agreement": 0.8166666666666667,
+        "head_critical_vehicle_agreement": 0.6166666666666667,
+        "head_false_triggers": 11,
+        "head_mean_abs_oracle_gap": 0.07809479606731345,
+        "head_missed_triggers": 6,
+        "mean_abs_oracle_gap": 0.044131866854757756,
+        "mean_message_age_s": 0.3001249999999993,
+        "missed_triggers": 12,
+        "samples": 360
+      },
+      {
+        "channel": "fixed_50ms",
+        "critical_component_agreement": 0.9166666666666666,
+        "critical_vehicle_agreement": 0.6055555555555555,
+        "false_triggers": 11,
+        "head_critical_component_agreement": 0.9166666666666666,
+        "head_critical_vehicle_agreement": 0.6166666666666667,
+        "head_false_triggers": 8,
+        "head_mean_abs_oracle_gap": 0.027231405774790662,
+        "head_missed_triggers": 9,
+        "mean_abs_oracle_gap": 0.016235022111714403,
+        "mean_message_age_s": 0.10170833333333312,
+        "missed_triggers": 20,
+        "samples": 360
+      },
+      {
+        "channel": "bounded_delay",
+        "critical_component_agreement": 0.3638888888888889,
+        "critical_vehicle_agreement": 0.30277777777777776,
+        "false_triggers": 224,
+        "head_critical_component_agreement": 0.09166666666666666,
+        "head_critical_vehicle_agreement": 0.0,
+        "head_false_triggers": 112,
+        "head_mean_abs_oracle_gap": 1.1180104774437507,
+        "head_missed_triggers": 0,
+        "mean_abs_oracle_gap": 0.7453417026359385,
+        "mean_message_age_s": 0.305,
+        "missed_triggers": 0,
+        "samples": 360
+      },
+      {
+        "channel": "burst_loss",
+        "critical_component_agreement": 1.0,
+        "critical_vehicle_agreement": 0.32222222222222224,
+        "false_triggers": 0,
+        "head_critical_component_agreement": 1.0,
+        "head_critical_vehicle_agreement": 0.9666666666666667,
+        "head_false_triggers": 0,
+        "head_mean_abs_oracle_gap": 0.0004326123442345141,
+        "head_missed_triggers": 0,
+        "mean_abs_oracle_gap": 0.0002894251417775715,
+        "mean_message_age_s": 0.007499999999999982,
+        "missed_triggers": 0,
+        "samples": 360
+      },
+      {
+        "channel": "nominal_delay",
+        "critical_component_agreement": 0.9166666666666666,
+        "critical_vehicle_agreement": 0.6055555555555555,
+        "false_triggers": 11,
+        "head_critical_component_agreement": 0.9166666666666666,
+        "head_critical_vehicle_agreement": 0.6166666666666667,
+        "head_false_triggers": 8,
+        "head_mean_abs_oracle_gap": 0.027231405774790662,
+        "head_missed_triggers": 9,
+        "mean_abs_oracle_gap": 0.016235022111714403,
+        "mean_message_age_s": 0.10170833333333312,
+        "missed_triggers": 20,
+        "samples": 360
+      },
+      {
+        "channel": "packet_loss",
+        "critical_component_agreement": 0.9972222222222222,
+        "critical_vehicle_agreement": 0.32222222222222224,
+        "false_triggers": 0,
+        "head_critical_component_agreement": 1.0,
+        "head_critical_vehicle_agreement": 0.9666666666666667,
+        "head_false_triggers": 0,
+        "head_mean_abs_oracle_gap": 0.0002711700191657259,
+        "head_missed_triggers": 0,
+        "mean_abs_oracle_gap": 0.0001817969250650461,
+        "mean_message_age_s": 0.004166666666666658,
+        "missed_triggers": 0,
+        "samples": 360
+      },
+      {
+        "channel": "stale_messages",
+        "critical_component_agreement": 0.3638888888888889,
+        "critical_vehicle_agreement": 0.30277777777777776,
+        "false_triggers": 224,
+        "head_critical_component_agreement": 0.09166666666666666,
+        "head_critical_vehicle_agreement": 0.0,
+        "head_false_triggers": 112,
+        "head_mean_abs_oracle_gap": 1.1180104774437507,
+        "head_missed_triggers": 0,
+        "mean_abs_oracle_gap": 0.7453417026359385,
+        "mean_message_age_s": 0.305,
+        "missed_triggers": 0,
+        "samples": 360
+      },
+      {
+        "channel": "zero_delay",
+        "critical_component_agreement": 1.0,
+        "critical_vehicle_agreement": 0.3333333333333333,
+        "false_triggers": 0,
+        "head_critical_component_agreement": 1.0,
+        "head_critical_vehicle_agreement": 1.0,
+        "head_false_triggers": 0,
+        "head_mean_abs_oracle_gap": 3.0507368636864307e-06,
+        "head_missed_triggers": 0,
+        "mean_abs_oracle_gap": 3.0507368636864307e-06,
+        "mean_message_age_s": 0.0,
+        "missed_triggers": 0,
+        "samples": 360
+      }
+    ],
+    "oracle": "instantaneous centralized fleet minimum; deployment estimate is age-delayed"
+  },
+  "config_sha256": "d10d13eb82490bcfb2151f7db2114e38d8896810255b3138d17540cddabd5104",
+  "frontier": {
+    "conditioning": "one-step initial command geometry at 15 m/s and 10% downgrade; initial bumper gap varied; not a reachable-domain theorem",
+    "dual_feasible_points": 1114,
+    "dual_only_example": {
+      "M_dual_mps2": 0.053908935590229135,
+      "M_friction_only_mps2": -2.93259170346676,
+      "active_auxiliary_limit": "realized_force_cbf",
+      "active_friction_limit": "thermal_hocbf",
+      "dual_feasible": 1,
+      "friction_only_feasible": 0,
+      "initial_gap_m": 24.0,
+      "rho_dual": 0.026954467795114567,
+      "rho_friction_only": -1.46629585173338,
+      "temperature_K": 413.0
+    },
+    "dual_only_points": 43,
+    "friction_feasible_points": 1071,
+    "gap_range_m": [
+      15.0,
+      90.0
+    ],
+    "grid_points": 1275,
+    "temperature_range_K": [
+      365.0,
+      461.0
+    ]
+  },
+  "matched_baseline": {
+    "cases": [
+      {
+        "anticipatory_samples": 156,
+        "final_hard_row_failure_samples": 0,
+        "hard_certificate_loss_samples": 0,
+        "maximum_temperature_K": 456.91745115648035,
+        "method": "certificate_supervisor",
+        "minimum_rho": 0.059255655707862294,
+        "samples": 300,
+        "scenario": "descent"
+      },
+      {
+        "anticipatory_samples": 0,
+        "final_hard_row_failure_samples": 0,
+        "hard_certificate_loss_samples": 0,
+        "maximum_temperature_K": 457.09910248487904,
+        "method": "instantaneous_only",
+        "minimum_rho": 0.059255655707862294,
+        "samples": 300,
+        "scenario": "descent"
+      },
+      {
+        "anticipatory_samples": 300,
+        "final_hard_row_failure_samples": 0,
+        "hard_certificate_loss_samples": 0,
+        "maximum_temperature_K": 458.7699458627618,
+        "method": "certificate_supervisor",
+        "minimum_rho": 0.02319667104035191,
+        "samples": 300,
+        "scenario": "hot_descent"
+      },
+      {
+        "anticipatory_samples": 0,
+        "final_hard_row_failure_samples": 0,
+        "hard_certificate_loss_samples": 0,
+        "maximum_temperature_K": 458.7699458627618,
+        "method": "instantaneous_only",
+        "minimum_rho": 0.02319667104035191,
+        "samples": 300,
+        "scenario": "hot_descent"
+      },
+      {
+        "anticipatory_samples": 294,
+        "final_hard_row_failure_samples": 6,
+        "hard_certificate_loss_samples": 6,
+        "maximum_temperature_K": 458.89383778912764,
+        "method": "certificate_supervisor",
+        "minimum_rho": -2.0763460517520276,
+        "samples": 300,
+        "scenario": "leader_brake"
+      },
+      {
+        "anticipatory_samples": 0,
+        "final_hard_row_failure_samples": 6,
+        "hard_certificate_loss_samples": 6,
+        "maximum_temperature_K": 458.89383778912764,
+        "method": "instantaneous_only",
+        "minimum_rho": -2.0763460517520276,
+        "samples": 300,
+        "scenario": "leader_brake"
+      }
+    ],
+    "matching": "same plant, physical hard rows, nominal controller, initial state, leader, road, channel, sampling and seed; baseline disables only predictive/upstream supervisory triggering"
+  },
+  "normalization": {
+    "cases": [
+      {
+        "critical_component_agreement": 0.9375,
+        "multiplier": 0.5,
+        "scale": "s_f",
+        "sign_agreement": 1.0
+      },
+      {
+        "critical_component_agreement": 1.0,
+        "multiplier": 1.0,
+        "scale": "s_f",
+        "sign_agreement": 1.0
+      },
+      {
+        "critical_component_agreement": 0.8958333333333334,
+        "multiplier": 2.0,
+        "scale": "s_f",
+        "sign_agreement": 1.0
+      },
+      {
+        "critical_component_agreement": 0.8958333333333334,
+        "multiplier": 0.5,
+        "scale": "s_a",
+        "sign_agreement": 1.0
+      },
+      {
+        "critical_component_agreement": 1.0,
+        "multiplier": 1.0,
+        "scale": "s_a",
+        "sign_agreement": 1.0
+      },
+      {
+        "critical_component_agreement": 0.9375,
+        "multiplier": 2.0,
+        "scale": "s_a",
+        "sign_agreement": 1.0
+      },
+      {
+        "critical_component_agreement": 1.0,
+        "multiplier": 0.5,
+        "scale": "s_M",
+        "sign_agreement": 1.0
+      },
+      {
+        "critical_component_agreement": 1.0,
+        "multiplier": 1.0,
+        "scale": "s_M",
+        "sign_agreement": 1.0
+      },
+      {
+        "critical_component_agreement": 1.0,
+        "multiplier": 2.0,
+        "scale": "s_M",
+        "sign_agreement": 1.0
+      }
+    ],
+    "scope": "288 frozen M1 high-speed snapshot states; trigger times require new closed-loop reruns and are not inferred here"
+  },
+  "physical_design_sensitivity": {
+    "bounds": {
+      "auxiliary_scale": [
+        0.0,
+        1.0
+      ],
+      "cooling": [
+        480.1057964514239,
+        624.3336853157066
+      ],
+      "fade_offset_K": [
+        -0.8399328053755699,
+        0.8399328053755699
+      ],
+      "friction_limit": [
+        123603.03444794951,
+        127629.1919218241
+      ],
+      "mass_kg": [
+        24000.0,
+        33200.0
+      ],
+      "tau_f_s": [
+        0.14,
+        0.26
+      ]
+    },
+    "conditioning": "one-step 15 m/s, 413 K, 24 m initial-gap command geometry; independent stratified parameter design, not a physical probability distribution; thermal capacity and auxiliary lag held at provenance values because their registered intervals are degenerate",
+    "design_points": 300,
+    "limiting_component_counts": {
+      "auxiliary_interval": 128,
+      "collision_demand": 172
+    },
+    "maximum_rho": 0.05916876417361178,
+    "minimum_rho": -1.5048613007192837,
+    "nonnegative_count": 133
+  },
+  "physical_parameters_retuned": false,
+  "predictive": {
+    "followup_hash_verified": true,
+    "future_diagnostic_scope": "future realized controls can depart from the certified backup, so this count is not a proof or refutation of the tube theorem",
+    "future_executed_trace_diagnostic_violations": 326,
+    "minimum_same_sample_rho": 0.0,
+    "negative_classifications": {
+      "CONSERVATIVE_WARNING_WITHOUT_BOUNDARY": 32,
+      "SIMULTANEOUS_WARNING": 39,
+      "TRUE_EARLY_WARNING": 10
+    },
+    "positive_same_sample_violations": 0,
+    "positive_sample_count": 32849,
+    "representatives": {
+      "CONSERVATIVE_WARNING_WITHOUT_BOUNDARY": "pw_T413.708161_v15.000000_tb1.000000_a0.000000",
+      "TRUE_EARLY_WARNING": "pw_T413.708161_v10.000000_tb0.500000_a1.000000"
+    }
+  }
+}

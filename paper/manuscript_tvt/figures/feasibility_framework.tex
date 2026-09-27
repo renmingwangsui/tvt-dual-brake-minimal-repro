@@ -1,0 +1,21 @@
+\begin{tikzpicture}[x=1cm,y=1cm,>=Latex,
+  block/.style={draw=black!70,rounded corners=1pt,align=center,inner sep=5pt,font=\footnotesize,
+                minimum height=1.35cm},
+  physical/.style={block,fill=gray!9},certificate/.style={block,fill=blue!6},
+  action/.style={block,fill=green!7},flow/.style={->,thick,black!65}]
+\node[physical,text width=2.25cm] (physics) at (1.2,0) {\textbf{Opposed physical bounds}\\collision braking demand $D_i^c$\\thermal/fade friction cap\\auxiliary envelope};
+\node[physical,text width=2.55cm] (geometry) at (4.25,0) {\textbf{Hard command geometry}\\$(u_i^f,u_i^a)$ intervals\\$A_i^fu_i^f+A_i^au_i^a\ge D_i^c$};
+\node[certificate,text width=1.85cm] (instant) at (7.05,0) {\textbf{Instantaneous}\\$\rho_i\ge0\ \Leftrightarrow$\\hard set nonempty};
+\node[certificate,text width=2.05cm] (predict) at (9.75,0) {\textbf{Theoretical predictive tube}\\$\rho_i^{H,\mathrm{cert}}\ge0$\\under sound enclosure};
+\node[certificate,text width=2.1cm] (fleet) at (12.55,0) {\textbf{Age-aware bottleneck}\\$\rho_i^{H,\mathrm{up}}$\\vehicle / step / limit};
+\node[action,text width=2.7cm] (supervisor) at (9.75,-2.3) {\textbf{Four-mode supervision}\\normal / anticipate / backup / loss\\reverify changed command};
+\node[action,text width=2.7cm] (execution) at (4.25,-2.3) {\textbf{Heavy-duty platoon}\\apply $(u_i^f,u_i^a)$\\measure thermal/actuator state};
+\draw[flow] (physics) -- (geometry);
+\draw[flow] (geometry) -- (instant);
+\draw[flow] (instant) -- (predict);
+\draw[flow] (predict) -- (fleet);
+\draw[flow] (fleet.south) |- (supervisor.east);
+\draw[flow] (instant.south) |- (supervisor.north west);
+\draw[flow] (supervisor) -- node[above,font=\scriptsize] {hard-feasible commands} (execution);
+\draw[flow] (execution.west) -| node[pos=.28,below,font=\scriptsize] {sampled state} (physics.south);
+\end{tikzpicture}

@@ -1,0 +1,5 @@
+grid_points=25921
+friction_only_feasible_fraction=0.322634
+dual_brake_feasible_fraction=0.781220
+absolute_fraction_gain=0.458586
+scope=normalized instantaneous analytical sweep; not vehicle or RL evidence

@@ -1,0 +1,26 @@
+{
+  "analysis_source_sha256": "418c5152505d11f7a0d9de6920c5a65eecadbdc721b9a8be9130bfe9e4598f42",
+  "analysis_summary": {
+    "path": "results/paper_candidate/phase2m-paper-d10d13eb-6634280c/analysis_summary.json",
+    "sha256": "17685c37f87f9e383a9faea6b72fd99990cb6b94a4f14dfe095a50ba92eb152f"
+  },
+  "figure_manifest_sha256": "c36d349e40c08d7209e77c055b61da26cf559e4d77ae3fb48b40dede9288f61a",
+  "paper_eligible": true,
+  "phase": "2M-PAPER",
+  "reports": [
+    {
+      "path": "docs/phase2m_paper_run_report.md",
+      "sha256": "8ba9480e026d715a33db2689e0bfff61e7173aa68d35761da062f46e1a850bec"
+    },
+    {
+      "path": "docs/phase2m_claim_evidence.md",
+      "sha256": "c3dfdffdd4fd3fe1b487b7325e0b950856f42d9d3a4bf270bcb3814104ec6c4b"
+    },
+    {
+      "path": "docs/phase2m_result_integrity.md",
+      "sha256": "5bec63af30c5bf5a9c454adde0ce6a7570fb994e5196dfce770a0f1d0dbe092c"
+    }
+  ],
+  "result_manifest_hash": "c7c3859a3f40ee32d4d59fbb8623ce6ed92aa07ccbac440682d0eaa3790b092c",
+  "table_manifest_sha256": "b17360cc46dd8362fedacfd56d90ac0daaffde3886c87fc139ff413baba94ecf"
+}

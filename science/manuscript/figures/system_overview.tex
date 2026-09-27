@@ -1,0 +1,16 @@
+\begin{tikzpicture}[font=\scriptsize,>=Latex,node distance=3mm and 5mm,
+ box/.style={draw,rounded corners,minimum height=7mm,align=center,fill=gray!8},
+ truck/.style={draw,minimum width=16mm,minimum height=7mm,fill=white,align=center}]
+\node[box] (road) {grade $\theta(s)$\\ambient $T_a$};
+\node[truck,right=9mm of road] (v0) {leader $0$};
+\node[truck,right=9mm of v0] (v1) {truck $1$\\$m_1,\tau_1^{f/a},C_1$};
+\node[truck,right=6mm of v1] (v2) {truck $2$\\$m_2,\tau_2^{f/a},C_2$};
+\node[truck,right=6mm of v2] (vn) {truck $N$\\heterogeneous};
+\draw[->] (road)--(v0);
+\draw[<->] (v0)--node[above]{$d_1$}(v1);
+\draw[<->] (v1)--node[above]{$d_2$}(v2);
+\draw[dashed,->] (v0) to[bend left=28] node[above]{V2V state/intent} (v2);
+\draw[dashed,->] (v1) to[bend left=22] (vn);
+\draw[->] (v2)--(vn);
+\node[below=7mm of v2,align=center] {long descent: collision demand sets a braking lower bound;\\heat/fade cap friction braking, while auxiliary braking preserves reserve};
+\end{tikzpicture}

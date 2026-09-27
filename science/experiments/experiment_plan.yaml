@@ -1,0 +1,79 @@
+study: conflict_aware_safe_mappo_diffqp_tits
+status: SYSTEM_LEVEL_EXPERIMENTS_REQUIRED
+evidence_policy: never_replace_missing_runs_with_synthetic_learning_results
+primary_hypotheses:
+  H1_diffqp: diffqp_reduces_intervention_and_increases_nominal_feasibility_vs_identical_stop_gradient_filter
+  H2_allocation: learned_dual_brake_allocation_improves_hard_feasibility_reserve_vs_friction_only_and_fixed_allocation
+  H3_barriers: temperature_and_fade_barriers_prevent_their_targeted_failures_without_unacceptable_mission_cost
+  H4_robustness: directional_plus_sampled_data_margins_reduce_ood_certificate_loss_vs_no_margin
+  H5_prediction: predictive_vehicle_and_fleet_reserves_improve_warning_and_certificate_loss_vs_instantaneous_only
+seeds: [11, 23, 37, 51, 79, 101, 137, 181, 223, 271]
+control:
+  sample_time_s: AUTHOR_DECISION
+  horizon_s: AUTHOR_DECISION
+  qp_solver: AUTHOR_DECISION
+  target_hardware: DATA_REQUIRED
+  low_speed_threshold_mps: AUTHOR_DECISION
+  prediction_horizon_steps: [1, 3, 5, 10]
+  learning_horizon_steps: AUTHOR_DECISION
+  predictive_trigger_must_exceed_hard_trigger: true
+splits: {identification: disjoint, validation: disjoint, test: locked_before_training}
+scenarios:
+  train:
+    platoon_size: [3, 4, 5]
+    grade_percent: DATA_REQUIRED
+    initial_temperature_degC: DATA_REQUIRED
+    gross_mass_kg: DATA_REQUIRED
+    friction_tau_s: DATA_REQUIRED
+    auxiliary_tau_s: DATA_REQUIRED
+  held_out:
+    platoon_size: [10, 20, 40]
+    road: [unseen_long_descent, abrupt_grade_end, slope_stop, low_speed_restart]
+    events: [leader_emergency_brake, hot_start, combined_hot_grade_delay]
+    communication: [burst_loss, long_tail_delay, stale_packet, inconsistent_packet]
+    model_bias: [mass, grade, cooling, fade_map, friction_lag, auxiliary_lag, joint_bias]
+baselines:
+  - rule_based_descent_controller
+  - robust_mpc_same_model_and_bounds
+  - independent_policies
+  - predecessor_following_controller
+  - mappo
+  - mappo_reward_penalty
+  - mappo_nondifferentiable_hocbf_filter
+  - safe_mappo_same_qp_stop_gradient
+  - safe_mappo_diffqp
+allocation_ablations: [friction_only, auxiliary_first_fixed, learned_dual, centralized_dual]
+barrier_ablations: [collision_only, collision_plus_temperature, collision_temperature_fade]
+margin_ablations: [none, symmetric_absolute, directional, directional_plus_sampled_data]
+reserve_ablations: [instantaneous_only, predictive_vehicle, predictive_vehicle_plus_fleet]
+metrics:
+  safety: [collision_episode, overtemperature_episode, fade_breach_episode, certificate_loss, min_hc, min_hT, min_hF, min_M, min_predictive_MH, min_fleet_predictive_MH, early_warning_time_s, certificate_loss_episode_count, worst_emergency_trace]
+  learning: [intervention_rate, correction_l2, nominal_feasible_rate, convergence_steps, held_out_return, L_instant_reserve, L_predictive_reserve, L_fleet_reserve]
+  operations: [mission_time_s, speed_rmse_mps, spacing_rmse_m, friction_energy_MJ, auxiliary_energy_MJ]
+  string_stability: [max_G2, max_Ginf, peak_error_by_vehicle, scaling_with_platoon_length]
+  solver: [primal_residual, dual_residual, kkt_condition, active_set_switch, jerk_slack]
+  timing: [assembly_mean_p95_p99_ms, solve_mean_p95_p99_ms, validation_mean_p95_p99_ms, end_to_end_p99_ms]
+statistics:
+  unit: independent_training_seed
+  minimum_seeds: 10
+  power_analysis: prospective_paired
+  intervals: paired_bootstrap_95_percent
+  descriptive: [mean, standard_deviation]
+  effect_size: paired_standardized_mean_difference
+  multiplicity: holm_for_registered_primary_contrasts
+logging:
+  per_step: [augmented_state, nominal_action, executed_action, barriers, psi1, individual_interval_flags, instantaneous_reserve, predictive_reserve_by_step, predictive_reserve_vehicle, fleet_predictive_reserve, critical_vehicle_id, critical_prediction_step, safety_intent_message, supervisor_mode, active_set, qp_status, residuals, slack, timing, predictive_trigger, hard_trigger]
+  provenance: [config_hash, code_commit, environment_version, checkpoint_hash, seed, hardware]
+required_figures:
+  - F1_emergency_descent_trace
+  - F2_physical_feasibility_envelope_real_units
+  - F3_diffqp_vs_stop_gradient
+  - F4_safety_efficiency_pareto
+  - F5_barrier_ablation_failure_modes
+  - F6_ood_certificate_loss_distribution
+  - F7_string_stability_by_vehicle_and_N
+  - F8_latency_mean_p95_p99
+  - P1_predictive_warning_trace
+  - P2_vehicle_time_predictive_reserve_heatmap
+  - P3_fleet_reserve_and_bottleneck_identity
+  - P4_instantaneous_vs_predictive_vs_predictive_fleet

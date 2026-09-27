@@ -1,0 +1,397 @@
+{
+  "fade": {
+    "axis_calibration": {
+      "friction_axis": {
+        "pixel_mu_0": [
+          91.0,
+          769.0
+        ],
+        "pixel_mu_0_6": [
+          91.0,
+          127.0
+        ]
+      },
+      "pixel_uncertainty": {
+        "x_px": 2.0,
+        "y_px": 2.0
+      },
+      "temperature_axis": {
+        "pixel_100F": [
+          91.0,
+          769.0
+        ],
+        "pixel_800F": [
+          1017.0,
+          769.0
+        ]
+      }
+    },
+    "label": "DIGITIZED_REPRESENTATIVE_HEAVY_TRUCK_S_CAM_FADE",
+    "raw_digitized_points": {
+      "inferior_lining": [
+        {
+          "coefficient_of_friction": 0.3822429906542056,
+          "pixel_x": 105.0,
+          "pixel_y": 360.0,
+          "temperature_K": 316.80730741540674,
+          "temperature_degF": 110.58315334773218
+        },
+        {
+          "coefficient_of_friction": 0.37383177570093457,
+          "pixel_x": 235.0,
+          "pixel_y": 369.0,
+          "temperature_K": 371.40293976481877,
+          "temperature_degF": 208.85529157667386
+        },
+        {
+          "coefficient_of_friction": 0.3364485981308411,
+          "pixel_x": 366.0,
+          "pixel_y": 409.0,
+          "temperature_K": 426.4185385169186,
+          "temperature_degF": 307.88336933045355
+        },
+        {
+          "coefficient_of_friction": 0.29018691588785045,
+          "pixel_x": 500.0,
+          "pixel_y": 458.5,
+          "temperature_K": 482.6940364770818,
+          "temperature_degF": 409.1792656587473
+        },
+        {
+          "coefficient_of_friction": 0.22056074766355138,
+          "pixel_x": 632.0,
+          "pixel_y": 533.0,
+          "temperature_K": 538.1296016318695,
+          "temperature_degF": 508.963282937365
+        },
+        {
+          "coefficient_of_friction": 0.1574766355140187,
+          "pixel_x": 764.0,
+          "pixel_y": 600.5,
+          "temperature_K": 593.5651667866571,
+          "temperature_degF": 608.7473002159827
+        },
+        {
+          "coefficient_of_friction": 0.11355140186915887,
+          "pixel_x": 898.0,
+          "pixel_y": 647.5,
+          "temperature_K": 649.8406647468203,
+          "temperature_degF": 710.0431965442765
+        },
+        {
+          "coefficient_of_friction": 0.044859813084112146,
+          "pixel_x": 1003.0,
+          "pixel_y": 721.0,
+          "temperature_K": 693.9371370290377,
+          "temperature_degF": 789.4168466522679
+        }
+      ],
+      "quality_lining": [
+        {
+          "coefficient_of_friction": 0.41869158878504675,
+          "pixel_x": 105.0,
+          "pixel_y": 321.0,
+          "temperature_K": 316.80730741540674,
+          "temperature_degF": 110.58315334773218
+        },
+        {
+          "coefficient_of_friction": 0.42289719626168226,
+          "pixel_x": 235.0,
+          "pixel_y": 316.5,
+          "temperature_K": 371.40293976481877,
+          "temperature_degF": 208.85529157667386
+        },
+        {
+          "coefficient_of_friction": 0.44906542056074766,
+          "pixel_x": 366.0,
+          "pixel_y": 288.5,
+          "temperature_K": 426.4185385169186,
+          "temperature_degF": 307.88336933045355
+        },
+        {
+          "coefficient_of_friction": 0.44906542056074766,
+          "pixel_x": 500.0,
+          "pixel_y": 288.5,
+          "temperature_K": 482.6940364770818,
+          "temperature_degF": 409.1792656587473
+        },
+        {
+          "coefficient_of_friction": 0.4462616822429907,
+          "pixel_x": 632.0,
+          "pixel_y": 291.5,
+          "temperature_K": 538.1296016318695,
+          "temperature_degF": 508.963282937365
+        },
+        {
+          "coefficient_of_friction": 0.4098130841121495,
+          "pixel_x": 764.0,
+          "pixel_y": 330.5,
+          "temperature_K": 593.5651667866571,
+          "temperature_degF": 608.7473002159827
+        },
+        {
+          "coefficient_of_friction": 0.35700934579439253,
+          "pixel_x": 898.0,
+          "pixel_y": 387.0,
+          "temperature_K": 649.8406647468203,
+          "temperature_degF": 710.0431965442765
+        },
+        {
+          "coefficient_of_friction": 0.2845794392523364,
+          "pixel_x": 1003.0,
+          "pixel_y": 464.5,
+          "temperature_K": 693.9371370290377,
+          "temperature_degF": 789.4168466522679
+        }
+      ]
+    },
+    "reference_mu": 0.3822429906542056,
+    "reference_temperature_K": 316.80730741540674,
+    "scope_note": "Representative published heavy-truck lining data; not claimed material-identical to Reference_Truck.",
+    "selected_conservative_curve": [
+      {
+        "mu": 0.3822429906542056,
+        "phi": 1.0,
+        "temperature_K": 316.80730741540674,
+        "temperature_degF": 110.58315334773218
+      },
+      {
+        "mu": 0.37383177570093457,
+        "phi": 0.9779951100244499,
+        "temperature_K": 371.40293976481877,
+        "temperature_degF": 208.85529157667386
+      },
+      {
+        "mu": 0.3364485981308411,
+        "phi": 0.880195599022005,
+        "temperature_K": 426.4185385169186,
+        "temperature_degF": 307.88336933045355
+      },
+      {
+        "mu": 0.29018691588785045,
+        "phi": 0.7591687041564792,
+        "temperature_K": 482.6940364770818,
+        "temperature_degF": 409.1792656587473
+      },
+      {
+        "mu": 0.22056074766355138,
+        "phi": 0.5770171149144254,
+        "temperature_K": 538.1296016318695,
+        "temperature_degF": 508.963282937365
+      },
+      {
+        "mu": 0.1574766355140187,
+        "phi": 0.41198044009779955,
+        "temperature_K": 593.5651667866571,
+        "temperature_degF": 608.7473002159827
+      },
+      {
+        "mu": 0.11355140186915887,
+        "phi": 0.29706601466992666,
+        "temperature_K": 649.8406647468203,
+        "temperature_degF": 710.0431965442765
+      },
+      {
+        "mu": 0.044859813084112146,
+        "phi": 0.11735941320293398,
+        "temperature_K": 693.9371370290377,
+        "temperature_degF": 789.4168466522679
+      }
+    ],
+    "source": {
+      "authors": "Lawrence E. Jackson",
+      "date": "2002-08-16",
+      "figure": 4,
+      "figure_title": "Fade Resistance",
+      "identifier": "NTSB HWY-01-M-H-25",
+      "image_file": "data/model_parameters/source_points/ntsb_2002_figure4_page7_crop_300dpi.png",
+      "image_sha256": "db5de245ca12e27db5eb87fe1cb73b781d9df7cfa82669bbd2309a1451bf3ed5",
+      "pdf_page": 7,
+      "printed_page": 4,
+      "title": "Vehicle Dynamics Simulation Study",
+      "url": "https://data.ntsb.gov/Docket/Document/docBLOB?FileExtension=.PDF&FileName=Simulation+Study-Master.PDF&ID=40165030"
+    }
+  },
+  "paper_result": false,
+  "retarder": {
+    "axis_calibration": {
+      "pixel_uncertainty": {
+        "x_px": 2.0,
+        "y_px": 2.0
+      },
+      "speed_axis": {
+        "pixel_0rpm": [
+          230.0,
+          909.0
+        ],
+        "pixel_1800rpm": [
+          1677.0,
+          909.0
+        ]
+      },
+      "torque_axis": {
+        "pixel_0Nm": [
+          230.0,
+          909.0
+        ],
+        "pixel_4000Nm": [
+          230.0,
+          45.0
+        ]
+      }
+    },
+    "drivetrain_mapping": {
+      "equations": [
+        "omega_ds = v*i0/r_w",
+        "F_ret = T_ret* i0 * eta_fd / r_w",
+        "T_cont = min(T_300kPa, P_cont/omega_ds)"
+      ],
+      "final_drive_efficiency": 0.97,
+      "final_drive_ratio": 5.7,
+      "final_drive_source": "Li et al. (2026), Table 2",
+      "geometry_efficiency_source": "Donkers et al. (2020), Energies 13, 2434, Table 2 and Eq. (25)",
+      "scope_note": "Representative cross-source heavy-duty geometry; retarder curve is expressed at driveshaft speed.",
+      "wheel_rolling_radius_m": 0.492
+    },
+    "label": "DIGITIZED_MEASURED_HYDRAULIC_RETARDER_ENVELOPE",
+    "power_limits_W": {
+      "continuous": 300000.0,
+      "peak": 450000.0
+    },
+    "raw_digitized_points": [
+      {
+        "continuous_longitudinal_force_N": 0.0,
+        "continuous_torque_envelope_Nm": 0.0,
+        "driveshaft_speed_rpm": 0.0,
+        "measured_300kPa_torque_Nm": 0.0,
+        "peak_longitudinal_force_N": 0.0,
+        "peak_torque_envelope_Nm": 0.0,
+        "pixel_x": 230.0,
+        "pixel_y": 909.0,
+        "vehicle_speed_mps": 0.0
+      },
+      {
+        "continuous_longitudinal_force_N": 1040.5374887082205,
+        "continuous_torque_envelope_Nm": 92.5925925925926,
+        "driveshaft_speed_rpm": 200.27643400138217,
+        "measured_300kPa_torque_Nm": 92.5925925925926,
+        "peak_longitudinal_force_N": 1040.5374887082205,
+        "peak_torque_envelope_Nm": 92.5925925925926,
+        "pixel_x": 391.0,
+        "pixel_y": 889.0,
+        "vehicle_speed_mps": 1.8102923455145286
+      },
+      {
+        "continuous_longitudinal_force_N": 9312.810523938573,
+        "continuous_torque_envelope_Nm": 828.7037037037037,
+        "driveshaft_speed_rpm": 400.55286800276434,
+        "measured_300kPa_torque_Nm": 828.7037037037037,
+        "peak_longitudinal_force_N": 9312.810523938573,
+        "peak_torque_envelope_Nm": 828.7037037037037,
+        "pixel_x": 552.0,
+        "pixel_y": 730.0,
+        "vehicle_speed_mps": 3.620584691029057
+      },
+      {
+        "continuous_longitudinal_force_N": 20498.588527551943,
+        "continuous_torque_envelope_Nm": 1824.0740740740741,
+        "driveshaft_speed_rpm": 501.3130615065653,
+        "measured_300kPa_torque_Nm": 1824.0740740740741,
+        "peak_longitudinal_force_N": 20498.588527551943,
+        "peak_torque_envelope_Nm": 1824.0740740740741,
+        "pixel_x": 633.0,
+        "pixel_y": 515.0,
+        "vehicle_speed_mps": 4.531352889704069
+      },
+      {
+        "continuous_longitudinal_force_N": 31684.366531165313,
+        "continuous_torque_envelope_Nm": 2819.4444444444443,
+        "driveshaft_speed_rpm": 600.8293020041465,
+        "measured_300kPa_torque_Nm": 2819.4444444444443,
+        "peak_longitudinal_force_N": 31684.366531165313,
+        "peak_torque_envelope_Nm": 2819.4444444444443,
+        "pixel_x": 713.0,
+        "pixel_y": 300.0,
+        "vehicle_speed_mps": 5.4308770365435866
+      },
+      {
+        "continuous_longitudinal_force_N": 40249.37834192537,
+        "continuous_torque_envelope_Nm": 3581.6050179466956,
+        "driveshaft_speed_rpm": 799.861782999309,
+        "measured_300kPa_torque_Nm": 3652.777777777778,
+        "peak_longitudinal_force_N": 41049.203929539304,
+        "peak_torque_envelope_Nm": 3652.777777777778,
+        "pixel_x": 873.0,
+        "pixel_y": 120.0,
+        "vehicle_speed_mps": 7.229925330222621
+      },
+      {
+        "continuous_longitudinal_force_N": 32189.49039037067,
+        "continuous_torque_envelope_Nm": 2864.39306783548,
+        "driveshaft_speed_rpm": 1000.138217000691,
+        "measured_300kPa_torque_Nm": 3856.4814814814813,
+        "peak_longitudinal_force_N": 43338.386404697376,
+        "peak_torque_envelope_Nm": 3856.4814814814813,
+        "pixel_x": 1034.0,
+        "pixel_y": 76.0,
+        "vehicle_speed_mps": 9.040217675737148
+      },
+      {
+        "continuous_longitudinal_force_N": 26846.83638367014,
+        "continuous_torque_envelope_Nm": 2388.9751312652756,
+        "driveshaft_speed_rpm": 1199.1706979958535,
+        "measured_300kPa_torque_Nm": 3787.037037037037,
+        "peak_longitudinal_force_N": 40270.25457550521,
+        "peak_torque_envelope_Nm": 3583.4626968979137,
+        "pixel_x": 1194.0,
+        "pixel_y": 91.0,
+        "vehicle_speed_mps": 10.839265969416182
+      },
+      {
+        "continuous_longitudinal_force_N": 23004.7557989849,
+        "continuous_torque_envelope_Nm": 2047.0862458130894,
+        "driveshaft_speed_rpm": 1399.4471319972356,
+        "measured_300kPa_torque_Nm": 3597.222222222222,
+        "peak_longitudinal_force_N": 34507.13369847735,
+        "peak_torque_envelope_Nm": 3070.629368719634,
+        "pixel_x": 1355.0,
+        "pixel_y": 132.0,
+        "vehicle_speed_mps": 12.649558314930713
+      },
+      {
+        "continuous_longitudinal_force_N": 20124.689170962683,
+        "continuous_torque_envelope_Nm": 1790.8025089733478,
+        "driveshaft_speed_rpm": 1599.723565998618,
+        "measured_300kPa_torque_Nm": 3319.4444444444443,
+        "peak_longitudinal_force_N": 30187.03375644402,
+        "peak_torque_envelope_Nm": 2686.2037634600215,
+        "pixel_x": 1516.0,
+        "pixel_y": 192.0,
+        "vehicle_speed_mps": 14.459850660445243
+      },
+      {
+        "continuous_longitudinal_force_N": 17885.521958436777,
+        "continuous_torque_envelope_Nm": 1591.5494309189535,
+        "driveshaft_speed_rpm": 1800.0,
+        "measured_300kPa_torque_Nm": 2981.4814814814813,
+        "peak_longitudinal_force_N": 26828.282937655164,
+        "peak_torque_envelope_Nm": 2387.32414637843,
+        "pixel_x": 1677.0,
+        "pixel_y": 265.0,
+        "vehicle_speed_mps": 16.270143005959767
+      }
+    ],
+    "selected_trace": "300 kPa measured pressure-speed-torque curve",
+    "source": {
+      "authors": "Xuebo Li; Yanli Feng; Shiwei Xu; Yixi Zhang",
+      "doi": "10.3390/machines14070814",
+      "figure": 5,
+      "image_file": "data/model_parameters/source_points/li2026_figure5_retarder_map.png",
+      "image_sha256": "7da4e0fe021bdf4debfedfa8d9877acff1de285dfe772ae0509a5769052bb27e",
+      "pdf_page": 9,
+      "title": "An Energy-Efficient Constant-Speed Downhill Control Approach for Heavy-Duty Electric Trucks with Hydraulic Retarders",
+      "year": 2026
+    }
+  },
+  "schema_version": 1
+}

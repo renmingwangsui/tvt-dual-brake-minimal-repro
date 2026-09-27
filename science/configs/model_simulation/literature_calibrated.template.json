@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "mode": "LITERATURE_CALIBRATED",
+  "configuration_frozen": false,
+  "paper_eligible_requested": false,
+  "config_hash": "DATA_REQUIRED_AFTER_FREEZE",
+  "parameter_registry": "data/model_parameters/literature_calibrated.json",
+  "status": "TEMPLATE_ONLY_DATA_REQUIRED",
+  "instructions": "Replace every DATA_REQUIRED item with a traceable source and accepted calibration record; freeze and hash only after review."
+}

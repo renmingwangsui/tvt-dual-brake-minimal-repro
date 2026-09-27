@@ -1,0 +1,31 @@
+\section{Related Work}
+\subsection{Heavy-Duty Braking and Thermal Fade}
+Brake-temperature modeling \cite{talati2009brake}, platoon fade compensation \cite{devika2022fade}, and downhill brake allocation \cite{li2025retarder} motivate the plant but do not test joint collision--thermal feasibility with lagged, gear/power-limited auxiliary actuation.
+
+\subsection{Safety-Constrained Vehicle Control}
+CBF-QPs and high-order CBFs (HOCBFs) impose invariance conditions \cite{ames2017cbf,xiao2022hocbf}. Generic exact feasibility \cite{sah2026exact} and reachable-set vehicle model predictive control (MPC) \cite{guo2025uncertainty} do not resolve the coupled thermal dual-brake geometry.
+
+\subsection{Cooperative Platoons and V2V Delay}
+Connected controllers use predecessor/leader data for tracking \cite{naus2010string,ploeg2011cacc}; collision invariance and string stability differ. Connected-vehicle CBFs and event-triggered safe reinforcement learning (RL) address networked/intersample uncertainty \cite{li2025connectedcbf,hu2025event}. Zhou \emph{et al.} combine multi-agent RL (MARL), cooperative CBFs, prediction, and a differentiable QP \cite{zhou2026cooperative}; Ohnemus \emph{et al.} study distributed predictive CBFs \cite{ohnemus2026dpcbf}. Our adapted Zhou comparison is a matched domain-transfer test, not a native-domain ranking.
+
+\subsection{Secondary Learning Tools}
+Differentiable filters \cite{ma2022differentiable,xiao2023barriernet,yang2023diffcbf} and multi-agent proximal policy optimization (MAPPO) \cite{yu2022mappo} supply one nominal-controller implementation; QP differentiation remains secondary. The gap is physical \emph{command feasibility} under collision, thermal, actuator, and communication constraints (Table~\ref{tab:positioning}).
+
+\begin{table*}[t]
+\caption{Scope relative to closest literature; entries describe explicit focus, not ranking.}
+\label{tab:positioning}
+\centering\normalsize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.16\textwidth}>{\raggedright\arraybackslash}p{.15\textwidth}>{\raggedright\arraybackslash}p{.17\textwidth}>{\raggedright\arraybackslash}p{.14\textwidth}>{\raggedright\arraybackslash}p{.11\textwidth}>{\raggedright\arraybackslash}p{.15\textwidth}@{}}
+\toprule
+Work & Domain & Predictive / reachable & Feasibility / recoverability notion & Diff. QP & Thermal dual brake \\
+\midrule
+Zhou \emph{et al.} \cite{zhou2026cooperative} & mixed platoon & uncertainty prediction & -- & yes & -- \\
+Ohnemus \emph{et al.} \cite{ohnemus2026dpcbf} & modular multi-agent & yes & recoverability & -- & -- \\
+Sah--Keshavan \cite{sah2026exact} & multi-robot & -- & yes & -- & -- \\
+Guo \emph{et al.} \cite{guo2025uncertainty} & autonomous driving & $n$-step set & -- & -- & -- \\
+Hu \emph{et al.} \cite{hu2025event} & automated vehicle & intersample & -- & -- & -- \\
+Li \emph{et al.} \cite{li2025retarder} & downhill truck & receding horizon & -- & -- & yes \\
+This work & heavy platoon & conditional interval tube & complete instantaneous $\rho$ & local / conditional & yes \\
+\bottomrule
+\end{tabular}
+\end{table*}

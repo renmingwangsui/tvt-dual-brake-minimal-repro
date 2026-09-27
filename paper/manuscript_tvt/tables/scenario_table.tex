@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\caption{Registered Scenario Factors and Evidence Status}
+\label{tab:scenarios}
+\centering\footnotesize
+\begin{tabular}{p{0.13\textwidth}p{0.23\textwidth}p{0.29\textwidth}p{0.25\textwidth}}
+\toprule
+Factor & Identification/training range & Held-out/OOD stress & Required provenance \\
+\midrule
+Road/mission & Long, variable descents & Steeper/unseen profiles, abrupt grade end, stop and low-speed restart & Surveyed/map grade and coordinate convention \\
+Fleet & 3--5 trucks, mixed mass/order & $N=10,20,40$, unseen order and joint mass tail & Weighed/configured vehicle classes \\
+Thermal/fade & Cold--warm start, calibrated $\phi(T)$ & Near-limit start, hot ambient, cooling/fade bias & Dynamometer/descent split and residual bounds \\
+Actuation & Identified $\tau^{f/a}$ and force/power maps & Lag/force bias, gear unavailability, rate saturation & Friction and retarder response data \\
+Communication & Nominal delay/loss/noise & Burst loss, long-tail delay, stale/inconsistent packets & Network trace or registered stochastic model \\
+Events & Routine lead-speed changes & Emergency lead brake, combined grade+hot+delay extreme & Feasible predecessor jerk/deceleration bounds \\
+\bottomrule
+\end{tabular}
+\end{table*}

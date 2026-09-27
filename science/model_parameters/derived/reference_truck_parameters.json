@@ -1,0 +1,59 @@
+{
+  "artifact_type": "source-derived Reference_Truck closure quantities",
+  "derivations": {
+    "cooling_coefficient_w_per_k": {
+      "equation": "k_total(v)=10*(k0+k1*v_ft_s)*1055.05585262/[3600*(5/9)]",
+      "lower_at_30_kmh": 480.1057964514239,
+      "nominal_at_50_kmh": 624.3336853157065,
+      "scope": "30-50 km/h literature benchmark envelope; not a statistical interval",
+      "upper_at_50_kmh": 624.3336853157065
+    },
+    "lumped_thermal_capacity_j_per_k": {
+      "equation": "C_total = 10 * mc * 1055.05585262/(5/9)",
+      "lower": 15439.687347241079,
+      "nominal": 15439.687347241079,
+      "scope": "model-equivalent aggregation of ten wheel-end thermal states under one uniform repository state",
+      "upper": 15439.687347241079
+    },
+    "maximum_friction_braking_force_n": {
+      "equations": [
+        "a_eq = v0^2/(2*s)",
+        "F_max = m*a_eq"
+      ],
+      "lower": 123603.03444794951,
+      "measured_equivalent_deceleration_mps2": 3.722982965299684,
+      "model_target_equivalent_deceleration_mps2": 3.8442527687296413,
+      "nominal": 123603.03444794951,
+      "scope": "straight-line full S-cam braking at GVWR; constant-deceleration equivalent",
+      "upper": 127629.1919218241
+    },
+    "predecessor_motion_bounds": {
+      "acceleration_lower_mps2": -3.722982965299684,
+      "acceleration_upper_mps2": 1.3,
+      "equation": "j_bound = a_emergency/tau_apply",
+      "jerk_abs_upper_mps3": 26.592735466426312,
+      "scope": "cross-source conservative reachable-set bound; jerk is derived, not measured"
+    },
+    "vehicle_length_m": {
+      "equation": "m = ft * 0.3048",
+      "lower": 20.878800000000002,
+      "nominal": 22.402800000000003,
+      "upper": 22.402800000000003
+    }
+  },
+  "paper_eligible": false,
+  "phase": "2M-LIT-2",
+  "source_file": "data/model_parameters/source_extracts.json",
+  "source_sha256": "98b1523385e5538910af1eaa2cef4a79d8cc1b05db356bd81c168f268f3a3422",
+  "unresolved_by_design": [
+    "friction_command_slew",
+    "auxiliary_actuator_lag",
+    "auxiliary_command_slew",
+    "auxiliary_speed_gear_power_envelope",
+    "braking_to_thermal_conversion",
+    "critical_brake_temperature",
+    "thermal_fade_curve",
+    "ambient_operating_envelope",
+    "residual_heat_bound"
+  ]
+}

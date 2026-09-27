@@ -1,0 +1,19 @@
+\begin{table}[t]
+\caption{Vehicle Parameters Required Per Class}
+\label{tab:parameters}
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.16\columnwidth}p{0.38\columnwidth}p{0.26\columnwidth}@{}}
+\toprule
+Group & Parameters & Evidence \\
+\midrule
+Geometry & $m_i,L_i$, axle/load state & weighed vehicle/configuration \\
+Resistance & $c_{r,i},C_{d,i}A_i$ & coast-down or source data \\
+Actuator & $\tau_i^f,\tau_i^a,\bar u_i^f,\bar u_i^a(v,g)$ & friction/retarder step and power maps \\
+Thermal & $C_i,k_i,\eta_i,T_{\rm crit,i}$ & dynamometer/descent fit \\
+Fade & $\phi_i(T)$ and uncertainty & held-out force--temperature curve \\
+Derivatives & $\dot\theta,\dot q^w,\dot F^r$, predecessor jerk bounds & held-out extrema or certified limits \\
+Safety & $a_i^S,t_{h,i},d_{0,i}$ & validated lower bound/policy \\
+\bottomrule
+\end{tabular}
+\end{table}

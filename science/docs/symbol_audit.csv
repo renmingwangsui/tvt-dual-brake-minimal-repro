@@ -1,0 +1,99 @@
+symbol,definition,unit,first use,state/control/parameter,paper equation,code variable,parameter source,hard guarantee yes/no
+p_i,longitudinal position,m,Sec. III,state,model,external simulator,localization,yes
+v_i,longitudinal speed,m/s,Sec. III,state,model,State.speed_mps,wheel speed or GNSS,yes
+a_i,longitudinal acceleration,m/s^2,Sec. IV,derived state,model,State.acceleration_mps2,IMU and model consistency,yes
+b_i,realized friction-brake force,N,Sec. III,state,model,State.friction_force_N,brake-pressure or force identification,yes
+r_i,realized auxiliary-brake force,N,Sec. III,state,model,State.auxiliary_force_N,retarder or engine map,yes
+T_i,effective friction-brake temperature,K,Sec. III,state,model,State.temperature_K,dynamometer or thermocouple,yes
+u_i^f,friction-brake force command,N,Sec. III,control,model,command[0],actuator scaling,yes
+u_i^a,auxiliary-brake force command,N,Sec. III,control,model,command[1],actuator scaling,yes
+m_i,gross vehicle mass,kg,Sec. III,parameter,model,VehicleParams.mass_kg,weighed vehicle DATA REQUIRED,yes
+tau_i^f,friction actuator time constant,s,Sec. III,parameter,model,VehicleParams.tau_f_s,step test DATA REQUIRED,yes
+tau_i^a,auxiliary actuator time constant,s,Sec. III,parameter,model,VehicleParams.tau_a_s,step test DATA REQUIRED,yes
+C_i,effective thermal capacity,J/K,Sec. III,parameter,model,VehicleParams.heat_capacity_J_per_K,dynamometer fit DATA REQUIRED,yes
+k_i,cooling coefficient,W/K,Sec. III,parameter,model,VehicleParams.cooling_W_per_K,descent fit DATA REQUIRED,yes
+eta_i,modeled friction heat fraction,1,Sec. III,parameter,model,VehicleParams.heat_fraction,dynamometer fit DATA REQUIRED,yes
+F_i^r,total nonbraking longitudinal force,N,Sec. IV,derived input,model,nonbraking_force_N,force balance,yes
+dot F_i^r,nonbraking force rate,N/s,Sec. IV,uncertain input,jerk,nonbraking_force_rate_Nps,validated interval DATA REQUIRED,yes
+q_i^w,thermal residual heat flow,W,Sec. IV,disturbance,model,heat_residual_W,held-out residual DATA REQUIRED,yes
+dot q_i^w,thermal residual rate,W/s,Sec. IV,disturbance,thermal HOCBF,heat_residual_rate_Wps,validated derivative DATA REQUIRED,yes
+h_i^c,stopping-distance collision barrier,m,Sec. IV,barrier,hc,collision_affine.h,design and validated braking bounds,yes
+dot h_i^c,collision barrier derivative,m/s,Sec. IV,derived barrier,hcdot,collision_affine.h_dot,dynamics,yes
+psi_1i^c,first collision HOCBF state,m/s,Sec. IV,derived barrier,collision HOCBF,computed HOCBF state,dynamics,yes
+A_i^f,friction coefficient in collision row,1/(kg s),Sec. IV,derived coefficient,collision HOCBF,collision_affine.A_f,dynamics,yes
+A_i^a,auxiliary coefficient in collision row,1/(kg s),Sec. IV,derived coefficient,collision HOCBF,collision_affine.A_a,dynamics,yes
+D_i^c,tightened collision braking demand,m/s^2,Sec. V,derived certificate input,collision demand,collision_affine.D_c,barrier and margins,yes
+h_i^T,temperature barrier,K,Sec. IV,barrier,thermal HOCBF,thermal_affine.h,Tcrit DATA REQUIRED,yes
+dot h_i^T,temperature barrier derivative,K/s,Sec. IV,derived barrier,thermal HOCBF,thermal_affine.h_dot,dynamics,yes
+B_i^f,friction coefficient in thermal row,K/(N s^2),Sec. IV,derived coefficient,thermal HOCBF,thermal_affine.B_f,dynamics,yes
+h_i^F,friction fade-envelope barrier,N,Sec. IV,barrier,fade CBF,fade_upper_bound.h,fade curve DATA REQUIRED,yes
+h_i^A,realized auxiliary envelope barrier,N,Sec. IV,barrier,auxiliary CBF,auxiliary_cbf_upper_bound.h,retarder map DATA REQUIRED,yes
+bar r_i(v_i,g_i),realized auxiliary-force envelope,N,Sec. IV,parameter map,auxiliary envelope,realized_limit_N,manufacturer map DATA REQUIRED,yes
+bar u_i^a(v_i,g_i),auxiliary command envelope,N,Sec. IV,parameter map,auxiliary envelope,auxiliary_envelope_limit_N,manufacturer map DATA REQUIRED,yes
+v_epsilon,low-speed switching threshold,m/s,Sec. IV,design parameter,ZOH thermal row,VehicleParams.low_speed_threshold_mps,registered validation choice,yes
+Delta_T,one-step thermal buffer,K,Sec. IV,design parameter,ZOH thermal row,VehicleParams.temperature_buffer_K,validation DATA REQUIRED,yes
+Delta t,ZOH sample period,s,Sec. IV,design parameter,auxrate and ZOH,VehicleParams.sample_time_s,controller clock,yes
+zeta_i,uncertain variables entering barrier rows,mixed,Sec. IV,uncertainty vector,margin,REQUIRED_UNCERTAINTY_COMPONENTS,sensing communication and model bounds,yes
+B_i(hat zeta_i),Cartesian interval uncertainty box,mixed,Sec. IV,uncertainty set,margin,Mapping[str Interval],validated component intervals DATA REQUIRED,yes
+gamma_i^c,collision directional model margin,m/s^2,Sec. IV,derived margin,margin,directional_margin_from_box,interval evaluation,yes
+gamma_i^T,thermal directional model margin,K/s^2,Sec. IV,derived margin,margin,directional_margin_from_box,interval evaluation,yes
+gamma_i^F,fade directional model margin,N/s,Sec. IV,derived margin,fade CBF,directional_margin_from_box,interval evaluation,yes
+gamma_i^A,auxiliary directional model margin,N/s,Sec. IV,derived margin,auxiliary CBF,directional_margin_from_box,interval evaluation,yes
+mu_i^c,collision sampled-data margin,m/s^2,Sec. IV,derived margin,margin,sampled_data_margin,rate and integration bounds DATA REQUIRED,yes
+mu_i^T,thermal sampled-data margin,K/s^2,Sec. IV,derived margin,margin,sampled_data_margin,rate and integration bounds DATA REQUIRED,yes
+mu_i^F,fade sampled-data margin,N/s,Sec. IV,derived margin,fade CBF,sampled_data_margin,rate and integration bounds DATA REQUIRED,yes
+mu_i^A,auxiliary sampled-data margin,N/s,Sec. IV,derived margin,auxiliary CBF,sampled_data_margin,rate and integration bounds DATA REQUIRED,yes
+L_i^f,lower effective friction command,N,Sec. V,derived limit,reserve,effective_limits.L_f,command and rate intersection,yes
+U_i^f,upper effective friction command,N,Sec. V,derived limit,reserve,effective_limits.U_f,actuator rate thermal fade and ZOH rows,yes
+L_i^a,lower effective auxiliary command,N,Sec. V,derived limit,reserve,effective_limits.L_a,command and rate intersection,yes
+U_i^a,upper effective auxiliary command,N,Sec. V,derived limit,reserve,effective_limits.U_a,rate gear power and CBF intersection,yes
+M_i,exact signed physical conflict reserve,m/s^2,Sec. V,certificate,reserve,conflict_reserve,derived,yes
+M_ref,reserve learning target,m/s^2,Sec. V,learning parameter,actor loss,reserve_reference,validation-only tuning,no
+M_trig,certified-backup trigger,m/s^2,Sec. V,supervisor parameter,backup,configuration TODO,registered before evaluation,yes
+M_rec,backup recovery threshold,m/s^2,Sec. V,supervisor parameter,backup,configuration TODO,registered before evaluation,yes
+N_rec,consecutive recovery samples,sample,Sec. V,supervisor parameter,backup,configuration TODO,registered integer,yes
+H_QP,positive-definite safety-QP Hessian,scaled,Sec. V,optimizer parameter,KKT,projection weights,solver construction,no
+H_pred,certified monitoring prediction horizon,sample,Sec. V,monitor parameter,predictive reserve,compute_predictive_reserve,registered before evaluation,yes
+H_L,differentiable learning rollout horizon,sample,Sec. V,learning parameter,actor loss,compute_learning_predictive_reserve,registered before training,no
+chi_i_k,augmented hybrid sampled-data state,mixed,Sec. III,state,chi,AugmentedHybridState,sensors and controller memory,yes
+underline_M_i_kell,conservative reserve lower bound,m/s^2,Sec. V,derived certificate,predlower,ReserveLowerBound,declared interval uncertainty,yes
+M_i_H,vehicle predictive reserve,m/s^2,Sec. V,derived certificate,predlower,PredictiveReserveResult.min_reserve,declared interval uncertainty,yes
+M_fleet_H,fleet bottleneck predictive reserve,m/s^2,Sec. V,derived certificate,fleetreserve,FleetReserveResult.fleet_reserve,vehicle predictive reserves,yes
+ell_i_critical,critical prediction step,sample,Sec. V,derived index,predlower,PredictiveReserveResult.critical_step,predictive tube,yes
+i_critical,critical vehicle index,vehicle,Sec. V,derived index,fleetreserve,FleetReserveResult.critical_vehicle,fleet predictive results,yes
+tau_s,learning soft-min temperature,m/s^2,Sec. V,learning parameter,actor loss,softmin,registered tuning configuration,no
+M_pred_trigger,predictive supervisor threshold,m/s^2,Sec. V,supervisor parameter,supervisor,predictive_trigger,registered before evaluation,yes
+delta_i^j,jerk comfort slack,m/s^3,Sec. V,optimization variable,QP,QP slack,comfort policy,no
+j_i,continuous-time longitudinal jerk,m/s^3,Sec. IV,derived output,jerk,continuous_jerk,dynamics,no
+G_2i,L2 string-stability gain,1,Sec. III,evaluation metric,string metric,result code TODO,matched logs EXPERIMENT REQUIRED,no
+G_infinity_i,peak string-stability gain,1,Sec. III,evaluation metric,string metric,result code TODO,matched logs EXPERIMENT REQUIRED,no
+Delta_i_f,friction command interval gap,N,Sec. V,derived certificate,rho,CompleteCertificateResult.delta_f_N,hard interval bounds,yes
+Delta_i_a,auxiliary command interval gap,N,Sec. V,derived certificate,rho,CompleteCertificateResult.delta_a_N,hard interval bounds,yes
+s_f,fixed friction normalization,N,Sec. V,certificate parameter,rho,CertificateScales.friction_force_N,registered positive constant,yes
+s_a,fixed auxiliary normalization,N,Sec. V,certificate parameter,rho,CertificateScales.auxiliary_force_N,registered positive constant,yes
+s_M,fixed collision-reserve normalization,m/s2,Sec. V,certificate parameter,rho,CertificateScales.collision_mps2,registered positive constant,yes
+rho_i,complete instantaneous feasibility certificate,1,Sec. V,certificate,rho,CompleteCertificateResult.rho,derived,yes
+X_i_B,backup-compatible certified reachable tube,mixed,Sec. V,set,tube,PredictiveReserveResult.reachable_sets,declared uncertainty and backup policy,yes
+Omega,declared uncertainty set,mixed,Sec. V,set,tube,ReachabilityUncertainty,validated bounds DATA REQUIRED,yes
+underline_rho_IA_i_kell,computable interval lower bound not exact infimum,1,Sec. V,certificate,predlower,ReserveLowerBound.rho_ia_lower,interval tube,yes
+rho_i_H_cert,vehicle certified predictive lower bound,1,Sec. V,certificate,rhocert,PredictiveReserveResult.rho_cert_H,interval tube,yes
+rho_i_H_true,theoretical exact reachable-set reserve,1,Sec. V,theoretical quantity,predlower,PredictiveReserveResult.rho_true_H if available,exact optimization not implemented,no
+rho_fleet_H_cert,centralized minimum of computed vehicle certificates,1,Sec. V,training/evaluation certificate,fleetreserve,FleetReserveResult.rho_fleet_H,vehicle certificates,yes
+critical_limit_type,limiting interval/collision physical source,enum,Sec. V,diagnostic,predlower,PredictiveReserveResult.critical_limit_type,active upper-bound source,yes
+rho_pred_trigger,predictive supervisor threshold,1,Sec. V,parameter,supervisor,SupervisorThresholds.predictive_trigger,registered before evaluation,yes
+rho_hard_trigger,hard supervisor threshold,1,Sec. V,parameter,supervisor,SupervisorThresholds.hard_trigger,registered before evaluation,yes
+tube_width,per-coordinate reachable interval width,state unit,Sec. VII,diagnostic,tube,IntervalHybridState.widths,computed,no
+F_IA,outward-rounded sampled interval set map,mixed,Sec. V,set map,tube,propagate_interval_one_step,registered sampled dynamics,yes
+kappa_B,point state-feedback backup policy,N,Sec. V,policy,tube,production callback,controller design,yes
+U_B_X,set extension containing all backup commands over a state box,N interval,Sec. V,set-valued policy,tube,saturated_affine_backup_extension,controller interval extension,yes
+rho_upstream_H,age-bounded locally available recursive minimum,1,Sec. V,deployment message,minconsensus,UpstreamSafetyMessage.rho_upstream_H,permitted messages,yes
+rho_fleet_centralized_H,centralized exact min of computed certificates,1,Sec. V,training/evaluation metric,fleetreserve,compute_fleet_reserve,all vehicle results,no
+epsilon_th,relative thermal parameter uncertainty bound,1,Sec. VI,uncertainty parameter,zoherror,thermal_parameter_relative_uncertainty,validated calibration DATA REQUIRED,yes
+epsilon_tau,relative friction lag uncertainty bound,1,Sec. VI,uncertainty parameter,zoherror,actuator_lag_relative_uncertainty,validated calibration DATA REQUIRED,yes
+rho_pred_recovery,predictive hysteresis recovery threshold,1,Sec. V,supervisor parameter,backupdomain,SupervisorThresholds.predictive_recovery,registered before evaluation,yes
+rho_hard_recovery,hard hysteresis recovery threshold,1,Sec. V,supervisor parameter,backupdomain,SupervisorThresholds.hard_recovery,registered before evaluation,yes
+u_star_0,provisional normal hard-QP command,N,Sec. V,control candidate,two-pass loop,TwoPassCycleResult.provisional_command,safety QP,yes
+q_critical,limiting physical constraint metadata,enum,Sec. V,message,minconsensus,UpstreamSafetyMessage.limiting_physical_constraint,certificate attribution,yes
+g_T0,undivided low-speed state-only thermal reserve,K,Sec. IV,state-side certificate input,gT0,low_speed_temperature_row.g_T0_K,thermal model and registered error bound DATA REQUIRED,yes
+s_T0,positive low-speed thermal certificate normalizer,K,Sec. V,certificate scale,rho,CertificateScales.low_speed_temperature_K,registered one-step thermal scale,yes
+q_T0,normalized active low-speed thermal reserve or positive infinity,1,Sec. V,certificate component,rho,CompleteCertificateResult.normalized_low_speed_thermal,g_T0 and s_T0,yes

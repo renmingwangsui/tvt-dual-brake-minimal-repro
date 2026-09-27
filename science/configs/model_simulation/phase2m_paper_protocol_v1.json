@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "phase": "2M-PAPER",
+  "protocol_frozen_before_results": true,
+  "physical_config": "configs/model_simulation/literature_calibrated_v1.yaml",
+  "expected_physical_config_sha256": "d10d13eb82490bcfb2151f7db2114e38d8896810255b3138d17540cddabd5104",
+  "seed": 20260918,
+  "control_step_s": 0.1,
+  "simulation_step_s": 0.02,
+  "initial_speed_mps": 15.0,
+  "target_speed_mps": 14.0,
+  "initial_gap_m": 65.0,
+  "nominal_residual_heat_W": 0.0,
+  "controller_design": {
+    "certificate_scales": [100000.0, 80000.0, 2.0, 2.0],
+    "supervisor_thresholds": [0.08, 0.15, 0.02, 0.05, 2],
+    "low_speed_threshold_mps": 0.5,
+    "temperature_buffer_K": 5.0,
+    "low_speed_model_error_margin_K": 0.5,
+    "alpha_fade_per_s": 1.0,
+    "alpha_auxiliary_per_s": 1.0,
+    "headway_plus_lag_s": 1.2,
+    "standstill_gap_m": 5.0,
+    "collision_gains_per_s": [1.0, 1.2]
+  },
+  "steps": {
+    "M2": 300,
+    "M3": 180,
+    "M4": 120,
+    "M5": 80,
+    "M6": 60,
+    "M7": 120,
+    "M9": 80,
+    "M10_repetitions": 20
+  },
+  "M1": {
+    "speed_mps": [0.5, 5.0, 10.0, 15.0],
+    "temperature_K": [298.15, 371.40293976481877, 426.4185385169186, 463.7081614076934],
+    "grade_rad": [-0.09966865249116204, -0.05, 0.0],
+    "mass_kg": [24000.0, 33200.0],
+    "auxiliary_availability": [0.0, 0.5, 1.0]
+  },
+  "M2": {
+    "methods": ["friction_only", "fixed_friction_first", "fixed_auxiliary_first", "qp_dual_brake"],
+    "platoon_size": 3,
+    "grade_rad": -0.09966865249116204
+  },
+  "M3": {
+    "initial_temperature_K": [413.7081614076934, 453.7081614076934, 461.7081614076934],
+    "criterion": "Tcrit minus 50 K, 10 K, and 2 K, frozen before execution"
+  },
+  "M5": {"horizons": [1, 3, 5, 10]},
+  "M6": {
+    "joint_sensitivity_samples": 20,
+    "sampling": "seeded independent uniform design sampling within registered endpoints; not a physical probability distribution",
+    "parameters": ["mass", "grade", "friction_lag", "auxiliary_lag", "thermal_capacity", "cooling", "friction_capability", "auxiliary_capability", "fade_temperature_offset", "predecessor_deceleration"]
+  },
+  "M7": {
+    "scenarios": ["zero_delay", "nominal_delay", "bounded_delay", "packet_loss", "burst_loss", "stale_messages"]
+  },
+  "M8": {
+    "speed_mps": [0.0, 0.05, 0.5, 0.500001],
+    "temperature_K": [298.15, 461.7081614076934]
+  },
+  "M9": {
+    "platoon_sizes": [3, 5, 10, 20, 40],
+    "disturbances": ["smooth_braking_pulse", "speed_reduction", "emergency_braking", "grade_transition"]
+  },
+  "claim_rules": {
+    "C1": "SUPPORTED only if dual feasible count exceeds friction-only and dual reserve is never smaller at matched points",
+    "C2": "SUPPORTED only if allocation changes and peak-temperature spread is at least 1 K; otherwise PARTIALLY_SUPPORTED or NOT_SUPPORTED",
+    "C3": "SUPPORTED only for positive warning time before an observed instantaneous crossing; negative predictive reserve alone is inconclusive",
+    "C4": "SUPPORTED only with nonzero useful agreement and no missed triggers in every frozen channel case",
+    "C5": "SUPPORTED only if every registered deterministic and joint sensitivity run avoids hard certificate loss",
+    "C6": "SUPPORTED only if max G2 and max Ginf are at most 1 in every tested case",
+    "C7": "SUPPORTED only if P99 total controller time is below 0.1 s for every tested N on the reported platform"
+  },
+  "no_result_driven_retuning": true
+}

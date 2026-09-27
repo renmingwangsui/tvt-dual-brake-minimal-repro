@@ -1,0 +1,14 @@
+# Submission claim--evidence matrix
+
+| Claim | Formal/equation support | Empirical support | Permitted wording |
+|---|---|---|---|
+| Instantaneous hard-set feasibility | Proposition 1; `eq:rho`, `eq:collisiondemand`, `eq:low-speed-upper` | Independent 10,000 box/vertex comparisons and low-speed tests | Nonnegative `rho_i` iff the *declared* two-command hard set is nonempty. |
+| Predictive feasibility | Assumption 2, Proposition 2, `eq:tube`--`eq:rhocert` | 5,000 sampled interval-enclosure regression checks; 32,849 certified-positive stored samples have no contemporaneous negative `rho_i` | A nonnegative bound certifies the declared horizon and uncertainty enclosure; negative is inconclusive. Contemporaneous sample checks alone do not validate all future reachable states. |
+| Distributed bottleneck | Proposition 5; `eq:fleetreserve`, `eq:minconsensus` | M7 plus fixed-delay cases in `communication_age_metrics.csv` | Zero-delay complete-chain head agrees with the centralized minimum; delayed/stale values measure local/upstream awareness. |
+| Dual-brake command-domain expansion | Proposition 1 geometry, `eq:reserve` | `feasibility_frontier.csv`: 43/1275 dual-only feasible initial states under the specified design | Conditional one-step initial-command expansion, not closed-loop invariance or universal benefit. |
+| Certificate-aware supervisor | Final-action reverification and hard-row checks in method | `matched_instantaneous_baseline.csv`: equal certificate-loss counts in all three same-domain pairs | Isolates anticipatory mode behavior; these tests do not show a loss-count improvement. |
+| Normalization | Positivity of fixed normalizers in Proposition 1 | `normalization_sensitivity.csv`: all signs preserved; attribution agreement 0.896--1.000 | Sign invariant under positive scaling; magnitude, attribution, and potentially trigger time are scale dependent. Trigger-time variation was not measured. |
+| Parameter sensitivity | Same hard-set geometry | `physical_design_sensitivity.csv`: 300 stratified boundary-state designs, 133 nonnegative, range -1.505 to 0.059 | Interpretable boundary sensitivity within chosen parameter design; no reliability probability. |
+| Low-speed branch | `eq:gT0`, `eq:low-speed-upper`, Proposition 1 | M8 branch diagnostics and `test_low_speed_g_t0.py` | Exact feasibility of each active branch; no continuity across non-equivalent sufficient conditions is asserted. |
+| Learning differentiation | Proposition 7; `eq:kktdiff` | Frozen formal ten-seed logs: valid fraction 0, fallback fraction 1 | Secondary regularity diagnostic; no learning-performance improvement. |
+| Runtime / string response | Sampled-data bound, not timing theorem | Frozen M9/M10 | Measured platform timing below 100 ms at tested P99; tested string-stability criterion fails. |

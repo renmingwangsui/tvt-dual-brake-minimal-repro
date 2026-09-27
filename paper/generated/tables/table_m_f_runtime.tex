@@ -1,0 +1,57 @@
+\begin{table*}[!t]
+\centering
+\scriptsize
+\caption{Component-wise controller runtime on the reported test platform.}
+\label{tab:phase2m-runtime}
+\begin{tabular}{rlrrrrr}
+\hline
+N & Component & Samples & P50 (ms) & P95 (ms) & P99 (ms) & Max. (ms) \\
+\hline
+3 & feature\_state\_construction & 60 & 0.0016 & 0.0028 & 0.003582 & 0.0037 \\
+3 & hard\_row\_construction & 60 & 0.0637 & 0.092755 & 0.096341 & 0.0964 \\
+3 & qp1 & 60 & 0.0763 & 0.08924 & 0.099303 & 0.1042 \\
+3 & predictive\_tube & 60 & 0.3202 & 0.3731 & 0.40902 & 0.4551 \\
+3 & distributed\_bottleneck & 60 & 0.0033 & 0.00404 & 0.008256 & 0.0092 \\
+3 & supervisor & 60 & 0.087 & 0.096215 & 0.10898 & 0.1111 \\
+3 & qp2 & 60 & 0.0824 & 0.088185 & 0.10375 & 0.1064 \\
+3 & reverification & 60 & 0 & 0 & 0 & 0 \\
+3 & total\_controller & 60 & 0.5708 & 0.66302 & 0.70944 & 0.7141 \\
+5 & feature\_state\_construction & 100 & 0.00155 & 0.0041 & 0.008738 & 0.0125 \\
+5 & hard\_row\_construction & 100 & 0.0623 & 0.11508 & 0.21294 & 0.2166 \\
+5 & qp1 & 100 & 0.0766 & 0.13146 & 0.15401 & 0.1549 \\
+5 & predictive\_tube & 100 & 0.3185 & 0.49102 & 0.61503 & 0.7763 \\
+5 & distributed\_bottleneck & 100 & 0.0032 & 0.006645 & 0.014042 & 0.0182 \\
+5 & supervisor & 100 & 0.0869 & 0.15925 & 0.19679 & 0.2061 \\
+5 & qp2 & 100 & 0.08245 & 0.14597 & 0.17106 & 0.1867 \\
+5 & reverification & 100 & 0 & 0 & 0 & 0 \\
+5 & total\_controller & 100 & 0.56905 & 0.9297 & 1.0919 & 1.3779 \\
+10 & feature\_state\_construction & 200 & 0.0016 & 0.0043 & 0.005504 & 0.0078 \\
+10 & hard\_row\_construction & 200 & 0.0627 & 0.11864 & 0.16146 & 0.2954 \\
+10 & qp1 & 200 & 0.0765 & 0.12136 & 0.16726 & 0.2585 \\
+10 & predictive\_tube & 200 & 0.32415 & 0.57251 & 0.65818 & 1.3742 \\
+10 & distributed\_bottleneck & 200 & 0.0033 & 0.007025 & 0.014004 & 0.0335 \\
+10 & supervisor & 200 & 0.08725 & 0.16314 & 0.30649 & 0.3356 \\
+10 & qp2 & 200 & 0.0825 & 0.14961 & 0.24907 & 0.3264 \\
+10 & reverification & 200 & 0 & 0 & 0 & 0 \\
+10 & total\_controller & 200 & 0.58015 & 1.0239 & 1.2907 & 2.1907 \\
+20 & feature\_state\_construction & 400 & 0.0016 & 0.0035 & 0.004301 & 0.0076 \\
+20 & hard\_row\_construction & 400 & 0.06125 & 0.09633 & 0.12457 & 0.2079 \\
+20 & qp1 & 400 & 0.07765 & 0.14376 & 0.31239 & 0.553 \\
+20 & predictive\_tube & 400 & 0.32585 & 0.47921 & 0.58003 & 0.6597 \\
+20 & distributed\_bottleneck & 400 & 0.0032 & 0.0062 & 0.014423 & 0.0195 \\
+20 & supervisor & 400 & 0.0883 & 0.14827 & 0.19522 & 0.3325 \\
+20 & qp2 & 400 & 0.0837 & 0.1341 & 0.17485 & 0.3104 \\
+20 & reverification & 400 & 0 & 0 & 0 & 0 \\
+20 & total\_controller & 400 & 0.5792 & 0.88858 & 1.1056 & 1.1454 \\
+40 & feature\_state\_construction & 800 & 0.0015 & 0.0039 & 0.008203 & 0.0179 \\
+40 & hard\_row\_construction & 800 & 0.0585 & 0.10191 & 0.15322 & 0.2587 \\
+40 & qp1 & 800 & 0.0749 & 0.11441 & 0.14014 & 0.2432 \\
+40 & predictive\_tube & 800 & 0.3159 & 0.46094 & 0.85357 & 5.0574 \\
+40 & distributed\_bottleneck & 800 & 0.0031 & 0.005505 & 0.010616 & 0.0389 \\
+40 & supervisor & 800 & 0.0853 & 0.12786 & 0.19776 & 0.3028 \\
+40 & qp2 & 800 & 0.081 & 0.1187 & 0.1758 & 0.2842 \\
+40 & reverification & 800 & 0 & 0 & 0 & 0 \\
+40 & total\_controller & 800 & 0.5611 & 0.82384 & 1.2215 & 5.3371 \\
+\hline
+\end{tabular}
+\end{table*}

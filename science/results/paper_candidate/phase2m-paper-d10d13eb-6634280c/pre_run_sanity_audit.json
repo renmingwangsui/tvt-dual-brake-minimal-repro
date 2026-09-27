@@ -1,0 +1,14 @@
+{
+  "T_crit_loaded_K": 463.7081614076934,
+  "T_crit_unit": "K",
+  "conservatism_retained": true,
+  "immediate_predictive_certificate_loss": false,
+  "nominal_initial_rho": 0.059255655707862294,
+  "nominal_initial_rho_H_cert": 0.059221369300459244,
+  "residual_bound_loaded_W": [
+    -92551.57316620676,
+    92551.57316620676
+  ],
+  "residual_bound_unit": "W",
+  "thermal_bounds_finite": true
+}

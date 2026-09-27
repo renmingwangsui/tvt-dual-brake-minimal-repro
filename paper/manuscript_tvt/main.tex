@@ -1,0 +1,47 @@
+\documentclass[journal]{../template/IEEEtran}
+\usepackage{mathptmx}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,multirow,array}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit}
+\usepackage[hidelinks]{hyperref}
+\usepackage{balance}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\Lie}[2]{L_{#1}#2}
+\newcommand{\req}{\textbf{[ADMINISTRATIVE ITEM REQUIRED]}}
+\newcommand{\datareq}{\textbf{[AUTHOR DATA REQUIRED]}}
+
+\title{Feasibility-Certified Dual-Brake Control With Predictive Monitoring for Thermally Constrained Heavy-Duty Platoons}
+
+\author{Anonymous Authors%
+\thanks{Manuscript prepared for anonymous review. Author identities, affiliations, funding, and acknowledgment metadata are to be supplied before submission.}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+On long descents, heavy-duty vehicles may require increasing collision-avoidance braking while friction brakes heat and fade. Auxiliary braking offers additional force, but speed, gear, power, and distinct actuator-lag limits constrain its availability. Existing vehicle safety filters do not directly answer whether any pair of physical brake commands satisfies the declared collision and actuator constraints. We derive a two-dimensional friction--auxiliary command geometry and an exact instantaneous certificate: its nonnegative sign is equivalent to a nonempty hard command set. A finite-horizon extension gives a one-sided feasibility certificate only under sound outward enclosure; a negative value is inconclusive. The evaluated floating-point predictor is instead a numerical monitor, not a formally assured enclosure. An age-aware vehicle-to-vehicle recursive bottleneck reports the limiting vehicle, horizon, and physical constraint to a four-mode dual-brake supervisor, which reverifies changed commands before execution. In a targeted 1,275-state initial-command sweep, 43 states are feasible only with dual braking; in a separate 288-state sweep, dual braking increases signed reserve at 192 states. A matched same-plant comparison shows no reduction in certificate-loss samples in three tested scenarios, and communication delay reduces fleet-feasibility awareness. The controller-independent instantaneous certificate exposes remaining brake authority and its limiting physical source; these model-based results do not replace vehicle identification or field validation.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Heavy-duty vehicles; vehicle safety; cooperative vehicle control; braking systems; thermal fade; control barrier functions; predictive feasibility; vehicle platoons
+\end{IEEEkeywords}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_problem_formulation}
+\input{sections/04_dynamics_and_safety}
+\input{sections/05_method}
+\input{sections/06_analysis}
+\input{sections/07_experiments}
+\input{sections/08_results_and_limitations}
+\input{sections/09_conclusion}
+\input{sections/10_appendix}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

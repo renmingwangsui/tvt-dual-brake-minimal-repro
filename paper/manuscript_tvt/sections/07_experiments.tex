@@ -1,0 +1,26 @@
+\section{Validation Protocols}
+\subsection{Literature-Calibrated Physical Model}
+The vehicle is a literature-calibrated heavy-duty composite, not an identified truck. Mass, braking force, thermal capacity, and cooling follow the National Highway Traffic Safety Administration (NHTSA) S-cam report \cite{nhtsa2010scam}; length follows an American Association of State Highway and Transportation Officials (AASHTO) design vehicle \cite{aashto2004}; resistance/drag a Class-8 study \cite{wang2015fuel}; acceleration/friction lag heavy-truck records \cite{vegamoor2018,yanakiev1998}; auxiliary lag/retarder map published truck models \cite{li2026retarder,donkers2020powertrain}; fade a National Transportation Safety Board (NTSB) simulation \cite{ntsb2002simulation}; ambient/thermal discrepancy \cite{yan2018thermal}; and communication field measurements \cite{hu2021delay,gao2016dsrc}. The 10\%, 1-km descent follows \cite{devika2022fade}. Table~\ref{tab:final-parameters} gives parameter provenance.
+
+\input{tables/table_final_parameters}
+
+Ten prespecified studies cover feasibility (M1), allocation (M2), hot-brake conflict (M3), prediction (M4--M5), sensitivity (M6), delay (M7), low speed (M8), string stability (M9), and computation (M10). All 92 runs passed integrity checks. The 20 seeded M6 cases are not a probability law; the 81-scenario boundary follow-up and M7 diagnosis used no retuning.
+
+The boundary study evaluates identical hard rows on a $25\times51$ initial-state grid: 365--461~K (4-K steps), 15--90~m gaps (1.5-m steps), 15~m/s, and 10\% downgrade. Friction-only fixes $u_i^a=0$; this is a command-domain, not trajectory, comparison. A three-scenario, 10-s, three-truck ablation matches plant, allocator, limits, initial states, leader, channel, and sampling; only predictive/upstream triggering is disabled, retaining hard-QP projection. Fixed 50--300-ms M7 delays compare head reserve/attribution with a centralized oracle. The 300-point stratified boundary study varies declared intervals and fade-digitization offset, not physical probabilities; source rows/scripts accompany it.
+
+Predictive evidence covers horizon reserve, vehicle--time maps, delayed bottlenecks, and physical attribution.
+
+\subsection{Secondary Matched Learning Protocol}
+The secondary ten-seed DiffQP/StopGradient diagnostic matches initialization, streams, scenarios, reward, budget, forward QP, executed action, and evaluation seeds. Three-truck runs use 20 updates, 12 steps/update, and two policy epochs. Only valid provisional-QP derivatives differ; nonregular samples use zero QP gradient. Paired outcomes accompany the source.
+
+\subsection{External Recent T-ITS Baseline}
+We independently implemented Zhou \emph{et al.}'s mixed-autonomy safe-MARL/cooperative-CBF method \cite{zhou2026cooperative}. In three source-style disturbance families, 450 episodes, 450,000 environment steps, and 439 PPO updates yielded collision-free behavior and nonnegative cooperative-CBF values. Mean connected-and-automated-vehicle (CAV) headways were 1.385, 1.149, 1.144~s; source-defined Average Absolute Velocity Errors (AAVE) were 1.620, 1.362, 4.699~m/s; minimum CBF values were $6.08\times10^{-10}$, $8.32\times10^{-10}$, $1.00\times10^{-10}$; collision counts were zero. This is qualitative/functional agreement, not numerical reproduction of every source value. Unreported architecture/optimization details were prespecified.
+
+For matched transfer, the trained baseline's scalar safe acceleration drives the unchanged heavy-duty plant through a fixed auxiliary-first adapter: available auxiliary force precedes friction, subject only to magnitude, gear, and power limits. It uses no $\rho_i$, $\widehat{\rho}_i^{H}$, $\rho_i^{H,\mathrm{up}}$, thermal HOCBF, fade CBF, tube, certificate supervisor, or attribution. Reported values are post-hoc common evaluators, not feedback.
+
+Six prespecified deterministic cases comprise nominal descent, three hot starts, emergency braking, and communication delay. Pairs share plant, initial state, road, leader, ambient condition, channel, integration, duration, and seed 20260918. There is no per-case retuning, stochastic replication, or confidence interval. This adapted heavy-duty plant is not Zhou \emph{et al.}'s source environment.
+
+\subsection{Implementation and Integrity Checks}
+The archived traceability matrix maps collision/thermal/fade/low-speed rows (11)--(24) to symbolic, affine/QP, and hot/cold tests at $v=0$, $v\approx0$, $v=v_\epsilon$, and $v>v_\epsilon$. Directional margin (25) has interval-endpoint regression, not a rounding proof; QP/certificate (26)--(33) have forward, hard-row, and independent linear-program (LP) vertex checks. Predictive (34)--(37) has $H=1$, 5,000-state sampled enclosure, monotonicity, and boundary tests; fleet (38)--(40), learning (41)--(42), and supervisor (43) have min/argmin/delay, gradient/fallback, and reverification tests. Low-speed intersection (44), sampled-data bound (45), and ZOH error (46) have dedicated executable checks.
+
+These checks detect coding/algebraic regressions; they neither identify uncertainty bounds nor prove arbitrary continuous-time containment or backup-domain nonemptiness, and do not replace vehicle validation.

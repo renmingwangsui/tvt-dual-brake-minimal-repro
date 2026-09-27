@@ -1,0 +1,51 @@
+\section{Safety and Predictive-Feasibility Analysis}
+\textbf{Assumption 1 (regular bounded model):} On a compact operating domain, \eqref{eq:model} is locally Lipschitz; masses, lags, and heat capacities are bounded away from zero; directional and digital margins dominate all declared estimation, derivative, communication, integration, and sampled-model errors.
+
+\textbf{Assumption 2 (valid backup tube):} $\Omega_{k:k+H}$ contains the true grade/grade rate, predecessor acceleration/jerk, mass/resistance, actuator lags, thermal/fade error, ambient variation, heat-flow residual, gear/power availability, and message age/delay. The first set transition uses the already computed provisional $u_{i,k}^{*,0}$; later transitions use a sound command-set extension $\mathbb U_i^B(\mathcal X)$ of the state-feedback backup. If the supervisor changes the applied command, the first transition is re-evaluated before application.
+
+\textbf{Proposition 1 (complete instantaneous equivalence):} Under the two individual intervals, the coupled row in \eqref{eq:collisiondemand}, and the active low-speed state gate \eqref{eq:gT0}, the hard command set is nonempty if and only if $\rho_i(\chi_{i,k})\ge0$.
+
+\emph{Proof:} All normalizers are positive. At $v_i>v_\epsilon$, $q_{i,k}^{T0}=+\infty$ and the three command-dependent terms give the result. For $0<v_i\le v_\epsilon$, exact zero-order-hold integration gives $c_i^T=\eta_i v_i(I_{0i}-I_{1i})/C_i>0$. Write $U_i^{f,\mathrm{other}}$ for the upper friction bound before the low-speed thermal row and set
+\begin{equation}\label{eq:low-speed-upper}
+U_i^{f,\mathrm{LS}}=\min\{U_i^{f,\mathrm{other}},g_{i,k}^{T0}/c_i^T\}.
+\end{equation}
+The $U_i^f$ used in $\Delta_i^f$ and $M_i$ is this intersection in the low-speed branch. Hence the undivided row is satisfied by every $u_i^f\le U_i^f$; $g_{i,k}^{T0}\ge0$ also remains the explicit state-side gate in the implemented certificate. At $v_i=0$, $c_i^T=0$, division is not performed, and the row is exactly the state-only condition $0\le g_{i,k}^{T0}$. At every speed, the command intervals are nonempty precisely when $\Delta_i^f,\Delta_i^a\ge0$. Since $A_i^f,A_i^a>0$, the collision left side is maximal at $(U_i^f,U_i^a)$ and meets demand precisely when $M_i\ge0$. These conditions are exactly the nonnegative components of $\rho_i$; reversing each step proves necessity.
+
+\textbf{Proposition 2 (one-sided robust certificate):} Under Assumption 2, if $\rho_{i,k}^{H,{\rm cert}}\ge0$, then the hard command set is nonempty at every predicted sample for every declared realization.
+
+\emph{Proof:} Sound set propagation places every closed-loop realization in $\mathcal X^B_{i,k+\ell\mid k}$. By \eqref{eq:predlower}, $\rho_i(\chi_{i,k+\ell})\ge\inf_{\chi\in\mathcal X^B}\rho_i(\chi)\ge\underline\rho^{\rm IA}_{i,k+\ell\mid k}\ge\rho_{i,k}^{H,{\rm cert}}$. Proposition 1 applies. Conversely, $\rho_{i,k}^{H,{\rm cert}}<0$ is inconclusive because dependency inflation can lower the interval evaluation below the true infimum. This establishes neither global nor post-horizon recursive feasibility.
+
+\textbf{Proposition 3 (horizon monotonicity):} For a common stored prefix of IA lower bounds, $\rho_i^{H+1,{\rm cert}}\le\rho_i^{H,{\rm cert}}$.
+
+\emph{Proof:} The longer-horizon minimum contains every old lower bound and one additional term.
+
+\textbf{Proposition 4 (closed-loop uncertainty monotonicity):} Let $\Omega_1\subseteq\Omega_2$. Suppose $\mathcal F^{\rm IA}$ is inclusion monotone in state, command, and uncertainty sets, and $\mathbb U^B$ is an inclusion-monotone set extension of the state-feedback backup. Starting from the same singleton, the resulting tubes are nested and $\rho_i^{H,{\rm cert}}(\Omega_2)\le\rho_i^{H,{\rm cert}}(\Omega_1)$ whenever the IA certificate evaluator is inclusion antitone under set enlargement.
+
+\emph{Proof:} Induction: equal initial sets are nested. If $\mathcal X_{1,\ell}\subseteq\mathcal X_{2,\ell}$, inclusion monotonicity gives $\mathbb U^B(\mathcal X_{1,\ell})\subseteq\mathbb U^B(\mathcal X_{2,\ell})$ and then $\mathcal X_{1,\ell+1}\subseteq\mathcal X_{2,\ell+1}$. Lower interval endpoints cannot increase under the stated antitone evaluator; the horizon minimum preserves order. The executable affine-plus-saturation backup satisfies these properties and is regression-tested. No theorem is asserted for an arbitrary non-monotone custom enclosure.
+
+\textbf{Proposition 5 (centralized and recursive minima):} The centralized $\rho_{{\rm fleet},k}^{H,{\rm cert}}\ge0$ if and only if every truck certificate is nonnegative. With zero-delay complete chain delivery, recursive \eqref{eq:minconsensus} at the head equals that centralized minimum and propagates an attaining argmin. With delay/loss it is instead an age-bounded local/upstream quantity using the registered conservative stale-message replacement.
+
+\emph{Proof:} The centralized statement follows from the finite minimum. Recursive pairwise minima are associative and propagate the chosen metadata. Stale replacement changes the operand, so equality with the instantaneous centralized minimum is not claimed.
+
+\textbf{Corollary (physical sensitivities):} Holding all other limits fixed, increasing $U_i^a$ cannot decrease $M_i$, and increasing either individual upper bound cannot decrease $\rho_i$. If the calibrated fade map and every temperature-dependent friction upper bound are nonincreasing in $T_i$, increasing initial temperature cannot increase $\rho_i$. Nested grade or age uncertainty cannot increase $\rho_i^{H,{\rm cert}}$ only under Proposition 4's inclusion assumptions. No monotonicity is asserted when other state-dependent terms change simultaneously.
+
+\textbf{Proposition 6 (sampled-data preservation):} Let each held-command barrier left-hand side $F_i^q$, $q\in\{c,T,F,A\}$, obey $|\dot F_i^q|\le L_i^q$ and have integration error $\bar e_i^q$. Tightening by $\mu_i^q=L_i^q\Delta t+\bar e_i^q$ preserves the continuous row between samples. The executable product-rule bound is
+\begin{equation}\label{eq:ratebound}
+L_i^q=\bar\xi_{q,\dot{}}+\sum_j(\bar a_{qj}\bar{\dot u}_j+\bar{\dot a}_{qj}\bar u_j),
+\end{equation}
+with separately registered component bounds for collision, thermal, fade, and auxiliary rows. During each open ZOH interval, $\dot u_j=0$, so the implemented held-command specialization is $L_i^q=\bar\xi_{q,\dot{}}+\sum_j\bar{\dot a}_{qj}\bar u_j$; command jumps are evaluated anew at sample instants.
+
+\emph{Proof:} If the computed sample-time row satisfies the tightened margin $\mu_i^q=L_i^q\Delta t+\bar e_i^q$, the declared error bound gives the true row $F_i^q(t_k)\ge L_i^q\Delta t$. Hence, for every $t\in[t_k,t_k+\Delta t]$, the rate bound gives $F_i^q(t)\ge F_i^q(t_k)-L_i^q(t-t_k)\ge0$. This conclusion is conditional on the declared rate/error bounds and calibrated uncertainty domain; command jumps are checked again at sample instants. The low-speed ZOH thermal branch is handled separately by its registered one-step bound below.
+
+At low speed, variation of the frozen-$v,T_a,q^w$ ZOH prediction is bounded in code and paper by
+\begin{align}
+\bar e_T={}&\frac{\Delta t^2}{2C_{\min}}\!\left[\eta(\bar b\bar a+\bar v\bar{\dot b})+k\bar{\dot T}_a+\bar{\dot q}^w\right]\nonumber\\
+&+\frac{\Delta t\epsilon_{\rm th}}{C_{\min}}\left(\eta\bar b\bar v+k\bar{\dot T}_a\Delta t+\bar{\dot q}^w\Delta t\right)\nonumber\\
+&+\frac{\Delta t^2\eta\bar v(\bar u^f+\bar b)\epsilon_\tau}{2C_{\min}\tau_{f,\min}}+\bar e_{\rm int},\label{eq:zoherror}
+\end{align}
+In the sampled-data and low-speed error bounds, an overbar on a rate or magnitude denotes its registered nonnegative upper or absolute bound over the declared operating domain; physical upper-envelope functions retain their established meanings. Here $C_{\min}>0$ is the registered lower bound on thermal capacity over the declared uncertainty set, $\bar e_{\rm int}$ is the registered numerical-integration and sampled-model error bound, $\bar{\dot b}=(\bar u^f+\bar b)/\tau_{f,\min}$, and $\tau_{f,\min}=\tau_f(1-\epsilon_\tau)$. The ZOH row uses this computed $\bar e_T$, not an unspecified constant.
+
+\textbf{Proposition 7 (QP uniqueness and local sensitivity):} If $H_{\rm QP}\succ0$ and the hard set is nonempty, the two-dimensional primal solution is unique. If the selected active rows additionally satisfy LICQ and strict complementarity, the solution is locally differentiable and \eqref{eq:kktdiff} gives its derivative. Because active gradients lie in $\mathbb R^2$, any active set containing more than two inequality rows is necessarily linearly dependent. At a switch or nonregular set the implementation preserves the forward solution and applies the predefined zero-QP-gradient fallback; it does not assert a classical derivative. No gradient is taken through interval extrema or discrete supervisor modes.
+
+\subsection{Limits of the Claims}
+The analysis does not prove that the backup domain is nonempty for every grade, load, initial temperature, emergency maneuver, or horizon extension. It does not prove string stability, global recursive feasibility, empirical superiority, or safety outside calibrated uncertainty. No time-to-conflict theorem is included because no certified global Dini/Clarke derivative bound is available.

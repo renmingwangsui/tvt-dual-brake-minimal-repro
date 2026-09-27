@@ -1,0 +1,88 @@
+{
+  "confidence_interval": null,
+  "confidence_interval_reason": "No stochastic replicate exists; heterogeneous scenarios are not treated as exchangeable pseudo-replicates.",
+  "design": "deterministic exact matched cases",
+  "difference_definition": "accepted_method minus adapted_zhou",
+  "exact_case_differences": {
+    "communication_nominal_delay": {
+      "auxiliary_energy_MJ": -1.6378681167523625,
+      "controller_runtime_p99_ms": 1.2816419100000045,
+      "fade_envelope_violation_count": 0.0,
+      "friction_energy_MJ": -5.078829540099276,
+      "jerk_rms_mps3": -0.34508552687838,
+      "min_rho_H_cert": 13675.453771597948,
+      "min_rho_i": 13675.29631053599,
+      "minimum_collision_barrier": 17.622217921433716,
+      "peak_brake_temperature_K": -116.81472073726155,
+      "spacing_rmse_m": -23.32446835604368,
+      "speed_rmse_mps": -7.304920809543166
+    },
+    "emergency_brake_during_descent": {
+      "auxiliary_energy_MJ": 3.508844081828962,
+      "controller_runtime_p99_ms": 1.0341278500000004,
+      "fade_envelope_violation_count": -88.0,
+      "friction_energy_MJ": -5.435041368960742,
+      "jerk_rms_mps3": -1.0409007259540575,
+      "min_rho_H_cert": 40880.25834762569,
+      "min_rho_i": 40880.01886222128,
+      "minimum_collision_barrier": -5.151137230675655,
+      "peak_brake_temperature_K": -112.30315894511216,
+      "spacing_rmse_m": -18.536451435016676,
+      "speed_rmse_mps": -7.9939174467934055
+    },
+    "hot_start_413.7081614076934K": {
+      "auxiliary_energy_MJ": 9.710025403322835,
+      "controller_runtime_p99_ms": 0.9248827900000011,
+      "fade_envelope_violation_count": -257.0,
+      "friction_energy_MJ": -6.217612032860453,
+      "jerk_rms_mps3": -0.9335858979609243,
+      "min_rho_H_cert": 201092.29483598168,
+      "min_rho_i": 201092.15403479405,
+      "minimum_collision_barrier": -21.171965088352664,
+      "peak_brake_temperature_K": -162.13743224431158,
+      "spacing_rmse_m": -49.005949724445095,
+      "speed_rmse_mps": -8.3354903176322
+    },
+    "hot_start_453.7081614076934K": {
+      "auxiliary_energy_MJ": 10.685244718962949,
+      "controller_runtime_p99_ms": 1.2899550700000004,
+      "fade_envelope_violation_count": -313.0,
+      "friction_energy_MJ": -8.456434350908086,
+      "jerk_rms_mps3": -1.0260623058188356,
+      "min_rho_H_cert": 242874.0971600513,
+      "min_rho_i": 242873.96116229132,
+      "minimum_collision_barrier": -58.647931068039156,
+      "peak_brake_temperature_K": -193.81943546397883,
+      "spacing_rmse_m": -42.41173338225049,
+      "speed_rmse_mps": -7.111965115060389
+    },
+    "hot_start_461.7081614076934K": {
+      "auxiliary_energy_MJ": 10.92987501475454,
+      "controller_runtime_p99_ms": 0.7683661699999998,
+      "fade_envelope_violation_count": -324.0,
+      "friction_energy_MJ": -8.921998032042886,
+      "jerk_rms_mps3": -1.0497494294713734,
+      "min_rho_H_cert": 251229.90758275776,
+      "min_rho_i": 251229.7718283844,
+      "minimum_collision_barrier": -66.99012928279977,
+      "peak_brake_temperature_K": -197.20873311724858,
+      "spacing_rmse_m": -40.75505038707997,
+      "speed_rmse_mps": -6.841968735653771
+    },
+    "nominal_long_descent": {
+      "auxiliary_energy_MJ": 20.029047928203152,
+      "controller_runtime_p99_ms": 0.9299970399999993,
+      "fade_envelope_violation_count": -157.0,
+      "friction_energy_MJ": -0.5562351300676855,
+      "jerk_rms_mps3": -0.6545354767883594,
+      "min_rho_H_cert": 134496.5274505965,
+      "min_rho_i": 134496.39095560228,
+      "minimum_collision_barrier": -41.511506946102045,
+      "peak_brake_temperature_K": -112.15637320542953,
+      "spacing_rmse_m": -103.82598970244031,
+      "speed_rmse_mps": -9.636065827310308
+    }
+  },
+  "paired_seed": 20260918,
+  "paired_seed_count": 1
+}

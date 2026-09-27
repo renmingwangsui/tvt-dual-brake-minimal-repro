@@ -1,0 +1,6 @@
+# PyTorch is intentionally unpinned until verified on the approved target host.
+# Install the official CPU or CUDA wheel first, as documented in README.md.
+torch
+numpy==2.3.5
+sympy==1.14.0
+pytest>=8,<10

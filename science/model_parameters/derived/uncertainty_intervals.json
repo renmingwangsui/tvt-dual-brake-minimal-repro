@@ -1,0 +1,201 @@
+{
+  "artifact_type": "uncertainty evidence audit",
+  "global_status": "INCOMPLETE",
+  "note": "Literature ranges, derived envelopes, and sensitivity-only intervals remain distinct; no uniform plus/minus percentage is introduced.",
+  "phase": "2M-LIT-2",
+  "records": {
+    "ambient_operating_envelope": {
+      "lower": 298.15,
+      "nominal": 298.15,
+      "paper_eligible": false,
+      "source_id": "YAN2018",
+      "uncertainty_status": "literature_defined_nominal_baseline_not_CI",
+      "upper": 298.15
+    },
+    "auxiliary_actuator_lag": {
+      "lower": 0.25,
+      "nominal": 0.25,
+      "paper_eligible": false,
+      "source_id": "LI2026",
+      "uncertainty_status": "published_first_order_model_mapping_not_CI",
+      "upper": 0.25
+    },
+    "auxiliary_speed_gear_power_envelope": {
+      "lower": 0.0,
+      "nominal": {
+        "map_file": "data/model_parameters/source_points/phase2m_lit3_digitization.json",
+        "maximum_continuous_force_N": 40249.37834192537
+      },
+      "paper_eligible": false,
+      "source_id": "LI2026+DONKERS2020",
+      "uncertainty_status": "digitization_and_cross_source_model_mapping_not_CI",
+      "upper": 40249.37834192537
+    },
+    "braking_to_thermal_conversion": {
+      "lower": 1.0,
+      "nominal": 1.0,
+      "paper_eligible": false,
+      "source_id": "NHTSA2010",
+      "uncertainty_status": "exact_model_boundary_mapping_not_CI",
+      "upper": 1.0
+    },
+    "communication_delay_model": {
+      "lower": 0.005,
+      "nominal": {
+        "broadcast_interval_s": 0.1,
+        "design_upper_s": 0.305,
+        "nominal_s": 0.005
+      },
+      "paper_eligible": false,
+      "source_id": "HU2021",
+      "uncertainty_status": "measured_nominal_plus_conservative_design_bound_not_CI",
+      "upper": 0.305
+    },
+    "communication_packet_burst_loss": {
+      "lower": 0.0,
+      "nominal": {
+        "loss_probability_upper_observed": 0.02,
+        "maximum_observed_consecutive_losses": 2,
+        "model": "bounded-burst observation; not IID"
+      },
+      "paper_eligible": false,
+      "source_id": "HU2021+GAO2016",
+      "uncertainty_status": "observed_test_bound_no_distribution_or_CI",
+      "upper": 0.02
+    },
+    "cooling_coefficient": {
+      "lower": 480.1057964514239,
+      "nominal": 624.3336853157066,
+      "paper_eligible": false,
+      "source_id": "NHTSA2010+DEVIKA2022",
+      "uncertainty_status": "derived",
+      "upper": 624.3336853157066
+    },
+    "critical_brake_temperature": {
+      "lower": 463.7081614076934,
+      "nominal": 463.7081614076934,
+      "paper_eligible": false,
+      "source_id": "NTSB2002",
+      "uncertainty_status": "pre_registered_80_percent_capability_criterion_not_CI",
+      "upper": 463.7081614076934
+    },
+    "drag_area": {
+      "lower": 7.56485,
+      "nominal": 7.56485,
+      "paper_eligible": false,
+      "source_id": "WANG2015",
+      "uncertainty_status": "derived",
+      "upper": 7.56485
+    },
+    "friction_actuator_lag": {
+      "lower": 0.14,
+      "nominal": 0.14,
+      "paper_eligible": false,
+      "source_id": "YANAKIEV1998+DEVIKA2022",
+      "uncertainty_status": "literature_range",
+      "upper": 0.26
+    },
+    "long_downhill_road_profile": {
+      "lower": -0.09966865249116204,
+      "nominal": {
+        "grade_rad": [
+          -0.09966865249116204,
+          -0.09966865249116204
+        ],
+        "position_m": [
+          0.0,
+          1000.0
+        ]
+      },
+      "paper_eligible": false,
+      "source_id": "DEVIKA2022",
+      "uncertainty_status": "derived",
+      "upper": -0.09966865249116204
+    },
+    "lumped_thermal_capacity": {
+      "lower": 15439.687347241079,
+      "nominal": 15439.687347241079,
+      "paper_eligible": false,
+      "source_id": "NHTSA2010",
+      "uncertainty_status": "derived",
+      "upper": 15439.687347241079
+    },
+    "maximum_friction_braking_force": {
+      "lower": 123603.03444794951,
+      "nominal": 123603.03444794951,
+      "paper_eligible": false,
+      "source_id": "NHTSA2010",
+      "uncertainty_status": "literature_range",
+      "upper": 127629.1919218241
+    },
+    "predecessor_emergency_bounds": {
+      "lower": {
+        "acceleration_lower_mps2": -3.8442527687296413,
+        "acceleration_upper_mps2": 1.3,
+        "jerk_abs_upper_mps3": 14.31916525115263
+      },
+      "nominal": {
+        "acceleration_lower_mps2": -3.722982965299684,
+        "acceleration_upper_mps2": 1.3,
+        "jerk_abs_upper_mps3": 26.592735466426312
+      },
+      "paper_eligible": false,
+      "source_id": "NHTSA2010+VEGAMOOR2018+YANAKIEV1998",
+      "uncertainty_status": "derived",
+      "upper": {
+        "acceleration_lower_mps2": -3.722982965299684,
+        "acceleration_upper_mps2": 1.3,
+        "jerk_abs_upper_mps3": 27.458948348068866
+      }
+    },
+    "residual_heat_bound": {
+      "lower": -92551.57316620676,
+      "nominal": 0.0,
+      "paper_eligible": false,
+      "source_id": "NHTSA2010+YAN2018",
+      "uncertainty_status": "DERIVED_MODEL_DISCREPANCY_BOUND_not_experimental_CI",
+      "upper": 92551.57316620676
+    },
+    "rolling_resistance": {
+      "lower": 0.0053,
+      "nominal": 0.0085,
+      "paper_eligible": false,
+      "source_id": "WANG2015",
+      "uncertainty_status": "sensitivity_only",
+      "upper": 0.0085
+    },
+    "thermal_fade_curve": {
+      "lower": 0.11735941320293398,
+      "nominal": {
+        "file": "data/model_parameters/source_points/phase2m_lit3_digitization.json",
+        "label": "DIGITIZED_REPRESENTATIVE_HEAVY_TRUCK_S_CAM_FADE"
+      },
+      "paper_eligible": false,
+      "source_id": "NTSB2002",
+      "uncertainty_status": "digitization_pixel_bound_not_CI",
+      "upper": 1.0
+    },
+    "vehicle_length": {
+      "lower": 20.8788,
+      "nominal": 22.4028,
+      "paper_eligible": false,
+      "source_id": "AASHTO2004",
+      "uncertainty_status": "literature_range",
+      "upper": 22.4028
+    },
+    "vehicle_mass": {
+      "lower": 24000.0,
+      "nominal": 33200.0,
+      "paper_eligible": false,
+      "source_id": "NHTSA2010+VEGAMOOR2018",
+      "uncertainty_status": "literature_range",
+      "upper": 33200.0
+    }
+  },
+  "registry_file": "data/model_parameters/parameter_provenance.yaml",
+  "registry_sha256": "a66873453502b8883586c80575fd43cc8033fb4cbb129cadec2419da67c8094f",
+  "resolved_record_count": 19,
+  "source_file": "data/model_parameters/source_extracts.json",
+  "source_sha256": "98b1523385e5538910af1eaa2cef4a79d8cc1b05db356bd81c168f268f3a3422",
+  "unresolved_parameter_ids": []
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "phase": "2M-LIT-2",
+  "paper_eligible": false,
+  "description": "Published source points used by the Reference_Truck closure audit. These are transcriptions, not synthetic observations or paper results.",
+  "reference_truck": {
+    "configuration": "typical five-axle 18-wheel tractor-semitrailer with standard S-cam drum brakes on all wheel ends",
+    "gross_mass_kg": 33200.0,
+    "overall_length": {
+      "nominal_ft": 73.5,
+      "compatible_lower_ft": 68.5,
+      "source_id": "AASHTO2004"
+    },
+    "stopping": {
+      "initial_speed_mph": 60.0,
+      "measured_distance_ft": 317.0,
+      "model_target_distance_ft": 307.0,
+      "source_id": "NHTSA2010"
+    },
+    "thermal": {
+      "effective_capacity_per_brake_btu_per_degF": 0.813,
+      "cooling_k0_btu_per_h_degF": 50.0,
+      "cooling_k1_btu_s_per_h_degF_ft": 1.5,
+      "brake_assembly_count": 10,
+      "source_id": "NHTSA2010",
+      "limitation": "The VRTC fade lookup source points are not published; no fade curve is digitized or fitted."
+    }
+  },
+  "predecessor": {
+    "maximum_observed_acceleration_mps2": 1.3,
+    "source_id": "VEGAMOOR2018"
+  },
+  "auxiliary_component_candidate": {
+    "engine_speed_rpm": [1100, 1300, 1500, 1700, 1900, 2100],
+    "retarding_power_kw": [98, 135, 176, 219, 257, 286],
+    "retarding_torque_ft_lb": [630, 731, 826, 908, 954, 958],
+    "source_id": "JACOBS2012",
+    "accepted_as_complete_vehicle_envelope": false,
+    "blocking_fields": ["actuator_lag", "command_slew", "installed_drivetrain_mapping", "drivetrain_efficiency"]
+  }
+}

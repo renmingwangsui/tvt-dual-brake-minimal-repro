@@ -1,0 +1,5 @@
+# Install an official platform-appropriate PyTorch wheel first.
+# PyTorch 2.14.0+cpu was verified on the producing WSL2 host; do not assume that wheel fits every host.
+torch
+numpy==2.5.2
+sympy==1.14.0

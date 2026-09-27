@@ -1,0 +1,23 @@
+field,scope,unit,description
+run_id,all,,deterministic run identifier
+experiment_id,all,,M1 through M10
+config_hash,all,,SHA-256 of canonical DEBUG configuration
+source_provenance_hash,all,,SHA-256 of parameter registry file
+seed,all,,deterministic random seed
+data_provenance,all,,synthetic_debug for current suite
+paper_eligible,all,,always false for current suite
+time_s,M2-M8,s,simulation time
+vehicle_id,M2-M10,,one-based vehicle index
+u_f_nom_N,M2-M7,N,nominal friction-brake command
+u_a_nom_N,M2-M7,N,nominal auxiliary-brake command
+u_f_final_N,M2-M7,N,verified final friction-brake command
+u_a_final_N,M2-M7,N,verified final auxiliary-brake command
+temperature_K,M2-M7,K,current brake temperature
+rho,M1-M8,,instantaneous feasibility certificate
+g_T0_K,M2-M8,K,low-speed zero-command thermal residual
+rho_H_cert,M2-M7,,conservative horizon reserve
+hard_residuals,M2-M7,,named hard-row residuals
+runtime_s,M2-M7,s,controller component timings
+G2_i,M9,,empirical finite-record L2 ratio relative to vehicle 1
+Ginf_i,M9,,empirical finite-record Linf ratio relative to vehicle 1
+total_controller_s,M10,s,raw wall-clock controller duration

@@ -1,0 +1,89 @@
+{
+  "configuration_frozen": true,
+  "constraint_partition": {
+    "auxiliary_actuator_lag_retained": true,
+    "auxiliary_command_slew_hard_constraint": false,
+    "command_hold": "zero-order hold between controller samples",
+    "friction_actuator_lag_retained": true,
+    "friction_command_slew_hard_constraint": false
+  },
+  "mode": "LITERATURE_CALIBRATED",
+  "paper_eligible_requested": false,
+  "paper_eligible_results_generated": false,
+  "parameter_hashes": {
+    "ambient_operating_envelope": "de250ce56dc47bce4aae919d70c771ca8700f4d03ff092c73507e3539d58cd63",
+    "auxiliary_actuator_lag": "663c0c0abb3c45f751ed3841c6d062477026417b0bd93f5c3618a63a3c993f45",
+    "auxiliary_speed_gear_power_envelope": "18e1451b672423c4ff6cfd7d3ca60f0a724365784ec5561aeb37108815f54879",
+    "braking_to_thermal_conversion": "55dc71b43ab19a1a8670d8aafb2527bf7458e39f140c3999d0fd650042304904",
+    "communication_delay_model": "c473dab9270adb68f8f4a222c58227adec59408ae8d7c339480295947d82fa71",
+    "communication_packet_burst_loss": "d23db07c104202656b91ac8b89e646e85c7747a6113b40aee81f1a28a9cf108e",
+    "cooling_coefficient": "f799af4f2bf9c4dcb4776068140b42268ee354aeab399fe9e8be72e70d967e4a",
+    "critical_brake_temperature": "bdcca559902757b61880b560105ad4254b60c821314bd44746fc166b2c28e016",
+    "drag_area": "56d8d58eaa8e42bdcb2116be5498f6893116314e4f2a7d295a3e6a64b47da9ac",
+    "friction_actuator_lag": "2c9d60126071c867c9a4f0e77641188c8c7d984c1f90e0383584acff7289f4f3",
+    "long_downhill_road_profile": "b6a24545110efc80189bb7e6db4db7b85ab8fae1ab987d86d23775ff02521102",
+    "lumped_thermal_capacity": "307f8f51a3f4c7e84e2efb5b0e1e087ddc922e92b6ee6b478a58143a590d2b69",
+    "maximum_friction_braking_force": "dc592dd2dbc0df695c871b37791a1f12e7565a3cee19ce5d771c411f290a4b7d",
+    "predecessor_emergency_bounds": "8f11fef81a04dbeb84a074a2aa2315e6e23525a64aef50da774052183ed79986",
+    "residual_heat_bound": "bb73d56a5d824c19e6b547273f30ec3811e52f441268da4bf89f15469974b3af",
+    "rolling_resistance": "532b68334a58bae3c6b7e6f3b5daab03503bed5c66628aade78f5c18bbd40f84",
+    "thermal_fade_curve": "296c469945d277cf6e2e78d839c591453a6fc9d1a6e2b6a8cf3abfbd26c74a17",
+    "vehicle_length": "650877a5081caba0aae0805b3c6a282ccb9ec969a0326b69cb200bbed3b407fe",
+    "vehicle_mass": "27b673fa1e9da2c6c0d3ce31eb45f307e69787384f6b64bacb9fde9197a58bc4"
+  },
+  "parameter_registry": "data/model_parameters/parameter_provenance.yaml",
+  "phase": "2M-LIT-3",
+  "physical_model": {
+    "ambient_temperature_K": 298.15,
+    "artifact_type": "Phase 2M-LIT-3 literature and model-mapping closure",
+    "auxiliary_envelope": {
+      "continuous_power_W": 300000.0,
+      "file": "data/model_parameters/source_points/phase2m_lit3_digitization.json",
+      "peak_power_W": 450000.0
+    },
+    "auxiliary_lag": {
+      "implied_2_percent_settling_s": 1.0,
+      "mapping": "published first-order retarder pneumatic-control approximation",
+      "tau_a_s": 0.25
+    },
+    "braking_to_thermal_eta": {
+      "classification": "DERIVED MODEL-MAPPING",
+      "value": 1.0
+    },
+    "critical_temperature": {
+      "criterion": "first temperature where conservative phi(T) <= 0.80",
+      "interpolation": "piecewise linear between adjacent digitized inferior-lining points",
+      "safety_fraction": 0.8,
+      "temperature_K": 463.7081614076934,
+      "temperature_degC": 190.55816140769343
+    },
+    "fade_curve": {
+      "file": "data/model_parameters/source_points/phase2m_lit3_digitization.json",
+      "label": "DIGITIZED_REPRESENTATIVE_HEAVY_TRUCK_S_CAM_FADE"
+    },
+    "paper_eligible_result": false,
+    "phase": "2M-LIT-3",
+    "slew_decisions": {
+      "auxiliary": "removed from physical hard constraints",
+      "friction": "removed from physical hard constraints"
+    },
+    "thermal_model_discrepancy": {
+      "file": "data/model_parameters/derived/thermal_model_discrepancy.json",
+      "maximum_absolute_residual_W": 92551.57316620676,
+      "sha256": "99d0f13ad5a8661024f5eca603688104cea8868dff995a31c243ce2ad509d61c"
+    }
+  },
+  "prohibited_in_this_phase": "final M1-M10 execution",
+  "provenance_sha256": "a66873453502b8883586c80575fd43cc8033fb4cbb129cadec2419da67c8094f",
+  "repository_file_hashes": {
+    "manuscript/sections/04_dynamics_and_safety.tex": "5fb2a654fc3307c59df8d08633fb672a6b9da6296556517ed04a12723f3bd7f6",
+    "manuscript/sections/06_analysis.tex": "871aee76db7bc22c98b7867a4f9649797d683ca0c039190b9f9ee60def9290d9",
+    "src/controllers/integrated_safety_controller.py": "590e3ff96df96920e3d9f78ab1aab0d5c285b51ac229dab102d80b9adfcbf0f7",
+    "src/safety/conflict_reserve.py": "960e1d5d35214efc9fdc28e492eb9c28edcd082fe5d3e1c35426bcc7cb2923ea",
+    "src/safety_core.py": "0ef9981d96e40379198c7923c20d90758436aa57b09854071cd3c0a3f3aa814a"
+  },
+  "repository_state_id": "66047dcf639e8155eba2f23b2292353a4debe1cc270ffbaac4878180713f8d5f",
+  "schema_version": 2,
+  "source_extracts_sha256": "98b1523385e5538910af1eaa2cef4a79d8cc1b05db356bd81c168f268f3a3422",
+  "status": "READY_FOR_PAPER_CANDIDATE_MODEL_SIMULATION"
+}

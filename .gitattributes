@@ -1,0 +1,8 @@
+# Frozen inputs are byte-sensitive; never normalize line endings on checkout.
+* -text
+*.pt binary
+*.pdf binary
+*.png binary
+*.cls binary
+science/results/** binary
+paper/results/** binary

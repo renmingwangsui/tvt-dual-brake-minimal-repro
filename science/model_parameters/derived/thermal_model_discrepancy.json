@@ -1,0 +1,338 @@
+{
+  "comparison_domain": {
+    "grid_speeds_kmh": [
+      50.0,
+      55.0,
+      60.0,
+      65.0,
+      70.0
+    ],
+    "grid_temperatures_degC": [
+      25.0,
+      50.0,
+      75.0,
+      100.0,
+      125.0,
+      150.0,
+      175.0,
+      190.55816140769343
+    ],
+    "speed_kmh": [
+      50.0,
+      70.0
+    ],
+    "system_boundary": "ten wheel-end S-cam assemblies represented by one aggregate temperature",
+    "temperature_K": [
+      298.15,
+      463.7081614076934
+    ]
+  },
+  "derivation_script": "scripts/calibration/finalize_phase2m_lit3.py",
+  "independent_model": {
+    "equations": [
+      "h_c=0.92+a*v*exp(-v/328), v in m/s",
+      "Qdot=A'[h_c(T-Ta)+epsilon*sigma(T^4-Ta^4)]"
+    ],
+    "parameters": {
+      "A_prime_m2": 0.45,
+      "a_front": 0.7,
+      "a_rear": 0.3,
+      "epsilon": 0.65,
+      "sigma_W_m2_K4": 5.67e-08
+    },
+    "source": "Yan and Xu (2018), DOI 10.1155/2018/4587673, Eqs. (9)-(12), Table 1"
+  },
+  "label": "DERIVED_MODEL_DISCREPANCY_BOUND",
+  "maximum_absolute_residual_W": 92551.57316620676,
+  "nominal_q_w_W": 0.0,
+  "residual_definition": "q_w = Qdot_cool,NHTSA - Qdot_cool,YanXu",
+  "samples": [
+    {
+      "equivalent_q_w_W": 0.0,
+      "independent_yan_xu_cooling_W": 0.0,
+      "selected_nhtsa_cooling_W": 0.0,
+      "speed_kmh": 50.0,
+      "temperature_degC": 25.0
+    },
+    {
+      "equivalent_q_w_W": 14437.713399049138,
+      "independent_yan_xu_cooling_W": 1170.6287338435238,
+      "selected_nhtsa_cooling_W": 15608.342132892662,
+      "speed_kmh": 50.0,
+      "temperature_degC": 50.0
+    },
+    {
+      "equivalent_q_w_W": 28745.40639337526,
+      "independent_yan_xu_cooling_W": 2471.2778724100635,
+      "selected_nhtsa_cooling_W": 31216.684265785323,
+      "speed_kmh": 50.0,
+      "temperature_degC": 75.0
+    },
+    {
+      "equivalent_q_w_W": 42902.20396546274,
+      "independent_yan_xu_cooling_W": 3922.8224332152436,
+      "selected_nhtsa_cooling_W": 46825.02639867798,
+      "speed_kmh": 50.0,
+      "temperature_degC": 100.0
+    },
+    {
+      "equivalent_q_w_W": 56885.67627748346,
+      "independent_yan_xu_cooling_W": 5547.692254087189,
+      "selected_nhtsa_cooling_W": 62433.368531570646,
+      "speed_kmh": 50.0,
+      "temperature_degC": 125.0
+    },
+    {
+      "equivalent_q_w_W": 70671.83867129678,
+      "independent_yan_xu_cooling_W": 7369.8719931665255,
+      "selected_nhtsa_cooling_W": 78041.7106644633,
+      "speed_kmh": 50.0,
+      "temperature_degC": 150.0
+    },
+    {
+      "equivalent_q_w_W": 84235.15166844959,
+      "independent_yan_xu_cooling_W": 9414.901128906378,
+      "selected_nhtsa_cooling_W": 93650.05279735597,
+      "speed_kmh": 50.0,
+      "temperature_degC": 175.0
+    },
+    {
+      "equivalent_q_w_W": 92551.57316620676,
+      "independent_yan_xu_cooling_W": 10811.963879551051,
+      "selected_nhtsa_cooling_W": 103363.53704575781,
+      "speed_kmh": 50.0,
+      "temperature_degC": 190.55816140769343
+    },
+    {
+      "equivalent_q_w_W": 0.0,
+      "independent_yan_xu_cooling_W": 0.0,
+      "selected_nhtsa_cooling_W": 0.0,
+      "speed_kmh": 55.0,
+      "temperature_degC": 25.0
+    },
+    {
+      "equivalent_q_w_W": 14383.445433958344,
+      "independent_yan_xu_cooling_W": 1224.8966989343176,
+      "selected_nhtsa_cooling_W": 15608.342132892662,
+      "speed_kmh": 55.0,
+      "temperature_degC": 50.0
+    },
+    {
+      "equivalent_q_w_W": 28636.87046319367,
+      "independent_yan_xu_cooling_W": 2579.8138025916505,
+      "selected_nhtsa_cooling_W": 31216.684265785323,
+      "speed_kmh": 55.0,
+      "temperature_degC": 75.0
+    },
+    {
+      "equivalent_q_w_W": 42739.40007019036,
+      "independent_yan_xu_cooling_W": 4085.6263284876245,
+      "selected_nhtsa_cooling_W": 46825.02639867798,
+      "speed_kmh": 55.0,
+      "temperature_degC": 100.0
+    },
+    {
+      "equivalent_q_w_W": 56668.60441712028,
+      "independent_yan_xu_cooling_W": 5764.764114450364,
+      "selected_nhtsa_cooling_W": 62433.368531570646,
+      "speed_kmh": 55.0,
+      "temperature_degC": 125.0
+    },
+    {
+      "equivalent_q_w_W": 70400.49884584281,
+      "independent_yan_xu_cooling_W": 7641.211818620494,
+      "selected_nhtsa_cooling_W": 78041.7106644633,
+      "speed_kmh": 55.0,
+      "temperature_degC": 150.0
+    },
+    {
+      "equivalent_q_w_W": 83909.54387790483,
+      "independent_yan_xu_cooling_W": 9740.50891945114,
+      "selected_nhtsa_cooling_W": 93650.05279735597,
+      "speed_kmh": 55.0,
+      "temperature_degC": 175.0
+    },
+    {
+      "equivalent_q_w_W": 92192.19298525601,
+      "independent_yan_xu_cooling_W": 11171.344060501799,
+      "selected_nhtsa_cooling_W": 103363.53704575781,
+      "speed_kmh": 55.0,
+      "temperature_degC": 190.55816140769343
+    },
+    {
+      "equivalent_q_w_W": 0.0,
+      "independent_yan_xu_cooling_W": 0.0,
+      "selected_nhtsa_cooling_W": 0.0,
+      "speed_kmh": 60.0,
+      "temperature_degC": 25.0
+    },
+    {
+      "equivalent_q_w_W": 14329.646245240077,
+      "independent_yan_xu_cooling_W": 1278.6958876525848,
+      "selected_nhtsa_cooling_W": 15608.342132892662,
+      "speed_kmh": 60.0,
+      "temperature_degC": 50.0
+    },
+    {
+      "equivalent_q_w_W": 28529.272085757137,
+      "independent_yan_xu_cooling_W": 2687.4121800281855,
+      "selected_nhtsa_cooling_W": 31216.684265785323,
+      "speed_kmh": 60.0,
+      "temperature_degC": 75.0
+    },
+    {
+      "equivalent_q_w_W": 42578.002504035554,
+      "independent_yan_xu_cooling_W": 4247.023894642426,
+      "selected_nhtsa_cooling_W": 46825.02639867798,
+      "speed_kmh": 60.0,
+      "temperature_degC": 100.0
+    },
+    {
+      "equivalent_q_w_W": 56453.40766224721,
+      "independent_yan_xu_cooling_W": 5979.960869323433,
+      "selected_nhtsa_cooling_W": 62433.368531570646,
+      "speed_kmh": 60.0,
+      "temperature_degC": 125.0
+    },
+    {
+      "equivalent_q_w_W": 70131.50290225146,
+      "independent_yan_xu_cooling_W": 7910.20776221183,
+      "selected_nhtsa_cooling_W": 78041.7106644633,
+      "speed_kmh": 60.0,
+      "temperature_degC": 150.0
+    },
+    {
+      "equivalent_q_w_W": 83586.74874559522,
+      "independent_yan_xu_cooling_W": 10063.30405176074,
+      "selected_nhtsa_cooling_W": 93650.05279735597,
+      "speed_kmh": 60.0,
+      "temperature_degC": 175.0
+    },
+    {
+      "equivalent_q_w_W": 91835.91719447913,
+      "independent_yan_xu_cooling_W": 11527.619851278674,
+      "selected_nhtsa_cooling_W": 103363.53704575781,
+      "speed_kmh": 60.0,
+      "temperature_degC": 190.55816140769343
+    },
+    {
+      "equivalent_q_w_W": 0.0,
+      "independent_yan_xu_cooling_W": 0.0,
+      "selected_nhtsa_cooling_W": 0.0,
+      "speed_kmh": 65.0,
+      "temperature_degC": 25.0
+    },
+    {
+      "equivalent_q_w_W": 14276.312840228442,
+      "independent_yan_xu_cooling_W": 1332.0292926642196,
+      "selected_nhtsa_cooling_W": 15608.342132892662,
+      "speed_kmh": 65.0,
+      "temperature_degC": 50.0
+    },
+    {
+      "equivalent_q_w_W": 28422.60527573387,
+      "independent_yan_xu_cooling_W": 2794.0789900514546,
+      "selected_nhtsa_cooling_W": 31216.684265785323,
+      "speed_kmh": 65.0,
+      "temperature_degC": 75.0
+    },
+    {
+      "equivalent_q_w_W": 42418.00228900065,
+      "independent_yan_xu_cooling_W": 4407.02410967733,
+      "selected_nhtsa_cooling_W": 46825.02639867798,
+      "speed_kmh": 65.0,
+      "temperature_degC": 100.0
+    },
+    {
+      "equivalent_q_w_W": 56240.07404220068,
+      "independent_yan_xu_cooling_W": 6193.2944893699705,
+      "selected_nhtsa_cooling_W": 62433.368531570646,
+      "speed_kmh": 65.0,
+      "temperature_degC": 125.0
+    },
+    {
+      "equivalent_q_w_W": 69864.8358771933,
+      "independent_yan_xu_cooling_W": 8176.874787270003,
+      "selected_nhtsa_cooling_W": 78041.7106644633,
+      "speed_kmh": 65.0,
+      "temperature_degC": 150.0
+    },
+    {
+      "equivalent_q_w_W": 83266.74831552542,
+      "independent_yan_xu_cooling_W": 10383.30448183055,
+      "selected_nhtsa_cooling_W": 93650.05279735597,
+      "speed_kmh": 65.0,
+      "temperature_degC": 175.0
+    },
+    {
+      "equivalent_q_w_W": 91482.72597546561,
+      "independent_yan_xu_cooling_W": 11880.811070292195,
+      "selected_nhtsa_cooling_W": 103363.53704575781,
+      "speed_kmh": 65.0,
+      "temperature_degC": 190.55816140769343
+    },
+    {
+      "equivalent_q_w_W": 0.0,
+      "independent_yan_xu_cooling_W": 0.0,
+      "selected_nhtsa_cooling_W": 0.0,
+      "speed_kmh": 70.0,
+      "temperature_degC": 25.0
+    },
+    {
+      "equivalent_q_w_W": 14223.442243178562,
+      "independent_yan_xu_cooling_W": 1384.8998897140998,
+      "selected_nhtsa_cooling_W": 15608.342132892662,
+      "speed_kmh": 70.0,
+      "temperature_degC": 50.0
+    },
+    {
+      "equivalent_q_w_W": 28316.864081634107,
+      "independent_yan_xu_cooling_W": 2899.8201841512155,
+      "selected_nhtsa_cooling_W": 31216.684265785323,
+      "speed_kmh": 70.0,
+      "temperature_degC": 75.0
+    },
+    {
+      "equivalent_q_w_W": 42259.39049785101,
+      "independent_yan_xu_cooling_W": 4565.635900826971,
+      "selected_nhtsa_cooling_W": 46825.02639867798,
+      "speed_kmh": 70.0,
+      "temperature_degC": 100.0
+    },
+    {
+      "equivalent_q_w_W": 56028.59165400115,
+      "independent_yan_xu_cooling_W": 6404.776877569493,
+      "selected_nhtsa_cooling_W": 62433.368531570646,
+      "speed_kmh": 70.0,
+      "temperature_degC": 125.0
+    },
+    {
+      "equivalent_q_w_W": 69600.4828919439,
+      "independent_yan_xu_cooling_W": 8441.227772519405,
+      "selected_nhtsa_cooling_W": 78041.7106644633,
+      "speed_kmh": 70.0,
+      "temperature_degC": 150.0
+    },
+    {
+      "equivalent_q_w_W": 82949.52473322614,
+      "independent_yan_xu_cooling_W": 10700.528064129834,
+      "selected_nhtsa_cooling_W": 93650.05279735597,
+      "speed_kmh": 70.0,
+      "temperature_degC": 175.0
+    },
+    {
+      "equivalent_q_w_W": 91132.5996218614,
+      "independent_yan_xu_cooling_W": 12230.937423896405,
+      "selected_nhtsa_cooling_W": 103363.53704575781,
+      "speed_kmh": 70.0,
+      "temperature_degC": 190.55816140769343
+    }
+  ],
+  "selected_model": {
+    "equation": "Qdot_cool = k_NHTSA*(T-Ta)",
+    "k_W_per_K": 624.3336853157065,
+    "nominal_residual": "q_w=0 because Eq. (C2) contains no additive residual source",
+    "source": "NHTSA DOT HS 811 367 Appendix C, Eqs. (C2)-(C4)"
+  },
+  "uncertainty_semantics": "deterministic model-discrepancy envelope on the registered grid; not an experimental confidence interval"
+}

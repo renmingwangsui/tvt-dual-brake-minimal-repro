@@ -1,0 +1,39 @@
+{
+  "data_provenance": "synthetic_debug",
+  "paper_eligible": false,
+  "notice": "NONPHYSICAL SOFTWARE-VALIDATION VALUES; NOT FOR PAPER RESULTS",
+  "vehicle": {
+    "mass_kg": 20000.0,
+    "length_m": 10.0,
+    "rolling_resistance_coefficient": 0.01,
+    "drag_area_m2": 6.0,
+    "tau_f_s": 0.4,
+    "tau_a_s": 0.6,
+    "thermal_capacity_J_per_K": 500000.0,
+    "cooling_W_per_K": 700.0,
+    "heat_fraction": 0.8,
+    "friction_force_limit_N": 120000.0,
+    "auxiliary_force_limit_N": 80000.0,
+    "critical_temperature_K": 650.0,
+    "air_density_kg_per_m3": 1.2,
+    "gravity_mps2": 9.80665
+  },
+  "simulation": {
+    "control_step_s": 0.1,
+    "simulation_step_s": 0.02
+  },
+  "road": {
+    "positions_m": [0.0, 100.0, 200.0, 300.0],
+    "grades_rad": [0.0, -0.04, -0.04, 0.02]
+  },
+  "fade": {
+    "temperatures_K": [300.0, 400.0, 500.0, 600.0],
+    "factors": [1.0, 0.9, 0.65, 0.4]
+  },
+  "auxiliary": {
+    "speed_points_mps": [0.0, 5.0, 15.0, 30.0],
+    "availability_factors": [0.0, 0.35, 1.0, 0.8],
+    "gear_force_limits_N": {"1": 25000.0, "2": 45000.0, "3": 70000.0},
+    "power_limit_W": 900000.0
+  }
+}

@@ -1,0 +1,482 @@
+{
+  "accessed_on": "2026-09-18",
+  "purpose": "Traceable source excerpts for Phase 2M-LIT-3 final literature closure; no paper results.",
+  "schema_version": 1,
+  "sources": {
+    "AASHTO2004": {
+      "authors": "American Association of State Highway and Transportation Officials",
+      "extracts": {
+        "scope_note": {
+          "value": "design-vehicle dimensions, not an experimentally identified individual truck"
+        },
+        "wb62_overall_length_ft": {
+          "location": "Exhibit 2-1, Interstate Semitrailer WB-62",
+          "value": 68.5
+        },
+        "wb65_overall_length_ft": {
+          "location": "Exhibit 2-1, Interstate Semitrailer WB-65",
+          "value": 73.5
+        }
+      },
+      "identifier": "Errata-GDHS-4",
+      "source_quality": "A: transport design standard/errata",
+      "title": "A Policy on Geometric Design of Highways and Streets, Fourth Edition: June 2004 Online Errata",
+      "url": "https://downloads.transportation.org/Errata-GDHS-4.pdf",
+      "year": 2004
+    },
+    "DEVIKA2022": {
+      "authors": "K. B. Devika; G. Rohith; S. C. Subramanian",
+      "extracts": {
+        "fade_structure": {
+          "location": "Eq. (10)",
+          "note": "The accessible evidence does not provide a complete material-matched parameter set for this repository model.",
+          "value": "piecewise fade-factor relation"
+        },
+        "friction_first_order_tau_s": {
+          "location": "p. 107230, actuator model accompanying Eq. (7)",
+          "note": "Reported separately from transport delay.",
+          "value": 0.26
+        },
+        "friction_transport_delay_s": {
+          "location": "p. 107230, text accompanying Eq. (7)",
+          "note": "Not substituted for the first-order time constant.",
+          "value": 0.045
+        },
+        "fully_laden_mass_kg": {
+          "location": "pp. 107231-107232; vehicle-mass cases",
+          "value": 16200.0
+        },
+        "reported_mass_range_kg": {
+          "location": "pp. 107231-107232; unladen through overloaded cases",
+          "use": "operating cases, not a confidence interval",
+          "value": [
+            4700.0,
+            22600.0
+          ]
+        },
+        "road_grade_percent": {
+          "location": "long-downhill simulation case",
+          "value": -10.0
+        },
+        "road_length_m": {
+          "location": "long-downhill simulation case",
+          "value": 1000.0
+        },
+        "thermal_structure": {
+          "location": "Eq. (9)",
+          "value": "lumped exponential heating/cooling relation"
+        }
+      },
+      "identifier": "DOI:10.1109/ACCESS.2022.3212756",
+      "source_quality": "D: peer-reviewed heavy-truck simulation paper with experimentally reported brake dynamics",
+      "title": "Heavy Road Vehicle Platoon Control Considering Brake Fade With Adaptive Mass and Road Gradient Estimation",
+      "url": "https://doi.org/10.1109/ACCESS.2022.3212756",
+      "year": 2022
+    },
+    "DONKERS2020": {
+      "authors": "Ad Donkers et al.",
+      "extracts": {
+        "final_drive_efficiency": {
+          "location": "Section 3.2, Eq. (25)",
+          "value": 0.97
+        },
+        "wheel_radius_m": {
+          "location": "Table 2",
+          "value": 0.492
+        }
+      },
+      "identifier": "DOI:10.3390/en13102434",
+      "source_quality": "D: peer-reviewed heavy-duty-truck powertrain design model",
+      "title": "Electric Powertrain Topology Analysis and Design for Heavy-Duty Trucks",
+      "url": "https://doi.org/10.3390/en13102434",
+      "year": 2020
+    },
+    "GAO2016": {
+      "authors": "Song Gao; Alvin Lim; David Bevly",
+      "extracts": {
+        "communication_finding": {
+          "location": "abstract and experiments",
+          "value": "Delivery ratio depends on hills, curves, antenna side, and terrain reflections; two-side antenna diversity improves it."
+        },
+        "completeness_note": {
+          "value": "The paper is used to reject an unqualified IID-loss assumption, not to create a universal numeric burst model."
+        },
+        "dynamic_test_track_km": {
+          "location": "experimental setup",
+          "value": 2.74
+        },
+        "vehicle_platform": {
+          "location": "experimental setup",
+          "value": "Peterbilt 579 tractors with 53-ft semitrailers"
+        }
+      },
+      "identifier": "DOI:10.1016/j.dcan.2016.10.003",
+      "source_quality": "A: peer-reviewed real-world semi-trailer-truck communication experiments",
+      "title": "An empirical study of DSRC V2V performance in truck platooning scenarios",
+      "url": "https://doi.org/10.1016/j.dcan.2016.10.003",
+      "year": 2016
+    },
+    "HU2021": {
+      "authors": "Mengyan Hu; Xiangmo Zhao; Fei Hui; Bin Tian; Zhigang Xu; Xinrui Zhang",
+      "extracts": {
+        "average_latency_s": {
+          "location": "field-test results",
+          "value": 0.005
+        },
+        "broadcast_interval_s": {
+          "location": "field-test setup",
+          "value": 0.1
+        },
+        "conservative_design_delay_s": {
+          "location": "safe-distance analysis",
+          "note": "Three missed 100-ms broadcasts plus 5-ms nominal latency; a design bound, not a CI.",
+          "value": 0.305
+        },
+        "emergency_deceleration_mps2": {
+          "location": "vehicle-bound discussion",
+          "value": -4.5
+        },
+        "maximum_observed_consecutive_losses": {
+          "location": "field-test results",
+          "value": 2
+        },
+        "normal_acceleration_upper_mps2": {
+          "location": "vehicle-bound discussion",
+          "value": 2.5
+        },
+        "observed_delivery_ratio_lower": {
+          "location": "field-test results",
+          "note": "Reported as greater than 98 percent.",
+          "value": 0.98
+        }
+      },
+      "identifier": "DOI:10.1155/2021/5543114",
+      "source_quality": "A for communication field measurements; vehicle class is passenger vehicles, not heavy trucks",
+      "title": "Modeling and Analysis on Minimum Safe Distance for Platooning Vehicles Based on Field Test of Communication Delay",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1155/2021/5543114",
+      "year": 2021
+    },
+    "JACOBS2012": {
+      "authors": "Jacobs Vehicle Systems, Inc.",
+      "extracts": {
+        "completeness_note": {
+          "value": "No command-to-torque lag, command slew, installed transmission/final-drive/wheel-radius chain, or installation efficiency is reported."
+        },
+        "engine_speed_rpm": {
+          "location": "performance table",
+          "value": [
+            1100,
+            1300,
+            1500,
+            1700,
+            1900,
+            2100
+          ]
+        },
+        "retarding_power_kw": {
+          "location": "performance table",
+          "value": [
+            98,
+            135,
+            176,
+            219,
+            257,
+            286
+          ]
+        },
+        "retarding_torque_ft_lb": {
+          "location": "performance table",
+          "value": [
+            630,
+            731,
+            826,
+            908,
+            954,
+            958
+          ]
+        }
+      },
+      "identifier": "P/N 00-040381 Rev E 12/12",
+      "source_quality": "B: manufacturer technical specification",
+      "title": "Jacobs Engine Brake Model 460 for the Cummins ISX11.9 Engine",
+      "url": "https://www.cummins.com/sites/default/files/jvs/2021-08/JVS_Model_460.pdf",
+      "year": 2012
+    },
+    "LI2026": {
+      "authors": "Xuebo Li; Yanli Feng; Shiwei Xu; Yixi Zhang",
+      "extracts": {
+        "final_drive_ratio": {
+          "location": "p. 5, Table 2",
+          "value": 5.7
+        },
+        "first_order_retarder_tau_s": {
+          "location": "p. 12, offline optimization model",
+          "note": "published simplified-link time constant; not a universal measured actuator constant",
+          "value": 0.25
+        },
+        "power_limits_W": {
+          "location": "p. 9, Figure 5 discussion",
+          "value": {
+            "continuous": 300000.0,
+            "peak": 450000.0
+          }
+        },
+        "retarder_map": {
+          "location": "p. 9, Figure 5 and Eqs. (12)-(14)",
+          "value": "measured pressure-speed-torque data at 120/180/240/300 kPa"
+        }
+      },
+      "identifier": "DOI:10.3390/machines14070814",
+      "source_quality": "D: peer-reviewed heavy-duty electric-truck model with bench-derived retarder map and DiL validation",
+      "title": "An Energy-Efficient Constant-Speed Downhill Control Approach for Heavy-Duty Electric Trucks with Hydraulic Retarders",
+      "url": "https://doi.org/10.3390/machines14070814",
+      "year": 2026
+    },
+    "NHTSA2010": {
+      "authors": "M. Kamel Salaani; Gary J. Heydinger; Paul A. Grygier; Chris Schwarz; Tim Brown",
+      "extracts": {
+        "brake_assembly_count": {
+          "location": "derived topology record: five-axle 18-wheel combination has ten wheel ends; standard S-cam is used on all wheels",
+          "use": "model-equivalent aggregation under the repository single-temperature state",
+          "value": 10
+        },
+        "cooling_k0_btu_per_h_degF": {
+          "location": "p. 67, Appendix C, Eq. (C3)",
+          "value": 50.0
+        },
+        "cooling_k1_btu_s_per_h_degF_ft": {
+          "location": "p. 68, Appendix C, Eq. (C3)",
+          "value": 1.5
+        },
+        "cooling_model": {
+          "location": "pp. 67-68, Eqs. (C3)-(C4)",
+          "value": "hA = k0 + k1*u, with u in ft/s"
+        },
+        "fade_lookup_disclosure": {
+          "location": "p. 68, Eq. (C5) discussion",
+          "use": "does not resolve T_crit or phi(T)",
+          "value": "cubic-spline lookup table estimated from VRTC dynamometer measurements, but source points are not published"
+        },
+        "gross_mass_kg": {
+          "location": "p. 12; 73,100 lb also reported",
+          "value": 33200.0
+        },
+        "standard_scam_hardware": {
+          "location": "p. 64, Appendix B",
+          "value": "15x4 in steer drum with 20 in^2 chamber; 16.5x7 in drive drum with 30 in^2 chamber; 5.5 in slack adjuster"
+        },
+        "standard_scam_measured_stopping_distance_ft": {
+          "location": "p. 24, Figure 2.7; VRTC result at GVWR",
+          "value": 317.0
+        },
+        "standard_scam_model_stopping_distance_ft": {
+          "location": "p. 23 and p. 68; severe braking from 60 mph",
+          "value": 307.0
+        },
+        "stopping_test_speed_mph": {
+          "location": "p. 23 and p. 68",
+          "value": 60.0
+        },
+        "thermal_capacity_per_brake_btu_per_degF": {
+          "location": "p. 68, Appendix C, Eq. (C4) parameter mc",
+          "value": 0.813
+        },
+        "vehicle_description": {
+          "location": "pp. 11-12, Section 1.2",
+          "value": "typical 18-wheel tractor-trailer; standard S-cam brakes on all wheels"
+        }
+      },
+      "identifier": "DOT HS 811 367",
+      "source_quality": "A/C: official NHTSA report combining VRTC dynamometer/road measurements with a validated NADS tractor-semitrailer model",
+      "title": "Study of Heavy Truck S-Cam, Enhanced S-Cam, and Air Disc Brake Models Using NADS",
+      "url": "https://www.nhtsa.gov/sites/nhtsa.gov/files/811367.pdf",
+      "year": 2010
+    },
+    "NTSB2002": {
+      "authors": "Lawrence E. Jackson",
+      "extracts": {
+        "fade_curve": {
+          "location": "PDF p. 7, printed p. 4, Figure 4",
+          "use": "representative heavy-truck S-cam curve; not material-identical",
+          "value": "quality and inferior lining coefficient of friction versus drum temperature"
+        }
+      },
+      "identifier": "NTSB HWY-01-M-H-25",
+      "source_quality": "A/C: official NTSB docket study reproducing published heavy-truck lining fade curves",
+      "title": "Vehicle Dynamics Simulation Study",
+      "url": "https://data.ntsb.gov/Docket/Document/docBLOB?FileExtension=.PDF&FileName=Simulation+Study-Master.PDF&ID=40165030",
+      "year": 2002
+    },
+    "VEGAMOOR2018": {
+      "authors": "Vamsi Krishna Vegamoor",
+      "extracts": {
+        "brake_limit_exclusion": {
+          "location": "p. 21",
+          "use": "excluded from physical braking bounds",
+          "value": "8 m/s^2 was assumed for the Dymola brake model"
+        },
+        "forward_gear_ratios": {
+          "location": "p. 19, Table 2",
+          "value": [
+            12.8,
+            9.251,
+            6.761,
+            4.901,
+            3.579,
+            2.611,
+            1.888,
+            1.38,
+            1.0,
+            0.73
+          ]
+        },
+        "identified_final_drive_ratio": {
+          "location": "p. 20, Figure 6 discussion",
+          "value": 3.39
+        },
+        "maximum_observed_acceleration_mps2": {
+          "location": "p. 36; separate wide-open-throttle experiment",
+          "value": 1.3
+        },
+        "uncargoed_combination_mass_kg": {
+          "location": "p. 21; approximate combined mass, no cargo",
+          "value": 24000.0
+        },
+        "vehicle_platform": {
+          "location": "p. 9",
+          "value": "2012 International ProStar tractor-semitrailer"
+        }
+      },
+      "identifier": "Texas A&M University M.S. thesis; handle 1969.1/174613",
+      "source_quality": "A/C: institutional thesis with field experiments on a 2012 International ProStar tractor-semitrailer",
+      "title": "Model Based Longitudinal Control of Heavy Duty Vehicles",
+      "url": "https://oaktrust.library.tamu.edu/items/713f03f5-7d3c-4817-b01b-6aa69a0d02f3",
+      "year": 2018
+    },
+    "VOITH2018": {
+      "authors": "Voith Group",
+      "extracts": {
+        "completeness_note": {
+          "value": "No vehicle-specific gear schedule, efficiency, wheel radius, actuator lag/slew, or full torque-speed-power map is provided."
+        },
+        "maximum_propeller_shaft_speed_rpm": {
+          "location": "technical-data panel",
+          "value": 2650.0
+        },
+        "maximum_rated_torque_Nm": {
+          "location": "technical-data panel",
+          "value": 3200.0
+        },
+        "step_up_ratio": {
+          "location": "technical-data panel",
+          "value": 2.0
+        }
+      },
+      "identifier": "Manufacturer document VT2316, EN, 2018-12",
+      "source_quality": "B: manufacturer technical specification",
+      "title": "More safety, less costs: Retarder VR 115",
+      "url": "https://voith.com/corp-en/VT_Retarder115CT_18_vvk_VT2316_en.pdf",
+      "year": 2018
+    },
+    "WANG2015": {
+      "authors": "Lijuan Wang; Kenneth Kelly; Kevin Walkowicz; Adam Duran",
+      "extracts": {
+        "baseline_weight_lb": {
+          "location": "vehicle parameter table",
+          "value": 33237.0
+        },
+        "drag_coefficient": {
+          "location": "vehicle parameter table",
+          "value": 0.7963
+        },
+        "frontal_area_m2": {
+          "location": "vehicle parameter table",
+          "value": 9.5
+        },
+        "rolling_resistance_coefficient": {
+          "location": "vehicle parameter table",
+          "value": 0.0085
+        },
+        "rolling_resistance_sensitivity_values": {
+          "location": "rolling-resistance parametric study",
+          "use": "sensitivity-only; not uncertainty",
+          "value": [
+            0.0082,
+            0.0053
+          ]
+        }
+      },
+      "identifier": "SAE 2015-01-2773; DOI:10.4271/2015-01-2773; NREL/CP-5400-64049",
+      "source_quality": "C/D: NREL/SAE Class-8 dynamometer-informed simulation study",
+      "title": "Quantitative Effects of Vehicle Parameters on Fuel Consumption for Heavy-Duty Vehicle",
+      "url": "https://www.nrel.gov/docs/fy16osti/64049.pdf",
+      "year": 2015
+    },
+    "YAN2018": {
+      "authors": "Menghua Yan; Jinliang Xu",
+      "extracts": {
+        "ambient_temperature_degC": {
+          "location": "Table 1",
+          "value": 25.0
+        },
+        "drum_area_m2": {
+          "location": "Table 1",
+          "value": 0.45
+        },
+        "emissivity": {
+          "location": "Table 1",
+          "value": 0.65
+        },
+        "operating_speed_kmh": {
+          "location": "Table 1",
+          "value": [
+            50.0,
+            55.0,
+            60.0,
+            65.0,
+            70.0
+          ]
+        },
+        "thermal_model": {
+          "location": "Eqs. (9)-(12)",
+          "value": "convection plus Stefan-Boltzmann radiation"
+        }
+      },
+      "identifier": "DOI:10.1155/2018/4587673",
+      "source_quality": "D: peer-reviewed independent large-truck brake-drum energy model",
+      "title": "Prediction Model for Brake-Drum Temperature of Large Trucks on Consecutive Mountain Downgrade Routes Based on Energy Conservation Law",
+      "url": "https://doi.org/10.1155/2018/4587673",
+      "year": 2018
+    },
+    "YANAKIEV1998": {
+      "authors": "D. Yanakiev; J. Eyre; I. Kanellakopoulos",
+      "extracts": {
+        "apply_time_constant_s": {
+          "location": "air-brake experimental model",
+          "value": 0.14
+        },
+        "fill_time_constant_below_10psi_s": {
+          "location": "air-brake experimental model",
+          "value": 0.8
+        },
+        "release_time_constant_s": {
+          "location": "air-brake experimental model",
+          "value": 0.16
+        },
+        "tractor_front_transport_delay_s": {
+          "location": "air-brake experimental model",
+          "value": 0.06
+        },
+        "trailer_transport_delay_s": {
+          "location": "air-brake experimental model",
+          "value": 0.2
+        }
+      },
+      "identifier": "UCB-ITS-PRR-98-15",
+      "source_quality": "C: University of California PATH experimental report",
+      "title": "Longitudinal Control Of Heavy Duty Vehicles: Experimental Evaluation",
+      "url": "https://escholarship.org/uc/item/86g348m8",
+      "year": 1998
+    }
+  }
+}

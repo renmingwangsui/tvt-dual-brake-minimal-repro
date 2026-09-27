@@ -1,0 +1,16 @@
+\begin{table*}[!t]
+\centering
+\scriptsize
+\caption{Matched long-descent deterministic controller comparison.}
+\label{tab:phase2m-controller}
+\begin{tabular}{lrrrrr}
+\hline
+Method & Peak T (K) & Min. rho & Friction energy (MJ) & Auxiliary energy (MJ) & Speed root-mean-square error (m/s) \\
+\hline
+fixed\_auxiliary\_first & 458.81 & -28.532 & 12.265 & 25.978 & 2.8775 \\
+fixed\_friction\_first & 458.8 & -10.141 & 13.233 & 24.796 & 2.3195 \\
+friction\_only & 364.36 & -364.1 & 1.1293 & 0 & 15.938 \\
+qp\_dual\_brake & 458.83 & -17.98 & 12.812 & 25.258 & 2.5585 \\
+\hline
+\end{tabular}
+\end{table*}

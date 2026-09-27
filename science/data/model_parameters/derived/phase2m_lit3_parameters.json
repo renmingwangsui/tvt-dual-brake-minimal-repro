@@ -1,0 +1,40 @@
+{
+  "ambient_temperature_K": 298.15,
+  "artifact_type": "Phase 2M-LIT-3 literature and model-mapping closure",
+  "auxiliary_envelope": {
+    "continuous_power_W": 300000.0,
+    "file": "data/model_parameters/source_points/phase2m_lit3_digitization.json",
+    "peak_power_W": 450000.0
+  },
+  "auxiliary_lag": {
+    "implied_2_percent_settling_s": 1.0,
+    "mapping": "published first-order retarder pneumatic-control approximation",
+    "tau_a_s": 0.25
+  },
+  "braking_to_thermal_eta": {
+    "classification": "DERIVED MODEL-MAPPING",
+    "value": 1.0
+  },
+  "critical_temperature": {
+    "criterion": "first temperature where conservative phi(T) <= 0.80",
+    "interpolation": "piecewise linear between adjacent digitized inferior-lining points",
+    "safety_fraction": 0.8,
+    "temperature_K": 463.7081614076934,
+    "temperature_degC": 190.55816140769343
+  },
+  "fade_curve": {
+    "file": "data/model_parameters/source_points/phase2m_lit3_digitization.json",
+    "label": "DIGITIZED_REPRESENTATIVE_HEAVY_TRUCK_S_CAM_FADE"
+  },
+  "paper_eligible_result": false,
+  "phase": "2M-LIT-3",
+  "slew_decisions": {
+    "auxiliary": "removed from physical hard constraints",
+    "friction": "removed from physical hard constraints"
+  },
+  "thermal_model_discrepancy": {
+    "file": "data/model_parameters/derived/thermal_model_discrepancy.json",
+    "maximum_absolute_residual_W": 92551.57316620676,
+    "sha256": "99d0f13ad5a8661024f5eca603688104cea8868dff995a31c243ce2ad509d61c"
+  }
+}

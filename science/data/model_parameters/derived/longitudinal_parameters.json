@@ -1,0 +1,27 @@
+{
+  "artifact_type": "source-derived calibration quantity",
+  "derivations": {
+    "drag_area_m2": {
+      "equation": "CdA = Cd * A",
+      "value": 7.56485
+    },
+    "road_profile": {
+      "equation": "theta = atan(grade_percent/100)",
+      "grade_rad": [
+        -0.09966865249116204,
+        -0.09966865249116204
+      ],
+      "position_m": [
+        0.0,
+        1000.0
+      ],
+      "scope": "literature-defined constant-grade benchmark; not a surveyed road"
+    },
+    "wang_baseline_weight_kg_not_selected_as_reference_truck_mass": {
+      "equation": "kg = lb * 0.45359237",
+      "value": 15076.049601690002
+    }
+  },
+  "source_file": "data/model_parameters/source_extracts.json",
+  "source_sha256": "98b1523385e5538910af1eaa2cef4a79d8cc1b05db356bd81c168f268f3a3422"
+}

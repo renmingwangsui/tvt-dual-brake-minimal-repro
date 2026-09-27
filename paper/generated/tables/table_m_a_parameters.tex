@@ -1,0 +1,31 @@
+\begin{table*}[!t]
+\centering
+\scriptsize
+\caption{Frozen literature-calibrated vehicle and model parameters.}
+\label{tab:phase2m-parameters}
+\begin{tabular}{llllll}
+\hline
+Parameter & Symbol & Nominal & Registered interval & SI unit & Provenance \\
+\hline
+vehicle\_mass & m & 33200 & [24000, 33200] & kg & DIRECT \\
+vehicle\_length & L & 22.403 & [20.879, 22.403] & m & DIRECT \\
+rolling\_resistance & c\_r & 0.0085 & [0.0053, 0.0085] & 1 & DIRECT \\
+drag\_area & C\_d A & 7.5648 & [7.5648, 7.5648] & m^2 & DERIVED \\
+maximum\_friction\_braking\_force & u\_f,max & 1.236e+05 & [1.236e+05, 1.2763e+05] & N & DERIVED \\
+friction\_actuator\_lag & tau\_f & 0.14 & [0.14, 0.26] & s & DIRECT \\
+auxiliary\_actuator\_lag & tau\_a & 0.25 & [0.25, 0.25] & s & DERIVED \\
+auxiliary\_speed\_gear\_power\_envelope & r\_bar(v,q,P) & structured value; see registry & [0, 40249] & N & DIGITIZED \\
+lumped\_thermal\_capacity & C & 15440 & [15440, 15440] & J/K & DERIVED \\
+cooling\_coefficient & k & 624.33 & [480.11, 624.33] & W/K & DERIVED \\
+braking\_to\_thermal\_conversion & eta & 1 & [1, 1] & 1 & DERIVED \\
+critical\_brake\_temperature & T\_crit & 463.71 & [463.71, 463.71] & K & DERIVED \\
+thermal\_fade\_curve & phi(T) & structured value; see registry & [0.11736, 1] & 1 & DIGITIZED \\
+ambient\_operating\_envelope & T\_a & 298.15 & [298.15, 298.15] & K & DIRECT \\
+residual\_heat\_bound & q\_w & 0 & [-92552, 92552] & W & DERIVED \\
+long\_downhill\_road\_profile & theta(p) & structured value; see registry & [-0.099669, -0.099669] & m,rad & DERIVED \\
+predecessor\_emergency\_bounds & a\_p,min,a\_p,max,j\_p,max & structured value; see registry & [{'acceleration\_lower\_mps2': -3.8442527687296413, 'acceleration\_upper\_mps2': 1.3, 'jerk\_abs\_upper\_mps3': 14.31916525115263}, {'acceleration\_lower\_mps2': -3.722982965299684, 'acceleration\_upper\_mps2': 1.3, 'jerk\_abs\_upper\_mps3': 27.458948348068866}] & m/s^2,m/s^3 & DERIVED \\
+communication\_delay\_model & d\_comm & structured value; see registry & [0.005, 0.305] & s & DIRECT \\
+communication\_packet\_burst\_loss & p\_loss,B\_loss & structured value; see registry & [0, 0.02] & 1,packets & DIRECT \\
+\hline
+\end{tabular}
+\end{table*}

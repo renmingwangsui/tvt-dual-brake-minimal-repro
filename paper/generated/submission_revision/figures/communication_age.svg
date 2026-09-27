@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470">
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" fill="#17212b">
+<line x1="80.00" y1="304.85" x2="820.00" y2="304.85" stroke="#d6dde2" stroke-width="1"/>
+<text x="71.0" y="309.9" font-size="18" text-anchor="end" font-weight="normal" fill="#17212b">10^-6</text>
+<line x1="80.00" y1="224.25" x2="820.00" y2="224.25" stroke="#d6dde2" stroke-width="1"/>
+<text x="71.0" y="229.3" font-size="18" text-anchor="end" font-weight="normal" fill="#17212b">10^-4</text>
+<line x1="80.00" y1="143.66" x2="820.00" y2="143.66" stroke="#d6dde2" stroke-width="1"/>
+<text x="71.0" y="148.7" font-size="18" text-anchor="end" font-weight="normal" fill="#17212b">10^-2</text>
+<line x1="80.00" y1="63.06" x2="820.00" y2="63.06" stroke="#d6dde2" stroke-width="1"/>
+<text x="71.0" y="68.1" font-size="18" text-anchor="end" font-weight="normal" fill="#17212b">10^0</text>
+<rect x="89.00" y="285.33" width="64.22" height="39.67" fill="#548da9"/>
+<text x="121.1" y="344.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">zero</text>
+<text x="121.1" y="362.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">delay</text>
+<text x="121.1" y="277.3" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">3.05e-06</text>
+<rect x="171.22" y="126.12" width="64.22" height="198.88" fill="#548da9"/>
+<text x="203.3" y="353.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">50 ms</text>
+<text x="203.3" y="118.1" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">0.0272</text>
+<rect x="253.44" y="126.12" width="64.22" height="198.88" fill="#548da9"/>
+<text x="285.6" y="353.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">100 ms</text>
+<text x="285.6" y="118.1" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">0.0272</text>
+<rect x="335.67" y="113.84" width="64.22" height="211.16" fill="#548da9"/>
+<text x="367.8" y="353.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">200 ms</text>
+<text x="367.8" y="105.8" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">0.0549</text>
+<rect x="417.89" y="107.69" width="64.22" height="217.31" fill="#548da9"/>
+<text x="450.0" y="353.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">300 ms</text>
+<text x="450.0" y="99.7" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">0.0781</text>
+<rect x="500.11" y="206.79" width="64.22" height="118.21" fill="#548da9"/>
+<text x="532.2" y="344.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">packet</text>
+<text x="532.2" y="362.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">loss</text>
+<text x="532.2" y="198.8" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">2.71e-4</text>
+<rect x="582.33" y="198.62" width="64.22" height="126.38" fill="#548da9"/>
+<text x="614.4" y="344.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">burst</text>
+<text x="614.4" y="362.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">loss</text>
+<text x="614.4" y="190.6" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">4.33e-4</text>
+<rect x="664.56" y="61.11" width="64.22" height="263.89" fill="#548da9"/>
+<text x="696.7" y="344.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">bounded</text>
+<text x="696.7" y="362.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">delay</text>
+<text x="696.7" y="53.1" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">1.12</text>
+<rect x="746.78" y="61.11" width="64.22" height="263.89" fill="#548da9"/>
+<text x="778.9" y="344.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">stale</text>
+<text x="778.9" y="362.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">messages</text>
+<text x="778.9" y="53.1" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">1.12</text>
+<line x1="80.00" y1="55.00" x2="80.00" y2="325.00" stroke="#263746" stroke-width="1.5"/>
+<line x1="80.00" y1="325.00" x2="820.00" y2="325.00" stroke="#263746" stroke-width="1.5"/>
+<text x="450.0" y="399.0" font-size="18" text-anchor="middle" font-weight="normal" fill="#17212b">Channel condition</text>
+<text x="80.0" y="32.0" font-size="18" text-anchor="start" font-weight="normal" fill="#17212b">Head-truck mean absolute reserve error (logarithmic scale)</text>
+<text x="80.0" y="428.0" font-size="18" text-anchor="start" font-weight="normal" fill="#17212b">Fixed 50 and 100 ms coincide under 100-ms sampled message consumption.</text>
+</g></svg>

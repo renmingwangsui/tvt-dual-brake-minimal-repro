@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "phase": "2C-3",
+  "protocol_id": "formal_learning_protocol_v1",
+  "frozen_before_final_results": true,
+  "primary_methods": ["SAFE-MAPPO-DIFFQP", "SAFE-MAPPO-STOPGRAD"],
+  "training_seeds": [27101, 27102, 27103, 27104, 27105, 27106, 27107, 27108, 27109, 27110],
+  "evaluation_seeds": [38101, 38102, 38103],
+  "controlled_truck_count": 3,
+  "training_horizon_environment_steps": 240,
+  "environment_horizon_steps_per_rollout": 12,
+  "number_of_updates": 20,
+  "rollout_length": 12,
+  "batch_size_agent_transitions": 36,
+  "minibatch_size": 18,
+  "ppo_epochs": 2,
+  "gamma": 0.99,
+  "gae_lambda": 0.95,
+  "clip_epsilon": 0.2,
+  "actor_learning_rate": 0.0003,
+  "critic_learning_rate": 0.0005,
+  "entropy_coefficient": 0.001,
+  "value_coefficient": 0.5,
+  "intervention_objective_coefficient": 0.1,
+  "gradient_clipping_norm": 1.0,
+  "network_architecture": {
+    "actor": "shared one-hidden-layer tanh MLP, 11-32-2, affine tanh-squashed Gaussian",
+    "critic": "centralized fixed-N one-hidden-layer tanh MLP, state-32-3",
+    "dtype": "float64"
+  },
+  "observation_normalization": "running mean and unbiased variance; update from every training state before action sampling; frozen during evaluation",
+  "reward_definition": {
+    "target_speed_mps": 14.0,
+    "target_gap_m": 65.0,
+    "normalization": {
+      "speed_error_mps": 5.0,
+      "gap_error_m": 20.0,
+      "rho_scale": 1.0
+    },
+    "weights": {
+      "speed_tracking": 1.0,
+      "spacing_tracking": 0.5,
+      "control_effort": 0.05,
+      "friction_usage": 0.01,
+      "auxiliary_usage": 0.005,
+      "provisional_qp_intervention": 0.1,
+      "negative_predictive_certificate": 0.25
+    },
+    "formula": "negative weighted sum of normalized squared speed/gap/control/provisional-intervention terms, normalized brake-use terms, and squared negative rho_H_cert",
+    "ppo_likelihood_action": "u_RL",
+    "transition_action": "u_final"
+  },
+  "initial_state_distribution": "registered deterministic seven-case cycle; literature-calibrated nominal states with scenario-specific speed/temperature/grade; pair order fixed by seed modulo seven",
+  "disturbance_distribution": "registered seven-case cycle with fixed leader/grade/channel definitions; communication randomness uses the registered run/evaluation seed",
+  "training_scenarios": [
+    "nominal_descent",
+    "hot_brake_descent",
+    "grade_transition",
+    "leader_braking",
+    "communication_delay_loss",
+    "low_speed_operation",
+    "heterogeneous_platoon"
+  ],
+  "evaluation_scenarios": [
+    "nominal_descent",
+    "hot_brake_descent",
+    "grade_transition",
+    "leader_braking",
+    "communication_delay_loss",
+    "low_speed_operation",
+    "heterogeneous_platoon"
+  ],
+  "evaluation_steps_per_scenario": 10,
+  "evaluation_policy": "deterministic actor mean",
+  "checkpoint_updates": [0, 10, 20],
+  "checkpoint_selection": "report final update 20; no best-test checkpoint selection",
+  "early_stopping_rule": "none",
+  "intervention_frequency_threshold_N": 0.000001,
+  "hard_feasibility_tolerance": 0.000001,
+  "sample_efficiency_metric": "trapezoidal area under held-out evaluation-return curve over checkpoints 0, 10, and 20, divided by the final environment-step count",
+  "curve_smoothing": "none for raw data and reported statistics; optional figures use no smoothing",
+  "primary_outcomes": [
+    "final_evaluation_return",
+    "evaluation_return_auc",
+    "final_qp_intervention_frequency",
+    "final_qp_intervention_norm",
+    "final_nominal_hard_feasible_rate"
+  ],
+  "statistical_analysis": {
+    "pairing": "training seed",
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 49101,
+    "confidence_level": 0.95,
+    "paired_effect_size": "Cohen_dz",
+    "p_value": "exact two-sided paired sign-flip permutation test over all 2^10 sign assignments",
+    "multiple_comparison": "Holm family-wise correction across the five primary outcomes",
+    "alpha": 0.05
+  },
+  "claim_direction": {
+    "final_evaluation_return": "higher",
+    "evaluation_return_auc": "higher",
+    "final_qp_intervention_frequency": "lower",
+    "final_qp_intervention_norm": "lower",
+    "final_nominal_hard_feasible_rate": "higher"
+  },
+  "claim_decision_rule": "SUPPORTED requires favorable paired mean, favorable 95% bootstrap CI excluding zero, and Holm-adjusted p<=0.05; PARTIALLY_SUPPORTED requires favorable CI excluding zero but not the Holm gate; NOT_SUPPORTED denotes significant adverse direction or a safety-difference claim lacking evidence; otherwise INCONCLUSIVE",
+  "forward_qp": "accepted exact two-dimensional (u_f,u_a) hard projection; no jerk-slack decision",
+  "diffqp_rule": "differentiate only through q(u_RL) when KKT, LICQ, strict-complementarity, conditioning, and active-set stability gates pass; otherwise zero-gradient fallback",
+  "stopgrad_rule": "identical forward QP and intervention objective value; detach the QP-output backward path",
+  "formal_output_root": "results/formal_learning",
+  "immutability": "completed raw JSONL logs and checkpoints are SHA-256 recorded in result_manifest.json and made read-only",
+  "paper_eligibility_gates": [
+    "protocol hash matches",
+    "training configuration hash matches",
+    "clean recorded code commit",
+    "frozen literature physical configuration matches",
+    "registered seed",
+    "all checkpoint hashes exist",
+    "raw log hashes match",
+    "training_mode is FORMAL and not DEBUG",
+    "paired initial actor and critic checksums match",
+    "paired forward-controller hashes match"
+  ],
+  "prohibited_after_result_inspection": [
+    "reward retuning",
+    "hyperparameter retuning",
+    "seed-count changes",
+    "evaluation-scenario changes",
+    "physical-model changes",
+    "canonical-QP changes",
+    "supervisor changes"
+  ]
+}

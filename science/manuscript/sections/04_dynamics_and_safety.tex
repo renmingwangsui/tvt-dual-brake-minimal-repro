@@ -1,0 +1,110 @@
+\section{Dynamics and Constraint Geometry}
+\subsection{Dual-Brake Longitudinal--Thermal Model}
+With positive road angle uphill, define the nonbraking force
+\begin{equation}
+F_i^r=F_i^d-m_ig\sin\theta_i-m_igc_{r,i}\cos\theta_i-
+\tfrac12\rho_{\rm air}C_{d,i}A_iv_i^2+w_i,
+\end{equation}
+where $\rho_{\rm air}$ is air density, $F_i^d$ is the modeled driveline-force contribution, and $w_i$ is the lumped residual longitudinal force/disturbance term. The model is
+\begin{subequations}\label{eq:model}
+\begin{align}
+\dot p_i&=v_i, & m_i\dot v_i&=F_i^r-b_i-r_i,\\
+\tau_i^f\dot b_i&=-b_i+u_i^f,
+&\tau_i^a\dot r_i&=-r_i+u_i^a,\\
+C_i\dot T_i&=\eta_i b_iv_i-k_i(T_i-T_a)+q_i^w.
+\end{align}
+\end{subequations}
+The auxiliary envelope captures retarder/engine-brake power, shaft-speed, gear, and response restrictions:
+\begin{equation}\label{eq:auxenv}
+0\le r_i\le\bar r_i(v_i,g_i),\quad
+0\le u_i^a\le\bar u_i^a(v_i,g_i).
+\end{equation}
+Each command is constant on the open zero-order-hold (ZOH) interval and may change at a sample instant. No independent physical command-slew limit is asserted. The realized forces remain continuous through the identified first-order actuator dynamics in \eqref{eq:model}.
+Realized-force availability is not implied by the command envelope. Define the longitudinal acceleration $a_i:=\dot v_i$. For a fixed valid gear branch during one ZOH interval, define $h_i^A=\bar r_i(v_i,g_i)-r_i$ and $\bar r_{i,v}:=\partial\bar r_i(v_i,g_i)/\partial v_i$. Its robust CBF gives
+\begin{equation}\label{eq:auxcbf}
+u_i^a\le r_i+\tau_i^a\!\left[\bar r_{i,v}a_i+\alpha_A(h_i^A)-\gamma_i^A-\mu_i^A\right].
+\end{equation}
+For permitted shifts, the controller uses the minimum valid envelope over reachable gears and enforces the manufacturer's dwell time; no derivative is taken through a gear discontinuity.
+The friction envelope is $0\le b_i\le\bar b_i\phi_i(T_i)$, where $\phi_i'(T)\le0$ on a calibrated interval. Parameters and residual/derivative bounds must be identified on separate data.
+
+The selected functions $\alpha_{1c},\alpha_{2c},\alpha_{1T},\alpha_{2T},\alpha_F$, and $\alpha_A$ are locally Lipschitz extended class-$\mathcal K$ functions on the declared operating domain. Their choices are fixed before evaluation; no gain is inferred from the reported outcomes.
+
+\subsection{Collision HOCBF}
+Let $a_i^S>0$ lower-bound follower braking, $a_{i-1}^E>0$ upper-bound predecessor emergency deceleration, and $t_{h,i},d_{0,i}$ denote prescribed time headway and standstill spacing. With $q_i=t_{h,i}+\tau_i^f$,
+\begin{equation}\label{eq:hc}
+h_i^c=d_i-d_{0,i}-q_iv_i-\frac{v_i^2}{2a_i^S}
++\frac{v_{i-1}^2}{2a_{i-1}^E}.
+\end{equation}
+Set $c_i=q_i+v_i/a_i^S$ and $r_{i-1}^v=v_{i-1}/a_{i-1}^E$. Then
+\begin{align}
+\dot h_i^c&=v_{i-1}-v_i-c_ia_i+r_{i-1}^va_{i-1},\label{eq:hcdot}\\
+\ddot h_i^c&=a_{i-1}-a_i-\frac{a_i^2}{a_i^S}-c_i\dot a_i
++\frac{a_{i-1}^2}{a_{i-1}^E}+r_{i-1}^v\dot a_{i-1}.\label{eq:hcddot}
+\end{align}
+The continuous-time jerk is
+\begin{equation}\label{eq:jerk}
+j_i=\dot a_i=\frac{\dot F_i^r}{m_i}+\frac{b_i-u_i^f}{m_i\tau_i^f}
++\frac{r_i-u_i^a}{m_i\tau_i^a}.
+\end{equation}
+Hence both commands enter $\ddot h_i^c$ with positive coefficients. For $\psi_{1i}^c=\dot h_i^c+\alpha_{1c}(h_i^c)$, the sampled-data-tightened robust HOCBF is
+\begin{equation}\label{eq:collision_hocbf}
+A_i^fu_i^f+A_i^au_i^a+\widehat\Xi_i^c-\gamma_i^c-\mu_i^c
++\alpha_{2c}(\psi_{1i}^c)\ge0,
+\end{equation}
+where $A_i^f=c_i/(m_i\tau_i^f)>0$, $A_i^a=c_i/(m_i\tau_i^a)>0$, and $\mu_i^c$ is the intersample tightening.
+
+\subsection{Temperature HOCBF and Fade CBF}
+Let $h_i^T=T_{\rm crit,i}-T_i$. Its first derivative contains no command. Differentiation gives
+\begin{equation}
+\ddot h_i^T=-\frac{\eta_iv_i}{C_i\tau_i^f}u_i^f+\Xi_i^T,
+\end{equation}
+where, for constant thermal parameters,
+\begin{equation}
+\widehat\Xi_i^T=\frac{\eta_ib_iv_i}{C_i\tau_i^f}-\frac{\eta_ib_ia_i}{C_i}
++\frac{k_i}{C_i}(\dot T_i-\dot T_a)-\frac{\widehat{\dot q_i^w}}{C_i}.
+\end{equation}
+Rather than differentiating noisy heat residuals, implementation bounds $\dot q_i^w$, $\dot T_a$, grade rate, and resistance derivatives. With $\psi_{1i}^T=\dot h_i^T+\alpha_{1T}(h_i^T)$,
+\begin{equation}\label{eq:thermal_hocbf}
+-B_i^fu_i^f+\widehat\Xi_i^T-\gamma_i^T-\mu_i^T
++\alpha_{2T}(\psi_{1i}^T)\ge0,
+\quad B_i^f=\frac{\eta_iv_i}{C_i\tau_i^f}.
+\end{equation}
+Temperature therefore caps friction braking but does not directly cap auxiliary braking.
+
+The fade envelope is enforced dynamically rather than checked as a state-only row. Define
+\begin{equation}
+h_i^F=\bar b_i\phi_i(T_i)-b_i.
+\end{equation}
+The first-order robust CBF $\dot h_i^F+\alpha_F(h_i^F)\ge0$ yields the explicit upper bound
+\begin{equation}\label{eq:fade_cbf}
+u_i^f\le b_i+\tau_i^f\!\left[\bar b_i\phi_i'(T_i)\dot T_i
++\alpha_F(h_i^F)-\gamma_i^F-\mu_i^F\right].
+\end{equation}
+Let $v_\epsilon$ denote the specified low-speed switching threshold. At $v_i\le v_\epsilon$, $B_i^f$ is too small for a meaningful division. Under ZOH commands and constant $v_i,T_a,q_i^w$ over $[t_k,t_k+\Delta t]$, set $\lambda_i=k_i/C_i$, $E_i=e^{-\lambda_i\Delta t}$,
+\begin{equation}
+I_{0i}=\frac{1-E_i}{\lambda_i},\qquad
+I_{1i}=E_i\frac{e^{(\lambda_i-1/\tau_i^f)\Delta t}-1}{\lambda_i-1/\tau_i^f},
+\end{equation}
+using the continuous limits when a denominator vanishes. Exact integration yields
+\begin{align}
+T_{i,k+1}={}&T_a+E_i(T_{i,k}-T_a)+\frac{q_i^wI_{0i}}{C_i}\nonumber\\
+&+\frac{\eta_i v_i}{C_i}\{b_{i,k}I_{1i}+u_{i,k}^f(I_{0i}-I_{1i})\}.\label{eq:zohthermal}
+\end{align}
+Separate the command-independent prediction
+\begin{equation}
+T_{i,k+1}^{\rm base}=T_a+E_i(T_{i,k}-T_a)+q_i^wI_{0i}/C_i+\eta_i v_i b_{i,k}I_{1i}/C_i
+\end{equation}
+and define the undivided state-side thermal reserve
+\begin{equation}\label{eq:gT0}
+g_{i,k}^{T0}=T_{\rm crit,i}-\Delta_T-\bar e_i^T-T_{i,k+1}^{\rm base}.
+\end{equation}
+Here $\Delta_T>0$ is the registered temperature safety buffer below $T_{\rm crit,i}$ used by the low-speed one-step thermal constraint.
+The low-speed hard row is $c_i^Tu_{i,k}^f\le g_{i,k}^{T0}$, where $c_i^T=\eta_iv_i(I_{0i}-I_{1i})/C_i$. It is retained without division. At $v_i=0$, $c_i^T=0$ exactly and the row becomes the command-independent condition $0\le g_{i,k}^{T0}$; therefore $g_{i,k}^{T0}<0$ is hard infeasibility even if both command intervals and the collision row remain feasible. The term $\bar e_i^T$ is computed by \eqref{eq:zoherror} from registered bounds on $|a|$, $|\dot T_a|$, $|\dot q^w|$, thermal parameters, friction lag, and integration error.
+
+\subsection{Directional Robust and Digital Margins}
+Define $\zeta_i$ as the collection of measured local/predecessor states, predecessor acceleration and jerk, message age, packet delay, grade and grade rate, rolling and aerodynamic forces, $q_i^w$ and $\dot q_i^w$, and both actuator lags. The box $\mathcal B_i(\hat\zeta_i)=\prod_j[\hat\zeta_{ij}-\varepsilon_{ij}^-,\hat\zeta_{ij}+\varepsilon_{ij}^+]$ includes sensor error and identified parameter/residual intervals. Packet loss acts through message age and a predecessor reachable tube; if age exceeds its registered horizon, the bound is invalid and the supervisor triggers. If $\widehat\Xi_i^k$ is the computed uncontrolled term and $\Xi_i^k$ is the true term, the correct one-sided margin is
+\begin{equation}\label{eq:margin}
+\gamma_i^k\ge\sup_{\zeta\in\mathcal B_i(\hat\zeta_i)}
+\{\widehat\Xi_i^k-\Xi_i^k(\zeta)\},\quad k\in\{c,T,F,A\}.
+\end{equation}
+Thus $\widehat\Xi_i^k-\gamma_i^k\le\Xi_i^k$; an absolute-error bound is sufficient but unnecessarily conservative. In the theoretical construction, a sound interval arithmetic (IA) lower endpoint $\underline\Xi_i^k$ gives $\gamma_i^k=\max\{0,\widehat\Xi_i^k-\underline\Xi_i^k\}$. The present floating-point implementation has no verified directed-rounding enclosure. Measurement intervals cover position, speed, acceleration, and brake-state sensing; dynamics intervals cover grade/grade rate, resistance, aerodynamics, heat residual/rate, and lag uncertainty; communication intervals cover age/delay plus reachable acceleration/jerk. Each digital rate bound $L_i^k$ is computed by the executable product-rule expression \eqref{eq:ratebound}, and $\mu_i^k=L_i^k\Delta t+\bar e_{\rm int,i}^k$. Empirical quantiles are not used as deterministic bounds.

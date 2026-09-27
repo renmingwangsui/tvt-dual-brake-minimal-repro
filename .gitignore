@@ -1,0 +1,13 @@
+.venv/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+science/artifacts/
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+paper/manuscript_tvt/main.pdf
+.DS_Store
