@@ -1,6 +1,6 @@
 # TVT dual-brake minimal reproduction package
 
-This is a **private, author-review reproducibility snapshot** for *Feasibility-Certified Dual-Brake Control With Predictive Monitoring for Thermally Constrained Heavy-Duty Platoons*. It is not a final IEEE TVT submission: verified author/funding metadata and an author-approved AI-use disclosure remain pending. It contains no new or synthetic paper result.
+This is a **public reproducibility snapshot** for *Feasibility-Certified Dual-Brake Control With Predictive Monitoring for Thermally Constrained Heavy-Duty Platoons*. The bundled 14-page manuscript is a historical snapshot, not the current IEEE TVT submission version; consult the submitted paper and supplementary material for final wording, metadata, and disclosures. The package contains no new or synthetic paper result.
 
 The package has two intentionally separate roots:
 
@@ -26,4 +26,4 @@ bash scripts/verify.sh
 
 This verifies the package and recomputes the display figures from archived inputs; it does **not** rerun the registered model-based experiments or ten-seed training. Those raw logs and manifests are supplied for independent inspection and deeper reproduction. Re-running scientific campaigns can depend on platform, PyTorch, and numerical environment and must not be reported as frozen paper evidence without a new provenance audit. The floating-point predictive output is a numerical monitor, not a formally sound interval certificate; a negative value is warning/inconclusive only. The external comparison is a domain-transfer stress test, not a native-domain ranking.
 
-The snapshot originated from the audited research working tree at Git commit `682493bf13f0b2a1099eeacf6f1b6b7395bf6565`, plus the later TVT manuscript and figure revisions. The exact packaged bytes are identified by `SHA256SUMS`, not by that commit alone. The package intentionally omits virtual environments, caches, historical figure variants, unrelated drafts, and newly generated DEBUG artifacts. No reuse license or public-release authorization is implied by private hosting.
+The snapshot originated from the audited research working tree at Git commit `682493bf13f0b2a1099eeacf6f1b6b7395bf6565`, plus the later TVT manuscript and figure revisions. The exact packaged bytes are identified by `SHA256SUMS`, not by that commit alone. The package intentionally omits virtual environments, caches, historical figure variants, unrelated drafts, and newly generated DEBUG artifacts. No reuse license is included with this public release.
